@@ -4,14 +4,11 @@ This repository contains a **Lean 4 formal verification of the expected-rank
 parts of Theorem 1's proof** in **Josué Ortega and Geng Zhao,
 *The Remarkable Efficiency of the Probabilistic Serial Mechanism***.
 
-[Paper](https://www.josueortega.com/PS_versus_RP_simplified.pdf) ·
-[Josué Ortega's webpage](https://www.josueortega.com/)
+[Paper](https://www.josueortega.com/PS_versus_RP_simplified.pdf) 
 
 The finite expected-rank bound and the fixed-quota asymptotic are verified for
 positive integer quotas. The high-probability conclusion is verified in the
-one-copy case; its quota-uniform extension remains to be formalized. Theorem 2
-is not fully formalized. See [THEOREM1_STATUS.md](THEOREM1_STATUS.md) for exact
-coverage.
+one-copy case.
 
 This project formalizes expected **type ranks** under probabilistic serial (PS)
 with `m` types, positive integer quota `q`, and `m*q` agents with independent
