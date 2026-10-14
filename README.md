@@ -46,11 +46,9 @@ also retains the finite-market factor `1−1/m`. The fixed-quota log-star limit
 is extended uniformly to arbitrary varying quotas in any fixed positive
 bounded range.
 
-These are useful additions, but the sharper quota bound in the paper is still
-open. **The quota-uniform tail and the two general PS–RP threshold equivalences
+**The quota-uniform tail and the two general PS–RP threshold equivalences
 are not fully formalized.** The latter belong to Theorem 2 of the revised
-manuscript. A high-quota PS limit alone does not prove the RP limit or either
-necessity direction. See [THEOREM1_STATUS.md](THEOREM1_STATUS.md) for the exact
+manuscript. See [THEOREM1_STATUS.md](THEOREM1_STATUS.md) for the exact
 coverage of both theorems and the next mathematical obligations.
 
 ## Read the public statements
@@ -93,16 +91,3 @@ The follow-up audit is recorded in [FULL_AUDIT.md](FULL_AUDIT.md).
 `ReplicaRP.profileAverageRank` makes the paper's priority-averaged RP statistic
 explicit, with a proved equality to the existing joint expectation.
 
-See [CHECKING.md](CHECKING.md) for the interpretation of evidence and
-[VERIFICATION.md](VERIFICATION.md) for historical records. A historical passing
-log does not certify a later source revision.
-
-## Provenance
-
-[IMPROVEMENT_PLAN.md](IMPROVEMENT_PLAN.md) records the 12 steps and their state.
-Each finished step has a local commit and a recoverable git bundle. The
-isolated review begins from an exact snapshot of upstream commit
-`8926a649fba448075de751ca0014c5dd29eaf7d5`; its local baseline is a snapshot,
-not upstream commit ancestry. The public sources preserve the audited proof
-files and verification evidence. Checkpoint and verification commands do not
-publish changes automatically.
