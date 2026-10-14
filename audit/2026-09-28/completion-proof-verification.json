@@ -1,0 +1,1348 @@
+{
+  "checked_commit": "a4537e0bc0fd4c19447295ab58b939acedce35e0",
+  "checked_tree": "b637bc799545df8499ed1331e9b6b60320e640fa",
+  "workflow_run": 36424267331,
+  "job_id": 108934251757,
+  "conclusion": "success",
+  "checks": [
+    "lake build",
+    "source placeholder rejection",
+    "lake env lean AxiomAudit.lean"
+  ],
+  "declaration_count": 145,
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "verified_source_blobs": [
+    {
+      "path": ".github/workflows/lean.yml",
+      "sha": "2b5c0ec7c5bde6acc5ef38eb6cc23ada0a3861ea"
+    },
+    {
+      "path": "AdaptiveBernoulli.lean",
+      "sha": "075af2680ec4ce7af22264bf2a8b56dd3a801cd4"
+    },
+    {
+      "path": "AdaptiveCategorical.lean",
+      "sha": "9acf8c1e03b07482925da9f4cbb2612d67425a2f"
+    },
+    {
+      "path": "AsymptoticClosure.lean",
+      "sha": "cf03728727b1a3e4f9d50fd38833fa73eb9c4704"
+    },
+    {
+      "path": "AxiomAudit.lean",
+      "sha": "6185dda328d31bbff52bae1fe1810470369df3b5"
+    },
+    {
+      "path": "ConcreteTheoremOne.lean",
+      "sha": "1431efcbf62845bb2c6f36c9e2dc42e25fe30a26"
+    },
+    {
+      "path": "ConcreteTheoremOneFinal.lean",
+      "sha": "4dfdf3dcc5aa9ec3ceb27a30ba0015448974d5a2"
+    },
+    {
+      "path": "FiniteArrivalCertificate.lean",
+      "sha": "78c1f5f00f595fbb2238e7d42040ad6560d654ca"
+    },
+    {
+      "path": "FiniteAtomicExposure.lean",
+      "sha": "842985e3101598701dedd11858462c114971a472"
+    },
+    {
+      "path": "FiniteExposure.lean",
+      "sha": "58b87cb2e97709f48c57634d702ef47f5cf4b331"
+    },
+    {
+      "path": "FiniteFiveCertificate.lean",
+      "sha": "efb8bf14a80d107e7e54c7a424597f0d69c0fe40"
+    },
+    {
+      "path": "FinitePhaseConstants.lean",
+      "sha": "9b5d6be97cdcde7c6379b9d0c5661f82ffc61b5b"
+    },
+    {
+      "path": "FinitePhaseGrowth.lean",
+      "sha": "8ea9e15d1877044f4ea0c4fb7b33d4ea9102b518"
+    },
+    {
+      "path": "FinitePhaseSum.lean",
+      "sha": "e69a7442879e4917df6bbe311d4446cfa1cb958a"
+    },
+    {
+      "path": "FiniteSurvivor.lean",
+      "sha": "2d0a3e6ae6cf63579d9def24f5ec90e33fe8208a"
+    },
+    {
+      "path": "LoadBound.lean",
+      "sha": "36eda9b2553045c35cfaf25acef5d329bc345828"
+    },
+    {
+      "path": "PSChoiceMachine.lean",
+      "sha": "485225c1db59918a0bfc6ff05fbb9dc67fa8c9df"
+    },
+    {
+      "path": "PSProcess.lean",
+      "sha": "da178f8a001b73997ed87a8215f0ea30ddb843d0"
+    },
+    {
+      "path": "PSTheorem1.lean",
+      "sha": "d468b8ed9a7b8b32a7ae6ce72cac7b5b771517a0"
+    },
+    {
+      "path": "PaperReplicaInterface.lean",
+      "sha": "36761ab643db3c4fabc050a6362fbe7e4ec9f4ab"
+    },
+    {
+      "path": "PaperTheoremOne.lean",
+      "sha": "82ca28e1b6613bf39af4d365b2fc826f5b12793a"
+    },
+    {
+      "path": "PhaseAdapter.lean",
+      "sha": "4537c931d8631d127a41b61a27119c617e7f7360"
+    },
+    {
+      "path": "PhaseIntegral.lean",
+      "sha": "db494f0dbca2a7389c58314c8d65c8d2a8c7b8da"
+    },
+    {
+      "path": "RandomPriority.lean",
+      "sha": "0b20624cd3544cbf97431b9fc65707790076c302"
+    },
+    {
+      "path": "RankMGF.lean",
+      "sha": "311394bd97f0239267def3e3c138dbf132175c75"
+    },
+    {
+      "path": "ReplicaAsymptoticConstants.lean",
+      "sha": "2d0b2a5d1f8cfe209f2aa987b1052d00bc39433c"
+    },
+    {
+      "path": "ReplicaPS.lean",
+      "sha": "75169d5633528e8604f11efc66e4200111ad1a3f"
+    },
+    {
+      "path": "ReplicaRP.lean",
+      "sha": "48f61ae62a2f7e7ced6c0110591e31b0db378ce9"
+    },
+    {
+      "path": "ReplicaRank.lean",
+      "sha": "456ec6584795d6d43ba97093fe896258c295a6f6"
+    },
+    {
+      "path": "ReplicaRevelation.lean",
+      "sha": "15ff882e25381e236eb72d3224b71ded2a5b1f62"
+    },
+    {
+      "path": "ReplicaTrace.lean",
+      "sha": "297ef5ffcd000a294cb99b813c0491a4017c2e31"
+    },
+    {
+      "path": "SequentialRevelation.lean",
+      "sha": "93f60dfcd57c348dee4b223cc22decbb7424e1a3"
+    },
+    {
+      "path": "StandardLogStar.lean",
+      "sha": "9fe7350c7479f45ef4c35270878698bf83678827"
+    },
+    {
+      "path": "StoppedChoices.lean",
+      "sha": "c17fd9e1083cb0861fa02493c6ff99dd7516de15"
+    },
+    {
+      "path": "UniformPermutationProfile.lean",
+      "sha": "d121b78ed65e7f30c95fc2505c713e4cf6ae5614"
+    },
+    {
+      "path": "UniformProductChernoff.lean",
+      "sha": "e8bfb1c5bb2293b72caff6648657242c4dbf5b84"
+    },
+    {
+      "path": "UniformSubsetRank.lean",
+      "sha": "b5e8d130f265df2c821747f5f70b185dfd716b02"
+    },
+    {
+      "path": "WeightedArrival.lean",
+      "sha": "5823963cb2529c7931c8a4eb6d5765c5d1bea5ac"
+    },
+    {
+      "path": "lake-manifest.json",
+      "sha": "157800f276703b05d22498e5e01fd6d461ee70f2"
+    },
+    {
+      "path": "lakefile.toml",
+      "sha": "5b89542889b62a3c19fdf86c853e78d9cd1a7eed"
+    },
+    {
+      "path": "lean-toolchain",
+      "sha": "7aca1d8a939cc24c413eddd793671cdce7070b74"
+    }
+  ],
+  "local_source_comparison": "All 41 Lean and configuration blobs match the checked tree.",
+  "scope": "Analytic +3.4 and below-five arrival certificate, survivor closure, replica components and conditional finite PS interfaces. Not a full formalization of updated Theorem 1; concrete trace/rank, replica load and RP quota limits remain open.",
+  "audit": [
+    {
+      "declaration": "ProbabilisticSerial.theorem_one",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.AdaptiveBernoulli.upper_deviation",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.AdaptiveBernoulli.lower_deviation",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.UniformProduct.uniform_active_rank_exponential",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.UniformSubsetRank.firstRank_tail_probability",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.UniformSubsetRank.firstRank_tail_le_exp",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.UniformSubsetRank.fixed_active_set_sum_tail",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.UniformPermutation.activePositions_expect_eq_rankSample",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.UniformPermutation.activeRank_tail_probability",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.UniformPermutation.uniform_active_rank_exponential_profile",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.PSProcess.run_totalDuration",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.PSProcess.run_consumedByGood",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.PSProcess.run_phases_length_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.PSProcess.averageRank_eq_dynamicRank",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.PSProcess.uniformRankGood_failure_probability_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.PSProcess.run_rankReduction",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.PSProcess.run_averageRank_le_marketSize",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.SequentialRevelation.answerFiber_card_eq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.SequentialRevelation.sequential_revelation_count",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.SequentialRevelation.sequential_revelation_probability",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.SequentialRevelation.sequential_revelation_joint_count",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.SequentialRevelation.run_phases_pairwise",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.SequentialRevelation.phase_choice_conditional_uniform",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.AdaptiveCategorical.upper_deviation",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.AdaptiveCategorical.lower_deviation",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.StoppedChoices.sequential_revelation_matches_labelled_law",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.StoppedChoices.stoppedChoice_upper_deviation",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.StoppedChoices.stoppedChoice_lower_deviation",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.StoppedChoices.recordedEntryCountFrom_eq_phaseLoad",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.StoppedChoices.predictableVolumeFrom_eq_card_mul_one_add_potential",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.StoppedChoices.run_prefix_load_mean",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.LoadBound.hitProbability_finiteUnion_le_card_mul",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.LoadBound.allSet_potential_exponential_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.LoadBound.choose_le_exp_mul_div_pow",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.LoadBound.exists_absolute_lambdaZero",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.LoadBound.candidateSize_mul_lambda_ge_log_div",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.LoadBound.candidateSize_underload_all_cardinalities",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.LoadBound.load_bound_tree_failure",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.LoadBound.paper_demand_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.PhaseIntegral.blockConsumption_le_card",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.PhaseIntegral.oneBlock_integral_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.PhaseIntegral.terminalBlock_integral_le_of_carrier",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.PhaseIntegral.nextLambda_ge_exp_div_four",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.PhaseIntegral.activeSize_recurrence_gives_exp_scale",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.PhaseIntegral.chain_length_le_exponentialHeight",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.PhaseIntegral.eatingIntegral_le_of_phaseCertificate",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.PhaseAdapter.exists_phaseLambdaZero",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.PhaseAdapter.concretePhaseLoadGood_demand",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.PhaseAdapter.greedyRawBlocks_decomposition",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.PhaseAdapter.exists_survivorBlock_of_raw",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.PhaseAdapter.rawBlockScales_chain",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.PhaseAdapter.exists_phaseCertificate_of_concreteLoadGood",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.PhaseAdapter.concrete_eatingIntegral_le_logStar",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.AsymptoticClosure.exponentialHeight_lt_log_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.AsymptoticClosure.psLogStar_small_relative_to_log",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.AsymptoticClosure.harmonic_isEquivalent_log",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.AsymptoticClosure.rpExpectation_isEquivalent_log",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.ConcreteTheoremOne.rank_le_on_concrete_good",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.ConcreteTheoremOne.concrete_tail_of_load_transfer",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.ConcreteTheoremOne.expectedPS_isBigO_of_load_transfer",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.ConcreteTheoremOne.expectedPS_div_RP_tendsto_zero_of_load_transfer",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.ConcreteTheoremOne.concrete_theorem_one_of_load_transfer",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.PSChoiceMachine.profile_machine_correspondence",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.PSChoiceMachine.profileRevealHistory_admissible",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.PSChoiceMachine.pathFiber_probability_le_pathWeight",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.PSChoiceMachine.profile_hit_probability_le_hitProbability",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.PSChoiceMachine.treeFailure_of_phase_bad",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.PSChoiceMachine.concrete_load_transfer",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.ConcreteTheoremOne.concrete_load_transfer",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.ConcreteTheoremOne.expectedPS_le_phase_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.ConcreteTheoremOne.expectedPS_le_marketSize",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.ConcreteTheoremOne.concrete_theorem_one",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.PaperTheoremOne.expectedPS_le_paperLogStar",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.PaperTheoremOne.expectedPS_le_finite_min",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.PaperTheoremOne.paper_theorem_one",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.PaperTheoremOne.paper_theorem_one_as_stated",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.RandomPriority.rpExpectedRank_eq_knuth_formula",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.StandardLogStar.psLogStar_le_logStar_add_one",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.AdaptiveCategorical.weightedArrivalProcess_supermartingale",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.AdaptiveCategorical.sequence_expectation_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.AdaptiveCategorical.weightedArrivalProcess_expectation_le_one",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.PSChoiceMachine.profile_terminal_expectation_le_sequence_sum",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.PSChoiceMachine.profile_supermartingale_expectation_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.PSChoiceMachine.profile_weightedArrivalProcess_expectation_le_one",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.FiniteExposure.objective_le_phi",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.FiniteExposure.phi_attained",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.FiniteExposure.phi_div_antitone",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.FiniteExposure.phi_quota_reduction",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.FiniteExposure.expect_log_le_zero",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.FiniteExposure.expect_le_of_log_envelope",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.ReplicaPS.favorite_type",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.ReplicaPS.allocation_agent_sum",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.ReplicaPS.allocation_type_sum",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.ReplicaPS.expectedPS_bounds",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.ReplicaPS.expectedPS_one_type",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.PaperTheoremOne.paper_tail_all_positive",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.ReplicaRevelation.sequential_revelation_probability",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.ReplicaRevelation.sequential_revelation_joint_count",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.FinitePhaseConstants.tower_multiplier_ge_one",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.FinitePhaseConstants.initial_parameter_gt_one",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.FinitePhaseConstants.initialTime_bounds",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.FinitePhaseConstants.excess_scalar_lt",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.FinitePhaseConstants.initial_envelope_lt",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.FinitePhaseConstants.additive_slack_lt",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.FinitePhaseConstants.remainder_half_ratio",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.FinitePhaseGrowth.x_ge_geometric",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.FinitePhaseGrowth.x_step",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.FinitePhaseGrowth.x_ge_tower",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.FinitePhaseGrowth.theta_gt_one",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.FinitePhaseGrowth.phaseTime_bounds",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.FinitePhaseGrowth.phaseTime_strict_step",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.FinitePhaseGrowth.theta_mul_next_u",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.FinitePhaseGrowth.phi_at_next_phase",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.FinitePhaseGrowth.unit_phase_cost",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.FinitePhaseGrowth.stopping_phase_count",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.FinitePhaseGrowth.endpoint_exposure_cost",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.FinitePhaseSum.phase_excess_sum_lt",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.FinitePhaseSum.phase_assembly",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.FiniteAtomicExposure.increment_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.FiniteAtomicExposure.initial_envelope",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.FiniteAtomicExposure.logarithmic_bound",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.ReplicaRank.uniform_active_rank",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.ReplicaRank.uniformRankGood_failure_probability",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.ReplicaRank.averageRank_eq_phase_sum",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.ReplicaRank.run_rankReduction",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.ReplicaTrace.choice_changes_iff_type_exhausted",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.ReplicaTrace.run_activeTypes_pairwise",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.ReplicaTrace.fresh_phase_query_admissible",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.ReplicaTrace.retained_type_not_fresh",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.FiniteArrivalCertificate.grid_domination",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.FiniteArrivalCertificate.value_le_certificate",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.FiniteFiveCertificate.domination",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.FiniteFiveCertificate.value_lt_five",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.ReplicaAsymptoticConstants.polynomial_failure_le_agents_cube",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.ReplicaAsymptoticConstants.critical_root_separation",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.ReplicaRP.serialTypeRankSum_bounds",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.ReplicaRP.expectedRP_bounds",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.ReplicaRP.expectedRP_one_type",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.PaperReplicaInterface.small_market_expected_rank",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.PaperReplicaInterface.expectedPS_lt_logStar_add_of_arrival_bounds",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.PaperReplicaInterface.expectedPS_lt_five_of_arrival_bounds",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.FiniteSurvivor.survivor_log_envelope",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.FiniteSurvivor.endpoint_log_envelope",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.FiniteSurvivor.expected_compensator_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "ProbabilisticSerial.FiniteSurvivor.expected_endpoint_compensator_le",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  ]
+}

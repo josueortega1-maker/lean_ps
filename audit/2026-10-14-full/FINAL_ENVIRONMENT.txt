@@ -1,0 +1,7 @@
+Final audit uses the same pinned Lean 4.19.0 and nine dependency commits recorded in environment.log. The existing own-process-path compatibility adapter is documented in audit/2026-10-14/ENVIRONMENT.txt; it does not change Lean or the proofs.
+
+During this session, an ordinary Python-orchestrated clean/build unexpectedly restored previous project artifacts. A separate dependency-free two-module fixture reproduced the observation; the underlying runtime cause is unknown. The strict verifier correctly rejected those runs. Its gates were not weakened.
+
+For the accepted final run, the project build outputs were first removed in a separate shell invocation. A subsequent invocation checked the directory was still absent before starting scripts/verify.py --clean. The verifier again checked absence immediately after cleaning and immediately before building. All 86 roots then compiled freshly, with no replayed root and every output timestamp at or after build start. The source commit, per-root timestamps, all input hashes, exact commands and successful final checks are recorded in verification.json. Dependency caches were retained.
+
+The isolated reproduction sources and observed logs are preserved in runtime-clean-build-fixture.zip. They are audit evidence, separate from the formal proof modules. No remote was configured or pushed.

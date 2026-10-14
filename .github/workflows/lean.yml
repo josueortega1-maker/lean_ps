@@ -1,0 +1,30 @@
+name: Lean verification
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@v1
+        with:
+          build: false
+          test: false
+          lint: false
+          use-mathlib-cache: true
+      - name: Build and enforce verification gates
+        run: python3 scripts/verify.py
+      - name: Retain exact source hashes and verification logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lean-verification-${{ github.sha }}
+          path: verification-output/
+          if-no-files-found: error

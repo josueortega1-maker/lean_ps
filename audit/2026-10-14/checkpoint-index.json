@@ -1,0 +1,51 @@
+{
+  "steps": {
+    "1": {
+      "commit": "505adbcb094a31a37f6640d54d467b3015a77365",
+      "subject": "Step 01: preserve exact upstream snapshot and recovery checkpoints"
+    },
+    "2": {
+      "commit": "d245517f494c6a1a2d41ed3a7c9d9b45e549d668",
+      "subject": "Step 02: reproduce and record the exact pinned baseline"
+    },
+    "3": {
+      "commit": "cc683be474c58d67b8c57111fcded9dcef4d28d9",
+      "subject": "Step 03: reject missing proof checks and unbuilt Lean sources"
+    },
+    "4": {
+      "commit": "932e3c4320662f266392899342ce73bea03176ec",
+      "subject": "Step 04: enforce axiom policy and exact theorem contracts in CI"
+    },
+    "5": {
+      "commit": "3ffda8c970cc5e5feb4738fbd505025866e4e871",
+      "subject": "Step 05: retain the quota-dependent endpoint exposure bound"
+    },
+    "6": {
+      "commit": "2d7241bc8688ac0ab17f6c361940ecd090cd5fb4",
+      "subject": "Step 06: prove the terminal exponential exposure envelope"
+    },
+    "7": {
+      "commit": "baafd1dde17ab173f2d778abfb9cf0a8dc970758",
+      "subject": "Step 07: prove the unconditional quota-sensitive PS rank bound"
+    },
+    "8": {
+      "commit": "a3c280fe080d057baf9c24231dbe47f53866279d",
+      "subject": "Step 08: prove high-quota PS convergence to rank one"
+    },
+    "9": {
+      "commit": "382e80584b5720bee844d0967dd44a9ce09be8a2",
+      "subject": "Step 09: retain the affine finite-market rank improvement"
+    },
+    "10": {
+      "commit": "778c742107806cd6826ad63de3c24e8445578e41",
+      "subject": "Step 10: prove uniform asymptotics for bounded varying quotas"
+    },
+    "11": {
+      "commit": "7670a1eb967aa746e59d5f317a638229092d8ff6",
+      "subject": "Step 11: align coverage with the revised paper and preserve precise gaps"
+    }
+  },
+  "final_step": "The commit adding the final verified evidence and this index.",
+  "upstream_base": "8926a649fba448075de751ca0014c5dd29eaf7d5",
+  "snapshot_baseline": "863bc38"
+}

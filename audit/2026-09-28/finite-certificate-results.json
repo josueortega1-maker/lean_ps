@@ -1,0 +1,51 @@
+{
+  "status": "numerical reproduction only; not Lean kernel verification",
+  "precision": 70,
+  "rounding": "ROUND_CEILING with adjacent exp/ln enclosures",
+  "checkpoints": {
+    "64": "0.716058",
+    "128": "1.409946",
+    "320": "2.804130",
+    "640": "3.694852",
+    "1280": "4.223725",
+    "1920": "4.422489"
+  },
+  "terminals": [
+    {
+      "maximum_types": "100",
+      "terminal_theta": "7",
+      "upper_70_digits": "3.796591337386049680763614286174844851722733791578013588335165559968578",
+      "upper_six_digits": "3.796592"
+    },
+    {
+      "maximum_types": "1000",
+      "terminal_theta": "12",
+      "upper_70_digits": "4.047949793036522559521832243136027672181878622712765730151197979560722",
+      "upper_six_digits": "4.047950"
+    },
+    {
+      "maximum_types": "10000",
+      "terminal_theta": "19",
+      "upper_70_digits": "4.197232456702532815596539573796095675286744069417560212698595529034108",
+      "upper_six_digits": "4.197233"
+    },
+    {
+      "maximum_types": "1000000",
+      "terminal_theta": "36",
+      "upper_70_digits": "4.370571327981166113501881095030683040815549863464962379774540269019760",
+      "upper_six_digits": "4.370572"
+    },
+    {
+      "maximum_types": "10^80",
+      "terminal_theta": "1600",
+      "upper_70_digits": "4.921240061252361449400361952493438020073226906865873146569988818021537",
+      "upper_six_digits": "4.921241"
+    }
+  ],
+  "partial_allocation_upper_six_digits": [
+    "1.432116",
+    "1.879927",
+    "2.392808"
+  ],
+  "elapsed_seconds": 64.52133070599984
+}

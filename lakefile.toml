@@ -1,0 +1,25 @@
+name = "PSTheorem1"
+version = "1.1.0"
+defaultTargets = ["PSTheorem1"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4.git"
+rev = "v4.19.0"
+
+[[lean_lib]]
+name = "PSTheorem1"
+roots = ["PSTheorem1", "AdaptiveBernoulli", "UniformProductChernoff", "RankMGF",
+  "UniformSubsetRank", "UniformPermutationProfile", "PSProcess",
+  "SequentialRevelation", "AdaptiveCategorical", "StoppedChoices", "LoadBound",
+  "PhaseIntegral", "PhaseAdapter", "AsymptoticClosure", "ConcreteTheoremOne",
+  "PSChoiceMachine", "ConcreteTheoremOneFinal", "StandardLogStar",
+  "RandomPriority", "PaperTheoremOne", "WeightedArrival", "FiniteExposure", "ReplicaPS",
+  "ReplicaRevelation", "FinitePhaseConstants", "FinitePhaseGrowth", "FinitePhaseSum",
+  "FiniteAtomicExposure", "ReplicaRank", "ReplicaTrace", "FiniteArrivalCertificate", "FiniteFiveCertificate",
+  "ReplicaAsymptoticConstants", "ReplicaRP", "FiniteSurvivor", "PaperReplicaInterface",
+  "PSRankIncrement", "PSRankHistory", "PSFiniteClock", "PSFiniteCapacity", "PSWeightedExposure",
+  "PSExposureBound", "PSRankAllocation", "PSExpectedRank", "ReplicaRankIncrement", "ReplicaChoiceMachine",
+  "ReplicaHistory", "ReplicaLaw", "ReplicaCapacity", "ReplicaWeightedExposure",
+  "ReplicaExposureBound", "ReplicaRankAllocation", "ReplicaExpectedRank", "CouponLowerBound", "UniformLowerRank", "ReplicaLowerRank", "LowerBoundBands", "ReplicaRawStep", "ReplicaRawProcess", "ReplicaRawClock", "RawSubsetCounts", "ReplicaSurvivorEntries", "ReplicaUntouched", "UniformRawPrefixes", "ReplicaRawBands", "ReplicaConsumptionLower", "RawSurvivorBound", "CouponUntouched", "ReplicaBandLower", "ReplicaRawRankBridge", "RawPrefixGood", "ReplicaRawCostRank", "LowerBoundEntropy", "FiniteLowerBound", "LowerBoundErrors", "LowerBoundCutoffs", "LowerBoundBandErrors", "LowerBoundSchedule", "LowerBoundMarket", "FixedQuotaParameters", "FixedQuotaLowerBound",
+  "FiniteQuotaEnvelope", "TheoremContracts", "ReplicaQuotaBound", "HighQuotaAsymptotics", "BoundedQuotaAsymptotics"]

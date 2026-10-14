@@ -1,0 +1,7 @@
+{
+  "checkpoint": "full-audit-source",
+  "commit": "d847768aed943c6d18a9c0c4ca7d4248e18f80e9",
+  "bundle": "full-audit-source.bundle",
+  "sha256": "32827b76a69c42a1607686b7949ec098f1ba5c4c5e63fd401612bb3b71b8cc32",
+  "state": "semantic audit and source repairs committed; final clean-build evidence pending"
+}

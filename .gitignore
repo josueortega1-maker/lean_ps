@@ -1,0 +1,9 @@
+.lake/
+*.olean
+*.ilean
+*.trace
+*.log
+lean-test
+.DS_Store
+verification-output/
+__pycache__/

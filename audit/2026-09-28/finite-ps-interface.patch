@@ -1,0 +1,152 @@
+diff --git a/AxiomAudit.lean b/AxiomAudit.lean
+index ee3d034..b07da43 100644
+--- a/AxiomAudit.lean
++++ b/AxiomAudit.lean
+@@ -71,7 +71,11 @@ open ProbabilisticSerial
+ #print axioms ProbabilisticSerial.PSChoiceMachine.treeFailure_of_phase_bad
+ #print axioms ProbabilisticSerial.PSChoiceMachine.concrete_load_transfer
+ #print axioms ProbabilisticSerial.ConcreteTheoremOne.concrete_load_transfer
++#print axioms ProbabilisticSerial.ConcreteTheoremOne.expectedPS_le_phase_bound
++#print axioms ProbabilisticSerial.ConcreteTheoremOne.expectedPS_le_marketSize
+ #print axioms ProbabilisticSerial.ConcreteTheoremOne.concrete_theorem_one
++#print axioms ProbabilisticSerial.PaperTheoremOne.expectedPS_le_paperLogStar
++#print axioms ProbabilisticSerial.PaperTheoremOne.expectedPS_le_finite_min
+ #print axioms ProbabilisticSerial.PaperTheoremOne.paper_theorem_one
+ #print axioms ProbabilisticSerial.PaperTheoremOne.paper_theorem_one_as_stated
+ #print axioms ProbabilisticSerial.RandomPriority.rpExpectedRank_eq_knuth_formula
+diff --git a/CHECKING.md b/CHECKING.md
+index 719eb74..4070ee2 100644
+--- a/CHECKING.md
++++ b/CHECKING.md
+@@ -29,14 +29,27 @@ termination; all recursive definitions in this project are total.
+ 
+ The main declarations to inspect are:
+ 
++* `ConcreteTheoremOne.expectedPS_le_phase_bound` — the September 3 finite
++  expectation inequality with the load-transfer premise discharged;
++* `ConcreteTheoremOne.expectedPS_le_marketSize` — the elementary finite bound;
++* `PaperTheoremOne.expectedPS_le_paperLogStar` — the same expectation estimate
++  using literal `log*`, retaining the multiplier and exceptional-event cost;
++* `PaperTheoremOne.expectedPS_le_finite_min` — its minimum with market size;
+ * `PaperTheoremOne.paper_theorem_one_as_stated` — the displayed asymptotic
+-  tail form and all three manuscript conclusions;
++  tail form and the three September 3 manuscript conclusions;
+ * `PaperTheoremOne.paper_theorem_one` — the sharper finite-error version;
+ * `StandardLogStar.logStar_least_characterization` — the literal `log*`;
+ * `StandardLogStar.psLogStar_le_logStar_add_one` — the phase-counter bridge;
+ * `RandomPriority.randomPriorityRank` — the serial-dictatorship mechanism;
+ * `RandomPriority.rpExpectedRank_eq_knuth_formula` — the RP calculation.
+ 
++These interfaces do not prove the later `log* n + 3.7` (or `+ 3.4`)
++expectation bound or the numerical bound below five. The `PhaseCertificate`
++in the original development describes survivor blocks in the load argument;
++it is not the later numerical finite-recursion certificate. The existing
++`VERIFICATION.md` and captured logs describe the September 3 baseline;
++changes require a fresh build and axiom audit.
++
+ ## Publish on GitHub
+ 
+ 1. Create an empty GitHub repository, without a generated README or license.
+diff --git a/ConcreteTheoremOneFinal.lean b/ConcreteTheoremOneFinal.lean
+index 01ccecf..4dfdf3d 100644
+--- a/ConcreteTheoremOneFinal.lean
++++ b/ConcreteTheoremOneFinal.lean
+@@ -31,7 +31,30 @@ theorem concrete_load_transfer :
+   simpa [loadRate] using
+     PSChoiceMachine.concrete_load_transfer n hn hlog
+ 
+-/-- All three conclusions of Theorem 1 on the explicit uniform preference
++/-- The finite expectation estimate already proved by the September 3
++argument, with its load-transfer premise discharged. This retains the
++original multiplicative constant and the full exceptional-event cost. -/
++theorem expectedPS_le_phase_bound (n : ℕ) (hn : 0 < n)
++    (hlog : 1 ≤ Real.log (n : ℝ)) :
++    expectedPS n ≤ rankThresholdConstant * (1 + psLogStar n) +
++      (n : ℝ) * failureError n :=
++  expectation_le_of_load_transfer concrete_load_transfer hn hlog
++
++/-- A finite bound valid also for the small markets excluded by the
++logarithmic hypothesis of the concentration argument. -/
++theorem expectedPS_le_marketSize (n : ℕ) (hn : 0 < n) :
++    expectedPS n ≤ (n : ℝ) := by
++  unfold expectedPS
++  calc
++    (𝔼 profile ∈ preferenceProfileSample n, averageRank (run profile)) ≤
++        𝔼 _profile ∈ preferenceProfileSample n, (n : ℝ) := by
++      apply expect_mono
++      intro profile hprofile
++      exact run_averageRank_le_marketSize profile hn
++    _ = (n : ℝ) :=
++      Finset.expect_const (preferenceProfileSample_nonempty n) _
++
++/-- All three September 3 conclusions on the explicit uniform preference
+ profile space, now with every central probabilistic claim discharged. -/
+ theorem concrete_theorem_one :
+     (∀ n : ℕ, 0 < n → 1 ≤ Real.log (n : ℝ) →
+diff --git a/PaperTheoremOne.lean b/PaperTheoremOne.lean
+index 2b34975..ac9a948 100644
+--- a/PaperTheoremOne.lean
++++ b/PaperTheoremOne.lean
+@@ -14,8 +14,10 @@ closes both presentational gaps:
+ * `RandomPriority.rpExpectedRank` is the expectation of an explicit random
+   priority / serial-dictatorship process.
+ 
+-Thus `paper_theorem_one` states the three conclusions directly with the
+-paper's `log*` and actual RP mechanism.
++Thus `paper_theorem_one` states the September 3 conclusions directly with
++the paper's `log*` and actual RP mechanism. The finite expectation wrappers
++below expose what that argument already proves. They do not establish the
++later additive bounds or the numerical bound below five.
+ -/
+ 
+ noncomputable section
+@@ -67,6 +69,31 @@ theorem paper_tail_bound (n : ℕ) (hn : 0 < n)
+     (fun profile hprofile hbad => hthreshold.trans_lt hbad)).trans
+       (concrete_theorem_one.1 n hn hlog)
+ 
++/-- Pointwise expectation estimate with literal `log*`. Keeping the additive
++one-step comparison avoids the factor-two relaxation used for the tail. -/
++theorem expectedPS_le_paperLogStar (n : ℕ) (hn : 0 < n)
++    (hlog : 1 ≤ Real.log (n : ℝ)) :
++    ConcreteTheoremOne.expectedPS n ≤
++      rankThresholdConstant * (2 + (logStar n : ℝ)) +
++        (n : ℝ) * failureError n := by
++  have hscale : 1 + psLogStar n ≤ 2 + (logStar n : ℝ) := by
++    linarith [psLogStar_le_logStar_add_one n]
++  exact (expectedPS_le_phase_bound n hn hlog).trans
++    (add_le_add_right
++      (mul_le_mul_of_nonneg_left hscale rankThresholdConstant_pos.le) _)
++
++/-- Combine the existing concentration estimate with the deterministic
++market-size bound. No numerical constant is substituted for the original
++phase and rank multipliers. -/
++theorem expectedPS_le_finite_min (n : ℕ) (hn : 0 < n)
++    (hlog : 1 ≤ Real.log (n : ℝ)) :
++    ConcreteTheoremOne.expectedPS n ≤
++      min (n : ℝ)
++        (rankThresholdConstant * (2 + (logStar n : ℝ)) +
++          (n : ℝ) * failureError n) := by
++  exact le_min (expectedPS_le_marketSize n hn)
++    (expectedPS_le_paperLogStar n hn hlog)
++
+ lemma phaseScale_isBigO_paperLogStar :
+     (fun n : ℕ => 1 + psLogStar n) =O[atTop]
+       (fun n : ℕ => 1 + (logStar n : ℝ)) := by
+@@ -174,7 +201,7 @@ theorem paper_tail_displayed_form :
+     _ ≤ failureError n := paper_tail_bound n hnPos hlogn
+     _ ≤ tailError paperConstant paperRate n := herror
+ 
+-/-- The manuscript's three central probabilistic conclusions on explicit
++/-- The September 3 manuscript's three probabilistic conclusions on explicit
+ finite sample spaces.  There are no premises naming unproved paper lemmas. -/
+ theorem paper_theorem_one :
+     (∀ n : ℕ, 0 < n → 1 ≤ Real.log (n : ℝ) →
+@@ -190,7 +217,7 @@ theorem paper_theorem_one :
+   exact ⟨paper_tail_bound, expectedPS_isBigO_paperLogStar,
+     expectedPS_div_actual_RP_tendsto_zero⟩
+ 
+-/-- The theorem in the paper's displayed asymptotic form, with explicit
++/-- The September 3 theorem in its displayed asymptotic form, with explicit
+ positive absolute constants and the standard “for all sufficiently large n”
+ interpretation.  Expanding `tailError` gives
+ `paperConstant / n^3 + exp (-paperRate*n)`. -/

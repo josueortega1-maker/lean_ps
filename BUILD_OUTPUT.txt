@@ -1,0 +1,100 @@
+⚠ [1731/2105] Replayed AdaptiveBernoulli
+warning: ././././AdaptiveBernoulli.lean:103:13: unused variable `ha`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././AdaptiveBernoulli.lean:166:54: unused variable `hp`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././AdaptiveBernoulli.lean:279:14: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [1732/2105] Replayed UniformProductChernoff
+warning: ././././UniformProductChernoff.lean:60:47: unused variable `ha`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [1733/2105] Replayed RankMGF
+warning: ././././RankMGF.lean:26:2: 'norm_num' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+⚠ [1735/2105] Replayed UniformSubsetRank
+warning: ././././UniformSubsetRank.lean:61:50: unused variable `hr`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [1742/2105] Replayed AdaptiveCategorical
+warning: ././././AdaptiveCategorical.lean:169:37: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././AdaptiveCategorical.lean:213:22: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././AdaptiveCategorical.lean:308:14: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+ℹ [1936/2105] Replayed LoadBound
+info: ././././LoadBound.lean:262:2: Try this: ring_nf
+info: ././././LoadBound.lean:325:12: Try this: ring_nf
+⚠ [2267/2274] Replayed AsymptoticClosure
+warning: ././././AsymptoticClosure.lean:95:28: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././AsymptoticClosure.lean:171:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././AsymptoticClosure.lean:220:10: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././AsymptoticClosure.lean:220:10: 'ring' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././AsymptoticClosure.lean:277:12: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././AsymptoticClosure.lean:277:12: 'ring' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././AsymptoticClosure.lean:266:8: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [2268/2274] Replayed ConcreteTheoremOne
+warning: ././././ConcreteTheoremOne.lean:185:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [2269/2274] Replayed PSChoiceMachine
+warning: ././././PSChoiceMachine.lean:122:5: unused variable `hround`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././PSChoiceMachine.lean:142:5: unused variable `hactive`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././PSChoiceMachine.lean:232:22: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: ././././PSChoiceMachine.lean:276:0: automatically included section variable(s) unused in theorem 'ProbabilisticSerial.PSChoiceMachine.profileSupply_valid':
+  [Nonempty (Fin n)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty (Fin n)] in theorem ...
+note: this linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ././././PSChoiceMachine.lean:287:0: automatically included section variable(s) unused in theorem 'ProbabilisticSerial.PSChoiceMachine.profileSupply_active_subset':
+  [Nonempty (Fin n)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty (Fin n)] in theorem ...
+note: this linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ././././PSChoiceMachine.lean:295:0: automatically included section variable(s) unused in theorem 'ProbabilisticSerial.PSChoiceMachine.favorite_congr_set':
+  [Nonempty (Fin n)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty (Fin n)] in theorem ...
+note: this linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ././././PSChoiceMachine.lean:309:0: automatically included section variable(s) unused in theorem 'ProbabilisticSerial.PSChoiceMachine.round_slot_mod':
+  [Nonempty (Fin n)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty (Fin n)] in theorem ...
+note: this linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ././././PSChoiceMachine.lean:539:61: unused variable `hn`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././PSChoiceMachine.lean:978:13: unused variable `hA`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././PSChoiceMachine.lean:1033:0: automatically included section variable(s) unused in theorem 'ProbabilisticSerial.PSChoiceMachine.phaseLoad_active_eq_n':
+  [Nonempty (Fin n)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty (Fin n)] in theorem ...
+note: this linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ././././PSChoiceMachine.lean:1434:0: automatically included section variable(s) unused in theorem 'ProbabilisticSerial.PSChoiceMachine.admissibleExtension_append_one':
+  [Nonempty (Fin n)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty (Fin n)] in theorem ...
+note: this linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ././././PSChoiceMachine.lean:1619:0: automatically included section variable(s) unused in theorem 'ProbabilisticSerial.PSChoiceMachine.reveal_card_product_pos':
+  [Nonempty (Fin n)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty (Fin n)] in theorem ...
+note: this linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ././././PSChoiceMachine.lean:1870:2: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: ././././PSChoiceMachine.lean:1883:2: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: ././././PSChoiceMachine.lean:2227:0: automatically included section variable(s) unused in theorem 'ProbabilisticSerial.PSChoiceMachine.history_length_round_decomposition':
+  [Nonempty (Fin n)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty (Fin n)] in theorem ...
+note: this linter can be disabled with `set_option linter.unusedSectionVars false`
+Build completed successfully.

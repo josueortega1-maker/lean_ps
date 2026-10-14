@@ -1,0 +1,327 @@
+⚠ [2798/2879] Built AdaptiveBernoulli
+warning: ././././AdaptiveBernoulli.lean:103:13: unused variable `ha`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././AdaptiveBernoulli.lean:166:54: unused variable `hp`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././AdaptiveBernoulli.lean:279:14: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [2799/2879] Built UniformProductChernoff
+warning: ././././UniformProductChernoff.lean:60:47: unused variable `ha`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+✔ [2800/2879] Built ReplicaAsymptoticConstants
+⚠ [2801/2879] Built FiniteExposure
+warning: ././././FiniteExposure.lean:80:61: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././FiniteExposure.lean:84:8: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [2802/2879] Built AdaptiveCategorical
+warning: ././././AdaptiveCategorical.lean:169:37: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././AdaptiveCategorical.lean:213:22: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././AdaptiveCategorical.lean:308:14: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [2803/2879] Built RankMGF
+warning: ././././RankMGF.lean:26:2: 'norm_num' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+⚠ [2804/2879] Built CouponLowerBound
+warning: ././././CouponLowerBound.lean:91:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././CouponLowerBound.lean:157:6: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [2805/2879] Built UniformSubsetRank
+warning: ././././UniformSubsetRank.lean:61:50: unused variable `hr`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [2806/2879] Built FiniteSurvivor
+warning: ././././FiniteSurvivor.lean:75:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [2807/2879] Built LowerBoundEntropy
+✔ [2808/2879] Built FinitePhaseConstants
+⚠ [2809/2879] Built RawSubsetCounts
+warning: ././././RawSubsetCounts.lean:75:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [2810/2879] Built UniformPermutationProfile
+✔ [2811/2879] Built PSProcess
+⚠ [2812/2879] Built UniformLowerRank
+warning: ././././UniformLowerRank.lean:100:8: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././UniformLowerRank.lean:100:8: 'ring' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././UniformLowerRank.lean:188:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././UniformLowerRank.lean:188:32: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [2813/2879] Built SequentialRevelation
+✔ [2814/2879] Built ReplicaPS
+✔ [2815/2879] Built StoppedChoices
+✔ [2816/2879] Built ReplicaRevelation
+✔ [2817/2879] Built ReplicaRank
+✔ [2818/2879] Built PSRankIncrement
+✔ [2819/2879] Built ReplicaRP
+✔ [2820/2879] Built ReplicaTrace
+✔ [2821/2879] Built ReplicaLowerRank
+✔ [2822/2879] Built ReplicaRankIncrement
+ℹ [2823/2879] Built LoadBound
+info: ././././LoadBound.lean:262:2: Try this: ring_nf
+info: ././././LoadBound.lean:325:12: Try this: ring_nf
+✔ [2824/2879] Built PhaseIntegral
+✔ [2825/2879] Built PhaseAdapter
+✔ [2826/2879] Built PSTheorem1
+⚠ [2827/2879] Built AsymptoticClosure
+warning: ././././AsymptoticClosure.lean:95:28: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././AsymptoticClosure.lean:171:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././AsymptoticClosure.lean:220:10: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././AsymptoticClosure.lean:220:10: 'ring' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././AsymptoticClosure.lean:277:12: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././AsymptoticClosure.lean:277:12: 'ring' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././AsymptoticClosure.lean:266:8: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [2828/2879] Built StandardLogStar
+⚠ [2829/2879] Built ConcreteTheoremOne
+warning: ././././ConcreteTheoremOne.lean:185:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [2830/2879] Built RandomPriority
+⚠ [2831/2879] Built FinitePhaseGrowth
+warning: ././././FinitePhaseGrowth.lean:79:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././FinitePhaseGrowth.lean:210:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././FinitePhaseGrowth.lean:248:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././FinitePhaseGrowth.lean:272:6: 'ring' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././FinitePhaseGrowth.lean:272:6: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+✔ [2832/2879] Built LowerBoundBands
+⚠ [2833/2879] Built PSChoiceMachine
+warning: ././././PSChoiceMachine.lean:122:5: unused variable `hround`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././PSChoiceMachine.lean:142:5: unused variable `hactive`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././PSChoiceMachine.lean:232:22: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: ././././PSChoiceMachine.lean:276:0: automatically included section variable(s) unused in theorem 'ProbabilisticSerial.PSChoiceMachine.profileSupply_valid':
+  [Nonempty (Fin n)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty (Fin n)] in theorem ...
+note: this linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ././././PSChoiceMachine.lean:287:0: automatically included section variable(s) unused in theorem 'ProbabilisticSerial.PSChoiceMachine.profileSupply_active_subset':
+  [Nonempty (Fin n)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty (Fin n)] in theorem ...
+note: this linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ././././PSChoiceMachine.lean:295:0: automatically included section variable(s) unused in theorem 'ProbabilisticSerial.PSChoiceMachine.favorite_congr_set':
+  [Nonempty (Fin n)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty (Fin n)] in theorem ...
+note: this linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ././././PSChoiceMachine.lean:309:0: automatically included section variable(s) unused in theorem 'ProbabilisticSerial.PSChoiceMachine.round_slot_mod':
+  [Nonempty (Fin n)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty (Fin n)] in theorem ...
+note: this linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ././././PSChoiceMachine.lean:539:61: unused variable `hn`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././PSChoiceMachine.lean:978:13: unused variable `hA`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././PSChoiceMachine.lean:1033:0: automatically included section variable(s) unused in theorem 'ProbabilisticSerial.PSChoiceMachine.phaseLoad_active_eq_n':
+  [Nonempty (Fin n)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty (Fin n)] in theorem ...
+note: this linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ././././PSChoiceMachine.lean:1434:0: automatically included section variable(s) unused in theorem 'ProbabilisticSerial.PSChoiceMachine.admissibleExtension_append_one':
+  [Nonempty (Fin n)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty (Fin n)] in theorem ...
+note: this linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ././././PSChoiceMachine.lean:1619:0: automatically included section variable(s) unused in theorem 'ProbabilisticSerial.PSChoiceMachine.reveal_card_product_pos':
+  [Nonempty (Fin n)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty (Fin n)] in theorem ...
+note: this linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ././././PSChoiceMachine.lean:1870:2: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: ././././PSChoiceMachine.lean:1883:2: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: ././././PSChoiceMachine.lean:2227:0: automatically included section variable(s) unused in theorem 'ProbabilisticSerial.PSChoiceMachine.history_length_round_decomposition':
+  [Nonempty (Fin n)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty (Fin n)] in theorem ...
+note: this linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [2834/2879] Built FinitePhaseSum
+warning: ././././FinitePhaseSum.lean:83:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [2835/2879] Built ConcreteTheoremOneFinal
+⚠ [2836/2879] Built WeightedArrival
+warning: ././././WeightedArrival.lean:81:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [2837/2879] Built PSRankHistory
+⚠ [2838/2879] Built PSFiniteClock
+warning: ././././PSFiniteClock.lean:19:0: automatically included section variable(s) unused in theorem 'ProbabilisticSerial.PSChoiceMachine.supply_zero_of_inactive':
+  [Nonempty (Fin n)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty (Fin n)] in theorem ...
+note: this linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ././././PSFiniteClock.lean:25:0: automatically included section variable(s) unused in theorem 'ProbabilisticSerial.PSChoiceMachine.profileSupply_le':
+  [Nonempty (Fin n)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty (Fin n)] in theorem ...
+note: this linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ././././PSFiniteClock.lean:38:0: automatically included section variable(s) unused in theorem 'ProbabilisticSerial.PSChoiceMachine.profileSupply_card_le':
+  [Nonempty (Fin n)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty (Fin n)] in theorem ...
+note: this linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ././././PSFiniteClock.lean:103:0: automatically included section variable(s) unused in theorem 'ProbabilisticSerial.PSChoiceMachine.roundDuration_nonneg':
+  [Nonempty (Fin n)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty (Fin n)] in theorem ...
+note: this linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ././././PSFiniteClock.lean:119:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [2839/2879] Built FiniteAtomicExposure
+warning: ././././FiniteAtomicExposure.lean:41:18: unused variable `hb`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [2840/2879] Built PSFiniteCapacity
+warning: ././././PSFiniteCapacity.lean:41:0: automatically included section variable(s) unused in theorem 'ProbabilisticSerial.PSChoiceMachine.partialDuration_le_duration':
+  [Nonempty (Fin n)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty (Fin n)] in theorem ...
+note: this linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ././././PSFiniteCapacity.lean:44:0: automatically included section variable(s) unused in theorem 'ProbabilisticSerial.PSChoiceMachine.partialDuration_mono':
+  [Nonempty (Fin n)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty (Fin n)] in theorem ...
+note: this linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ././././PSFiniteCapacity.lean:76:0: automatically included section variable(s) unused in theorem 'ProbabilisticSerial.PSChoiceMachine.sum_choiceDemand':
+  [Nonempty (Fin n)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty (Fin n)] in theorem ...
+note: this linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ././././PSFiniteCapacity.lean:92:25: unused variable `k`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././PSFiniteCapacity.lean:130:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././PSFiniteCapacity.lean:173:6: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [2841/2879] Built ReplicaChoiceMachine
+warning: ././././ReplicaChoiceMachine.lean:88:0: automatically included section variable(s) unused in theorem 'ProbabilisticSerial.ReplicaChoiceMachine.copy_rank_le_iff':
+  [Nonempty (Fin (m * q))]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty (Fin (m * q))] in theorem ...
+note: this linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [2842/2879] Built FiniteArrivalCertificate
+warning: ././././FiniteArrivalCertificate.lean:75:58: 'ring' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././FiniteArrivalCertificate.lean:75:58: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././FiniteArrivalCertificate.lean:76:61: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [2843/2879] Built PSWeightedExposure
+warning: ././././PSWeightedExposure.lean:16:0: automatically included section variable(s) unused in theorem 'ProbabilisticSerial.PSChoiceMachine.sum_slots':
+  [Nonempty (Fin n)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty (Fin n)] in theorem ...
+note: this linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [2844/2879] Built ReplicaHistory
+✔ [2845/2879] Built PSRankAllocation
+✔ [2846/2879] Built FiniteFiveCertificate
+⚠ [2847/2879] Built PSExposureBound
+warning: ././././PSExposureBound.lean:90:0: automatically included section variable(s) unused in theorem 'ProbabilisticSerial.PSChoiceMachine.preferenceProfileSample_eq_univ':
+  [Nonempty (Fin n)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty (Fin n)] in theorem ...
+note: this linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ././././PSExposureBound.lean:94:0: automatically included section variable(s) unused in theorem 'ProbabilisticSerial.PSChoiceMachine.sum_fin_rounds':
+  [Nonempty (Fin n)]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty (Fin n)] in theorem ...
+note: this linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: ././././PSExposureBound.lean:104:16: unused variable `j`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././PSExposureBound.lean:105:14: unused variable `j`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+✔ [2848/2879] Built PSExpectedRank
+✔ [2849/2879] Built ReplicaLaw
+✔ [2850/2879] Built PaperTheoremOne
+⚠ [2851/2879] Built ReplicaCapacity
+warning: ././././ReplicaCapacity.lean:76:25: unused variable `k`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././ReplicaCapacity.lean:108:0: automatically included section variable(s) unused in theorem 'ProbabilisticSerial.ReplicaChoiceMachine.sum_copy_indicator':
+  [Nonempty (Fin (m * q))]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty (Fin (m * q))] in theorem ...
+note: this linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [2852/2879] Built ReplicaRawStep
+warning: ././././ReplicaRawStep.lean:101:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././ReplicaRawStep.lean:167:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [2853/2879] Built ReplicaWeightedExposure
+✔ [2854/2879] Built ReplicaRawProcess
+✔ [2855/2879] Built ReplicaRankAllocation
+⚠ [2856/2879] Built ReplicaExposureBound
+warning: ././././ReplicaExposureBound.lean:93:16: unused variable `j`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././ReplicaExposureBound.lean:94:14: unused variable `j`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+✔ [2857/2879] Built ReplicaRawClock
+⚠ [2858/2879] Built UniformRawPrefixes
+warning: ././././UniformRawPrefixes.lean:76:34: unused variable `hm`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+✔ [2859/2879] Built ReplicaExpectedRank
+✔ [2860/2879] Built ReplicaSurvivorEntries
+⚠ [2861/2879] Built ReplicaRawBands
+warning: ././././ReplicaRawBands.lean:146:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [2862/2879] Built PaperReplicaInterface
+✔ [2863/2879] Built ReplicaUntouched
+✔ [2864/2879] Built RawSurvivorBound
+⚠ [2865/2879] Built CouponUntouched
+warning: ././././CouponUntouched.lean:81:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [2866/2879] Built ReplicaConsumptionLower
+⚠ [2867/2879] Built ReplicaBandLower
+warning: ././././ReplicaBandLower.lean:20:25: unused variable `g`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././ReplicaBandLower.lean:97:26: unused variable `ending`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+✔ [2868/2879] Built ReplicaRawRankBridge
+✔ [2869/2879] Built RawPrefixGood
+⚠ [2870/2879] Built ReplicaRawCostRank
+warning: ././././ReplicaRawCostRank.lean:125:0: automatically included section variable(s) unused in theorem 'ProbabilisticSerial.ReplicaRawCostRank.rawGood_failure_probability':
+  [Nonempty (Fin (m * q))]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Nonempty (Fin (m * q))] in theorem ...
+note: this linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [2871/2879] Built FiniteLowerBound
+⚠ [2872/2879] Built LowerBoundErrors
+warning: ././././LowerBoundErrors.lean:24:43: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././LowerBoundErrors.lean:43:25: unused variable `hsize`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+✔ [2873/2879] Built LowerBoundCutoffs
+⚠ [2874/2879] Built LowerBoundBandErrors
+warning: ././././LowerBoundBandErrors.lean:48:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././LowerBoundBandErrors.lean:76:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [2875/2879] Built LowerBoundSchedule
+⚠ [2876/2879] Built LowerBoundMarket
+warning: ././././LowerBoundMarket.lean:91:24: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [2877/2879] Built FixedQuotaParameters
+warning: ././././FixedQuotaParameters.lean:44:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././FixedQuotaParameters.lean:85:6: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [2878/2879] Built FixedQuotaLowerBound
+warning: ././././FixedQuotaLowerBound.lean:102:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+Build completed successfully.

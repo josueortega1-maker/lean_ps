@@ -1,0 +1,250 @@
+Independent lower-chain source audit
+====================================
+
+Repository: /workspace/scratch/d598d02bfdfa/ProbabilisticSerial-review
+Revision inspected: e0b0f4fbf7f6601ded95b490dbd7e58f30d3f234
+Manuscript: /workspace/scratch/d598d02bfdfa/Paper_JPE_revised(1).tex
+Method: declaration-level mathematical/source audit; no edits or duplicate build.
+The root agent is separately running the unified Lean build and axiom audit.
+
+Verdict
+-------
+No concrete mathematical defect, vacuous premise, missing quota factor,
+unpaid exceptional event, or surrogate-profile substitution was found in the
+lower chain. The final theorem concerns the actual expected PS type rank for
+m types, m*q agents, and independent uniform type rankings, for each fixed
+positive integer q. Its conclusion is expectedPS(m,q)/logStar(m) -> 1.
+
+The Lean argument proves the same final lower asymptotic as the manuscript by
+a somewhat different finite estimate. It does not certify each displayed
+intermediate constant or cutoff in the manuscript verbatim. This distinction
+should be retained in any description of the formal verification.
+
+1. Actual model and normalization
+---------------------------------
+ReplicaPS.Profile and profileSample use m*q agents with independent uniform
+permutations of m types. liftPreference orders all q unit copies of a type
+consecutively. favorite_type proves that the favorite remaining copy belongs
+to the favorite remaining type. Thus deterministic internal copy transitions
+do not change agents' type choices.
+
+ReplicaPS.allocation aggregates the concrete PS allocations over copies.
+allocation_agent_sum proves mass one per agent; allocation_type_sum proves
+capacity q per type. agentRank uses type rank, averageRank averages over m*q
+agents, and expectedPS averages over the original profile sample. These are
+not defined in terms of the desired lower bound or an artificial raw process.
+
+The raw contribution rawBandCost is weightedRawSum/m. Consequently one band
+earns approximately q raw-cost units. ReplicaRawCostRank.rawCost_rank_reduction
+converts raw cost to average rank with a factor alpha*q. The final q cancels
+only after this conversion. No factor q is omitted from consumption or rank.
+
+2. Exact original-profile/raw-label coupling
+--------------------------------------------
+ReplicaLaw.fresh_answer_probability derives conditional uniformity from the
+exact finite path fiber via pathFiber_eq_compatibleProfiles and the admissible
+fresh query's answerFiber cardinalities. Conditional uniformity is proved,
+not postulated as independence of accepted answers.
+
+ReplicaRawStep.rawWeight_sum, raw_label_uniform, profile_marginal,
+accepted_weighted_expectation, and rejected_weighted_expectation establish
+the finite raw-label transition. acceptedFiber_nonempty is proved before a
+representative is chosen. acceptedFiber_eq_next_pathFiber identifies the
+accepted fiber with the concrete next copy history.
+
+ReplicaRawProcess.nextQueryDepth_fiber and State.normalize_fiber show that
+skipping deterministic internal copy events preserves the posterior.
+State.child_fiber proves that choosing a representative does not change the
+conditional law. State.step_posterior_expectation and
+State.evolve_posterior_expectation then establish the invariant for arbitrary
+profile statistics. raw_prefix_profile_marginal returns exactly the original
+profile average for every finite IID raw prefix, including rank and failure
+indicators. No independence between the raw good event and the profile good
+event is used.
+
+ReplicaRawClock.clock_on_fiber/active_on_fiber and monotonicity connect the
+reference state to every compatible actual profile. The finite terminal
+depth (m*q)^2 reaches clock one, after which raw labels contribute zero
+remaining-time weight. UniformRawPrefixes proves the prefix and restart
+identities for the newest-first tuple convention; there is no temporal
+orientation discrepancy.
+
+3. Survivor counts and the phase-boundary draw
+---------------------------------------------
+ReplicaSurvivorEntries.fresh_agent_not_mem and survivorAgents_nodup show that
+fresh entries into a set which survives are made by distinct agents.
+entryCount_le_agents therefore bounds the count by m*q. Normalization adds
+no fresh entries. entryCount_child/entryCount_evolve_survivor and
+raw_count_survivor_eq_entries transfer this to raw labels.
+
+The potentially delicate endpoint is handled explicitly:
+fresh_entryCount_succ_le_agents and raw_count_before_step_le_agents include
+the final label whose subsequent normalization may already advance beyond a
+round or exhaust the set. The raw-prefix rank bridge does not incorrectly
+apply a post-transition survivor bound to that final draw.
+
+ReplicaRawRankBridge.roundDuration_tail,
+weightedRawSum_eq_round_counts, and rawBandCost_eq_round_counts identify the
+weighted raw contribution with the actual round-duration/count expression
+for every profile in the final fiber. rawRoundCount counts using normalized
+pre-draw depth. rawRoundCount_eq_length_of_depth and
+RawPrefixGood.rawRoundCount_bound justify its deterministic upper bound.
+
+4. Untouched capacity and predictable consumption
+--------------------------------------------------
+ReplicaUntouched.entryCount_evolve_le_raw, untouched_entryCount_zero,
+no_entry_no_previous_choice, and no_entry_consumption_zero show that a type
+absent from the raw labels has never been consumed. untouched_residual_eq_quota
+therefore proves its actual residual capacity is q. Deterministic copy
+normalization cannot consume a supposedly untouched type unnoticed.
+
+ReplicaRawBands.remainingWeight uses 1 minus the normalized clock BEFORE
+the next label. expected_weightedRawHits holds for arbitrary weights depending
+on the past state. expected_hits_per_type divides by the fixed set's size to
+obtain exactly expected rawBandCost. When the set is the untouched set at a
+prefix, it is fixed during the conditional future-block average; future IID
+labels are not conditioned on a later high-probability event.
+
+ReplicaConsumptionLower.consumption_le_full_weighted_entries bounds actual
+consumption by arrivals weighted with their remaining time. Removing negative
+exit contributions has the safe inequality direction.
+consumption_at_clock_le_entries and weightedEntries_child/step_le/evolve_le
+transfer this bound through normalization and rejection draws.
+consumed_set_le_raw_hits and band_quota_le_hits_and_residual give the exact
+capacity-minus-residual inequality. expected_bandCost_lower averages it
+without any conditioning on a good event.
+
+5. Coupon and survivor probability bounds
+-----------------------------------------
+CouponLowerBound proves the exact unseen mean m*(1-1/m)^k, pair mean, negative
+pair covariance, and variance at most the mean for m>=2. Chebyshev then gives
+the bad-stock probability 4/mean; positivity of the mean is discharged.
+The exponential lower estimate is deliberately loose, m*exp(-2*k/m).
+
+RawSubsetCounts gives the fixed-set lower-tail Chernoff bound under IID raw
+labels. RawSurvivorBound.survivor_card_tail takes a union over fixed subsets,
+then applies the pathwise survivor count to the endogenous actual active set.
+Its mean hypothesis is required explicitly. total_residual_le_active_quota
+and expected_residual_le retain the full rare-event cost q*m*probability.
+
+ReplicaBandLower.expected_band_lower_by_residual uses a pathwise bad-stock
+correction q*indicator and residual/(mean/2). On the bad event, nonnegativity
+of raw cost justifies the correction. Both terms are averaged before any
+event is discarded. expected_band_lower substitutes the residual estimate;
+expected_cost_ge_band_sum telescopes adjacent blocks using proved restart
+identities, monotone cutoffs, and the mean condition for EVERY used band.
+Omitting the raw contribution before cutoff zero is justified by positivity.
+
+6. Static profile rank concentration and the rank bridge
+---------------------------------------------------------
+UniformLowerRank.expected_firstRank is exactly (m+1)/(s+1). Its scaled-rank
+mean is at least 1-1/(s+1). A loose uniform second-moment bound
+16*(1+exp(1)) and a lower-tail exponential bound yield concentration across
+the original independent agent rankings.
+
+ReplicaLowerRank.UniformLowerRankGood is simultaneous over a fixed family of
+sets with sizes between lo and hi. uniformLowerRankGood_failure_probability
+keeps the family factor. meanRank_lower_with_cutoff extends control to smaller
+sets by enlarging to lo, under the explicit hypotheses lo<=m and lo<=hi.
+Larger sets are handled separately by the coarse raw-count bound.
+
+RawPrefixGood.CountsGood quantifies over all finite prefixes and the fixed
+set family, conditional only on the deterministic mean inequality. Its
+failure bound retains the (N+1)*family.card union factor. CountsGood.tail/full
+ensure it applies at the relevant actual prefix. The endpoint-sensitive
+rawRoundCount_bound uses the pre-step count bound described above.
+
+ReplicaRawCostRank.rawCost_rank_reduction combines these statements for each
+profile in the final fiber. The horizon condition controls sets below lo;
+the coarse all-subsets event controls sets above hi; the fine event controls
+the middle range. Summed round durations equal one. The resulting large-set
+overhead is K*4*(m*q)/hi, with no missing time or agent normalization.
+
+expectedPS_lower_from_rawCost retains BOTH failure costs: the raw-count
+failure and the static original-profile rank failure, each multiplied by
+the deterministic worst-case cost K*N/m. The exact profile marginal is used
+separately on averageRank and on the rank-failure indicator. It never assumes
+that good-event conditioning preserves independence.
+
+FiniteLowerBound.expectedPS_ge_explicit_bands combines the band sum, horizon
+monotonicity, pathwise rank bridge, and both explicit failure probabilities.
+All finite errors are still present at this interface.
+
+7. Parameters, cutoffs, accumulated errors, and final limit
+---------------------------------------------------------
+LowerBoundEntropy.small_family_card_le_rate and exists_small_family_rate
+prove the required family cardinality bounds by an exponential generating
+function. The entropy rate (B+1)*exp(-B) can be chosen arbitrarily small.
+
+FixedQuotaParameters.parameters_exist explicitly constructs the complete
+parameter record. It uses L=ceil(2/eta), a=1-eta/2,
+theta=eta/(4*C), C=16*(1+exp(1)), then chooses positive concentration slack c,
+a sufficiently small family entropy rate, and D=64*q/eta+4. The parameter
+premises are feasible; no desired rank or asymptotic conclusion is stored
+as an assumed field.
+
+LowerBoundCutoffs.mean_at_rawCutoff_ge, next_rawCutoff_ge,
+survivorCutoff_mean, and survivorCutoff_le account for floors and ceilings.
+The raw cutoff is floor(m*x/2), consistent with the looser unseen-mean bound.
+LowerBoundBandErrors.bandLowerValue_ge gives per-band lower contribution
+q - 32*q^2/D - bandError(m,q); the q^2 loss is retained.
+
+LowerBoundSchedule.completedBands conservatively subtracts the terminal
+crossing band. completed_band_scale_bound keeps every used endpoint below
+log(m)/10. cutoffs_mono, schedule_mean, rawCutoff_le_horizon, and
+horizon_rank_cutoff discharge every finite-interface condition. The chosen
+horizon is floor(m^2/L), rather than the shorter manuscript horizon.
+
+LowerBoundErrors.exceptionalBound_le keeps both prefix-union factors and
+the rank family factor. LowerBoundMarket.weighted_exceptionalBound_le pays
+the worst-case raw cost and bounds the result by
+K*(2*m^3+3*m)*exp(-c*m). polynomial_error_tendsto proves its decay.
+
+FixedQuotaLowerBound.eventually_lower_with_loss first fixes q and eta, then
+makes bandError <= eta*q/2. Together with the deterministic band loss this
+gives EVERY band at least (1-eta)*q before summation over the growing number
+of bands. It does not discard a per-band o(1) without controlling the band
+count. The separate exceptional-event cost is bounded by one and enters the
+additive constant. The high-set overhead is also a fixed additive constant.
+
+LowerBoundBands and LowerBoundSchedule.logStar_le_completedBands_add give
+J <= logStar(m) <= J+C with C depending only on the fixed parameters.
+StandardLogStar.logStar is the literal least number of natural-log iterations
+needed to reach at most one; logStar_tendsto_atTop is proved, not assumed.
+
+expectedPS_div_logStar_tendsto_one proves the lower limiting bound using
+eventually_lower_with_loss and sends eta to zero by an explicit choice for
+each target b<1. It obtains the upper limiting bound from the independent
+finite upper theorem expectedPS <= logStar+17/5. The only final assumptions
+are fixed q:Nat and 0<q. eventually_expectedPS_ge is a direct useful corollary.
+
+8. Scope and changes
+---------------------
+No mathematical fix is indicated by this audit, and no source was changed.
+No sorry, admit, custom axiom, unsafe declaration, implemented_by attribute,
+or sorryAx occurrence was found in the lower-specific source files searched.
+This source scan supplements, and does not substitute for, the separate
+kernel build and transitive axiom audit being run by the root agent.
+
+The manuscript lower proof uses x0=8q, cutoffs floor(m*x), B=32q/eta,
+a horizon floor(m*log(m)/10), and exact mean-normalized rank concentration
+over all small sets. Lean instead uses x0=1, floor(m*x/2), D=64q/eta+4,
+fixed lower rank cutoff L, and horizon floor(m^2/L). Both prove the same
+fixed-positive-integer-quota asymptotic. Do not describe the latter as a
+verbatim verification of the former's intermediate inequalities/constants.
+
+The fixed-quota chain alone does not claim a limit uniformly over arbitrary
+growing quotas. Any bounded-quota or high-quota result requires its own
+separately proved interface. This is correct theorem scope, not a defect.
+
+One harmless API detail: ReplicaBandLower.bandLowerValue has an unused ending
+argument. The actual ending cutoff remains in the mandatory mean hypothesis
+of expected_band_lower and expected_cost_ge_band_sum, so this does not hide a
+missing assumption. Removing the unused argument would be cosmetic API churn
+and is not recommended under the user's surgical-change instruction.
+
+An independent delegated read of the parameter/cutoff/error/schedule chain
+and its manuscript correspondence reached the same conclusions. It also
+found no concrete defect in the manuscript's lower-bound second moment,
+entropy union, coefficient-replacement error, untouched-stock variance,
+conditional expectation, or scale count.

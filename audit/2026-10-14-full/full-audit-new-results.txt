@@ -1,0 +1,144 @@
+INDEPENDENT AUDIT OF NEW/MODIFIED LEAN MATHEMATICS
+Date: 2026-10-14
+Repository: ProbabilisticSerial-review
+Comparison: 863bc38..e0b0f4f
+Auditor: audit_new_mathematics subagent
+
+Verdict
+-------
+No mathematical error, hidden unproved process premise, invalid boundary case,
+or manuscript/model mismatch was found in the assigned new results. No source
+correction is recommended in these modules. This conclusion is a source and
+mathematical audit, not an assertion that the whole manuscript is formalized.
+The root agent runs the full Lean build and trust-policy audit separately.
+
+Scope
+-----
+Read every proof in FiniteQuotaEnvelope.lean, ReplicaQuotaBound.lean,
+HighQuotaAsymptotics.lean and BoundedQuotaAsymptotics.lean; read the entire diff
+and surrounding proofs in ReplicaExpectedRank.lean and ReplicaExposureBound.lean;
+read all nine statements in TheoremContracts.lean. Cross-checked against the
+latest Paper_JPE_revised(1).tex, especially finite exposure, rank-jump, endpoint,
+quota and critical-regime formulas. Inspected the actual definitions in ReplicaPS,
+ReplicaWeightedExposure, ReplicaRankAllocation and FiniteAtomicExposure and the
+fixed-quota limit consumed by the bounded-quota extension.
+
+1. Endpoint quota normalization
+-------------------------------
+The existing endpoint estimate is E[raw cost] <= q*theta + log(m). The actual
+exposure is exactly raw exposure divided by q, not a differently normalized
+random object. Nonempty Fin(m*q) forces both integer m and q positive, so
+division preserves the inequality and gives theta + log(m)/q. The older endpoint
+bound follows by q >= 1 and log(m) >= 0. This matches eq:finite-endpoint in the
+manuscript. No dropped initial-choice term or factor of m/n was found.
+
+2. Finite analytic envelope
+--------------------------
+For a finite nonnegative sum of ramps with nonnegative arrival times, value(0)=0.
+Concavity of 1-exp(-theta*r), applied to each ramp, gives
+value(1) <= cost(theta,1)/(1-exp(-theta)), for theta > 0. If cost <= theta+a,
+the resulting ratio bound is valid even though a is not assumed positive in
+this first theorem: the hypothesis itself constrains its value.
+
+For a>0 set x=sqrt(2a)>0. Taylor's lower bound yields exp(x)>=1+x+a. Therefore
+(1+x+a)*exp(-x)<=1 and x+a <= (1+x+a)*(1-exp(-x)). The denominator is positive,
+giving (x+a)/(1-exp(-x)) <= 1+x+a. This independently re-derives exactly the
+Lean argument. No optimization claim stronger than this explicit choice is
+used. The a=0 case is excluded here and handled separately for the actual PS
+theorem when m=1.
+
+3. Actual finite quota bound
+---------------------------
+For m>1, a=log(m)/q>0. The positive-quota hypothesis supplies the actual-process
+instance; the exposure/rank and cost theorems discharge all stochastic premises.
+For m=1, expectedPS_one_type proves exact rank one, so the zero square-root
+case is correct. The theorem is genuinely about average type ranks in the
+uniform independent preference sample, not copy ranks or a free function.
+The result 1+sqrt(2 log(m)/q)+log(m)/q is valid but weaker than the manuscript's
+supply-identity bound. It must not be reported as that sharper bound or as a
+proof of strict critical-regime PS/RP separation.
+
+4. Affine rank/exposure relation
+-------------------------------
+At every genuine post-initial switch the previous type is absent, so the new
+active count satisfies 1<=a<=m-1. Thus m/(a+1) <= (m-1)/a. The code obtains
+this fact from freshness, not from an assumed restriction on possible histories.
+Conditional time and exposure are constant on the same history fiber. Rank
+jumps vanish on nonfresh queries and after time one. Their nonnegative weights
+preserve the inequality.
+
+The initial jump is exactly 1; its exposure is exactly 1/m. The correction
+1/m in the affine jump bound is consequently necessary and correct:
+1 = (m-1)*(1/m)+1/m. Summing the correction counts one term per agent and then
+divides by n=m*q, leaving 1/m rather than n/m or q/m. Hence
+E Rank <= (1-1/m)*f_q(1)+1/m = 1+(1-1/m)*(f_q(1)-1).
+This is the manuscript's finite-market improvement. The generic affine-sum
+lemma does not require A or B positive: the only multiplication of an
+inequality is by the positive averaging factor 1/n. Its explicit jump
+hypothesis is discharged in both public application theorems. The weaker
+compatibility theorems remain valid. m=1 yields a zero slope and rank <=1;
+the impossible-switch branch is correctly eliminated by the active-count fact.
+
+5. High-quota limits
+-------------------
+Eventually positive m and q suffice for the lower bound 1 and the finite
+quota upper bound. If log(m)/q ->0, continuity of sqrt and the squeeze theorem
+give expectedPS ->1. No assumption m->infinity is silently introduced.
+For fixed m>0 and q->infinity, const/log quota division has the required limit,
+including m=1. For q/log(m)->infinity, taking reciprocals gives log(m)/q->0.
+Lean's total division makes q/log(1)=0; the divergent-ratio theorem therefore
+does not incorrectly cover a permanently single-type sequence. Single-type
+and arbitrary mixed sequences are covered by the primary log(m)/q theorem
+whenever its stated hypotheses hold. Zeros in finitely many early terms are
+harmless. The only conclusions are PS convergence, never RP convergence or
+threshold necessity.
+
+6. Bounded-varying-quota limits
+-----------------------------
+The proof takes a finite intersection of eventual neighborhoods for fixed
+q in {1,...,Q}. The resulting market-size threshold can depend on fixed Q and
+the neighborhood but not the selected q. Composing with m(k)->infinity and
+an eventually bounded positive q(k) proves the advertised uniform extension.
+There is no interchange of a limit over unbounded quotas with market size.
+Q=0 has an empty quota range; the generic-filter result is then vacuous unless
+the filter is trivial, which is mathematically correct. Bottom filters need
+no NeBot assumption for this statement. For nontrivial filters m->infinity
+eventually makes logStar(m)>0; no unintended early zero-denominator assertion
+is made. This extension depends on the existing fixed-quota lower theorem;
+it does not independently re-prove that theorem's probabilistic foundations.
+
+7. Literal contracts and limits of their protection
+--------------------------------------------------
+The nine examples retain literal public theorem conclusions, positive market
+parameters, the original expectedPS and logStar definitions, fixed-quota order
+of quantifiers and the generic bounded-quota filter. They would reject an
+extra unproved process hypothesis in those interfaces. They do not constitute
+an independent proof of semantics or kernel soundness. Source/model inspection
+and independent mathematical checks remain necessary and were performed above.
+
+8. Independent exact-market verification
+----------------------------------------
+Created scratch-only audit_new_exact_markets.py and audit_new_exact_markets.json.
+The simulator directly consumes capacities at type level, using Fraction
+arithmetic; it neither imports the Lean implementation nor uses its inequalities
+to compute outcomes. Independent uniform preference profiles are compressed
+by anonymous preference counts and weighted by exact multinomial multiplicity.
+Initial exposure q and post-switch exposure are recorded independently from
+allocation rank integration. Total multiplicity is checked against (m!)^(m*q),
+and every path is checked to exhaust exactly at time 1 with zero residuals.
+
+Markets: (m,q)=(1,1),(1,5),(2,1..5),(3,1..3),(4,1).
+20,107 exact anonymous profiles represent 10,457,710 labeled profiles.
+Exact aggregate affine-rank inequalities passed in every market. For m=2,
+the affine bound is exact, catching the fragile initial correction/factor.
+Examples:
+  (2,1): E rank=5/4, affine slack=0.
+  (2,5): E rank=575/512, affine slack=0.
+  (3,1): E rank=313/216, affine slack=23/216.
+  (3,2): E rank=19327/14580, affine slack=2111/29160.
+  (3,3): E rank=255591889/201553920, slack=3922757/67184640.
+  (4,1): E rank=397885/248832, affine slack=47507/248832.
+The quota bound and the endpoint cost at theta=0.01,0.1,1,2,10 also passed;
+these transcendental evaluations are numerical corroboration, not proofs.
+
+No Lean source was changed by this subagent. No remote operation was performed.

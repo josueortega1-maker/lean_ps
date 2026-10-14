@@ -1,0 +1,40 @@
+{
+  "date": "2026-09-28",
+  "repository": "josueortega1-maker/ProbabilisticSerial",
+  "base_commit": "11d7b39377d887a200a6f19cbf33e9857db6f5ae",
+  "patch_commit": "b8a592ce27189dddf04cc8b11693285a541b5e65",
+  "branch": "audit/finite-ps-rank-2026-09-28",
+  "paper": {
+    "filename": "PS_ECMA_finite_clean.tex",
+    "library_file_id": "libfile_e735d95c960081918b20468a82340250",
+    "version": "3",
+    "read_lines": "1-1917",
+    "local_read_text_sha256": "50bbcfe2cc53713d74d224e11a621f01e63c074c4886e3aa430045cc89a1cff5"
+  },
+  "workflow_run_id": 36406816379,
+  "local_check_status": "Original lake commands unavailable; downloaded Lean 4.19.0 cannot locate application in this runtime. Verification delegated to unchanged repository workflow, no source/toolchain modifications to bypass this.",
+  "numerical_status": "Full 70-digit outward-rounded reproduction completed independently of Lean.",
+  "verification": {
+    "location": "GitHub Actions, unchanged repository workflow",
+    "status": "success",
+    "run_id": 36406816379,
+    "job_id": 108877431883,
+    "commit": "b8a592ce27189dddf04cc8b11693285a541b5e65",
+    "lean": "4.19.0",
+    "checks": [
+      "lake build",
+      "placeholder scan",
+      "lake env lean AxiomAudit.lean"
+    ],
+    "new_declaration_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "attached_paper": {
+    "filename": "PS_ECMA_Updated24sept.tex",
+    "sha256": "8892247e32aa87c1de23cff12e6bf69f2e3ec9a409d552c28789f9a8be9e1222",
+    "comparison": "Same non-whitespace content as audited source; indentation/line endings and one blank line differ."
+  }
+}

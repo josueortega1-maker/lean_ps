@@ -1,0 +1,1 @@
+PASS: every tracked Lean module is built or separately audited; no proof placeholders

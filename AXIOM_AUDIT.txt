@@ -1,0 +1,174 @@
+'ProbabilisticSerial.theorem_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProbabilisticSerial.AdaptiveBernoulli.upper_deviation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProbabilisticSerial.AdaptiveBernoulli.lower_deviation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProbabilisticSerial.UniformProduct.uniform_active_rank_exponential' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.UniformSubsetRank.firstRank_tail_probability' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.UniformSubsetRank.firstRank_tail_le_exp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProbabilisticSerial.UniformSubsetRank.fixed_active_set_sum_tail' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.UniformPermutation.activePositions_expect_eq_rankSample' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.UniformPermutation.activeRank_tail_probability' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.UniformPermutation.uniform_active_rank_exponential_profile' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.PSProcess.run_totalDuration' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProbabilisticSerial.PSProcess.run_consumedByGood' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProbabilisticSerial.PSProcess.run_phases_length_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProbabilisticSerial.PSProcess.averageRank_eq_dynamicRank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProbabilisticSerial.PSProcess.uniformRankGood_failure_probability_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.PSProcess.run_rankReduction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProbabilisticSerial.PSProcess.run_averageRank_le_marketSize' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProbabilisticSerial.SequentialRevelation.answerFiber_card_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.SequentialRevelation.sequential_revelation_count' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.SequentialRevelation.sequential_revelation_probability' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.SequentialRevelation.sequential_revelation_joint_count' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.SequentialRevelation.run_phases_pairwise' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.SequentialRevelation.phase_choice_conditional_uniform' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.AdaptiveCategorical.upper_deviation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProbabilisticSerial.AdaptiveCategorical.lower_deviation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProbabilisticSerial.StoppedChoices.sequential_revelation_matches_labelled_law' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.StoppedChoices.stoppedChoice_upper_deviation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.StoppedChoices.stoppedChoice_lower_deviation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.StoppedChoices.recordedEntryCountFrom_eq_phaseLoad' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.StoppedChoices.predictableVolumeFrom_eq_card_mul_one_add_potential' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.StoppedChoices.run_prefix_load_mean' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProbabilisticSerial.LoadBound.hitProbability_finiteUnion_le_card_mul' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.LoadBound.allSet_potential_exponential_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.LoadBound.choose_le_exp_mul_div_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProbabilisticSerial.LoadBound.exists_absolute_lambdaZero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProbabilisticSerial.LoadBound.candidateSize_mul_lambda_ge_log_div' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.LoadBound.candidateSize_underload_all_cardinalities' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.LoadBound.load_bound_tree_failure' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProbabilisticSerial.LoadBound.paper_demand_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProbabilisticSerial.PhaseIntegral.blockConsumption_le_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProbabilisticSerial.PhaseIntegral.oneBlock_integral_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProbabilisticSerial.PhaseIntegral.terminalBlock_integral_le_of_carrier' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.PhaseIntegral.nextLambda_ge_exp_div_four' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.PhaseIntegral.activeSize_recurrence_gives_exp_scale' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.PhaseIntegral.chain_length_le_exponentialHeight' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.PhaseIntegral.eatingIntegral_le_of_phaseCertificate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.PhaseAdapter.exists_phaseLambdaZero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProbabilisticSerial.PhaseAdapter.concretePhaseLoadGood_demand' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.PhaseAdapter.greedyRawBlocks_decomposition' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.PhaseAdapter.exists_survivorBlock_of_raw' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.PhaseAdapter.rawBlockScales_chain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProbabilisticSerial.PhaseAdapter.exists_phaseCertificate_of_concreteLoadGood' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.PhaseAdapter.concrete_eatingIntegral_le_logStar' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.AsymptoticClosure.exponentialHeight_lt_log_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.AsymptoticClosure.psLogStar_small_relative_to_log' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.AsymptoticClosure.harmonic_isEquivalent_log' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.AsymptoticClosure.rpExpectation_isEquivalent_log' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.ConcreteTheoremOne.rank_le_on_concrete_good' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.ConcreteTheoremOne.concrete_tail_of_load_transfer' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.ConcreteTheoremOne.expectedPS_isBigO_of_load_transfer' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.ConcreteTheoremOne.expectedPS_div_RP_tendsto_zero_of_load_transfer' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.ConcreteTheoremOne.concrete_theorem_one_of_load_transfer' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.PSChoiceMachine.profile_machine_correspondence' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.PSChoiceMachine.profileRevealHistory_admissible' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.PSChoiceMachine.pathFiber_probability_le_pathWeight' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.PSChoiceMachine.profile_hit_probability_le_hitProbability' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.PSChoiceMachine.treeFailure_of_phase_bad' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.PSChoiceMachine.concrete_load_transfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProbabilisticSerial.ConcreteTheoremOne.concrete_load_transfer' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.ConcreteTheoremOne.concrete_theorem_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProbabilisticSerial.PaperTheoremOne.paper_theorem_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ProbabilisticSerial.PaperTheoremOne.paper_theorem_one_as_stated' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.RandomPriority.rpExpectedRank_eq_knuth_formula' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ProbabilisticSerial.StandardLogStar.psLogStar_le_logStar_add_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,57 @@
+Independent legacy phase/load audit, 2026-10-14
+Repository comparison point: e0b0f4f
+Files: LoadBound.lean, PhaseIntegral.lean, PhaseAdapter.lean
+Read-only audit; no build or source modification.
+
+Concrete defects found: none.
+
+Scope assurance:
+1. The load union is over fixed candidate subsets and finite-tree hitting
+   events, so its probability already controls all histories/times up to the
+   depth. There is no missing additional union over arrival time in these
+   modules. The actual PS law transfer is reviewed separately by theorem_two.
+2. The fixed-B lower-tail estimate pays beta*|B|*lambda. The entropy bound
+   choose(n,b)<=(e*n/b)^b and b>=n*exp(-alpha*lambda) consume at most half the
+   exponent when 1+alpha*lambda <= (beta/2)*lambda. The remaining half is at
+   least 4*log(n) because beta=8*alpha and b*lambda>=log(n)/alpha. Thus each
+   cardinality costs n^-4 and summing over n positive cardinalities costs n^-3.
+   The separate potential union pays 2^n and leaves exp(-(I(eta)-log2)*n).
+   eta=1/16 guarantees that this exponential has a positive rate.
+3. The b*lambda lower bound handles both ceiling regimes correctly. For
+   base=n*exp(-alpha*lambda)<1, b>=1 and alpha*lambda>log n. For base>=1,
+   1<=alpha*lambda<=log n and monotonicity of y*exp(-y) on [1,infinity)
+   supplies the bound. The assumptions log(n)>=1 and lambda>=1/alpha remain
+   explicit; no small-n claim is silently introduced here.
+4. Ceiling rounding is controlled correctly: ceil(base)<base+1; for base>=1,
+   ceil(base)<=2*base. This gives the factor four in the active-ratio recurrence.
+   For base<=1, the next active cardinality is at most two. Equality base=1 is
+   valid in both statements. The threshold 2*ceil(base)<active for active>=3
+   follows from 2*lambda*exp(-alpha*lambda)<=1/4; at active=3 the strict margin
+   is still positive. No integer boundary is lost.
+5. The initial block is bounded by lambdaZero times total duration one.
+   Every raw middle block is a sublist of the actual run and chooses the last
+   phase's active set as its fixed survivor set. Nested active sets keep that
+   survivor available in every phase of its block. The candidate size decreases
+   along the block, so the last active set is large enough for each phase's load
+   estimate. Consumption from this fixed survivor set is at most its cardinality,
+   yielding the 8/eta bound after cancellation. Simultaneous exhaustion events
+   and blocks containing only one phase satisfy the same construction.
+6. Greedy decomposition covers the phase list exactly, without duplication or
+   omitted terminal phases. The terminal suffix is contained in a carrier of
+   at most two goods. Supply conservation proves its duration <=2/n, so its
+   eating integral is <=2. The small-active-cardinality argument is not merely
+   assumed as a time estimate.
+7. Consecutive nonterminal raw blocks satisfy lambdaNext>=exp(alpha*lambda)/4.
+   The absolute starting-scale condition converts this to uNext>=exp(u) for
+   u=alpha*lambda/2. Every block that has a following middle block starts below
+   log(n)/2; otherwise its next active set would already be terminal. The count
+   applies to blocks.length-1 and then adds one for the final block. This is
+   the correct off-by-one allowance, including zero- and one-block cases.
+8. The exponential-height definition is total and its chain-count proof does
+   not assume a nonexistent infinite phase sequence. The final local bound is
+   in terms of PhaseAdapter.psLogStar, a fixed shifted exponential-height
+   normalization. The separate StandardLogStar bridge and final public wrapper
+   need to identify this with the paper's log-star normalization; that bridge
+   is outside these three modules' responsibility.
+
+No defect requiring a repair was found in the load/phase assembly itself.

@@ -1,0 +1,11 @@
+{
+  "Finite_PS_Rank_Audit.md": "1d4ab3045bee96780a34ec4c7ccd6825cd2c14575ed59e6920dc070317109de4",
+  "finite-certificate-results.json": "70b71f444dc7924f7af12e2f750a933326d9631e9bdd5d9fd85287cdc252a457",
+  "finite-parameters.json": "8be73de6095cc1c2658aed4ccb272ec5699cc8bcc6d736820575916e00136e31",
+  "finite-ps-interface.patch": "707f78ea2e41a5d8b2de956a6e8bede3bc85bd9cbd35edd84a2dded148c6d509",
+  "github-verification.log": "24e23a89fcb4200f661cc3d78734d1bca8fb822e3979cc3c63c35712eb1880f6",
+  "grid-upper-bounds.json": "c2ed23862180d1a058acbd2d58f5e0c9e722b202ce48811e2ed449aa9beac3d1",
+  "numerical-run.log": "270c68aad7ab79c5324b4db94cdbc2ccbd2edb96a9e4cf35696dc8fc46f1cb4d",
+  "provenance.json": "df4aeda26b4d6468a82e075ba12331a00f1fec5a24057c565ef3154a8eabddb0",
+  "reproduce_finite_certificate.py": "b1145063b7dfc738dafac7acdeefa19a5298b4c71d632c08ab2b10b8a1092957"
+}

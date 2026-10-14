@@ -1,0 +1,40 @@
+Local Lean verification environment, 2026-10-14
+
+Official release archive downloaded from:
+https://github.com/leanprover/lean4/releases/download/v4.19.0/lean-4.19.0-linux.tar.zst
+
+Archive extracted using tar --no-same-owner --zstd -xf because this container
+cannot preserve the release archive's uid/gid ownership.
+
+Tool versions:
+Lean 4.19.0, x86_64-unknown-linux-gnu, commit 6caaee842e94, Release
+Lake 5.0.0-6caaee8 (Lean 4.19.0)
+
+Compatibility adapter:
+The pinned Lean runtime locates its own executable by readlink on
+/proc/<getpid>/exe. This container permits the same process's executable
+through /proc/self/exe but denies the numeric spelling (errno 13).
+own-process-path.c compiles into own-process-path.so and maps only the exact
+current process's numeric executable path to /proc/self/exe in readlink.
+All other readlink calls pass unchanged to the original libc function.
+No Lean executable, kernel, dependency source, proof source, or permission
+setting is modified by this adapter. No other process is accessed.
+
+Environment for local commands:
+PATH=/workspace/scratch/d598d02bfdfa/lean-runtime/lean-4.19.0-linux/bin:$PATH
+LD_PRELOAD=/workspace/scratch/d598d02bfdfa/lean-runtime/own-process-path.so
+TAR_OPTIONS=--no-same-owner
+
+Dependencies were cloned by Lake at the repository's pinned revisions.
+The official mathlib cache downloader fetched only the transitive closure
+of the project's 31 direct Mathlib imports, then decompressed 2786 files.
+The unmodified cache checks content-addressed module hashes. The initial
+all-Mathlib download was interrupted to avoid unrelated dependencies.
+
+Original baseline compilation is isolated in:
+/workspace/scratch/d598d02bfdfa/ProbabilisticSerial-baseline
+at detached commit 863bc38. It shares only .lake/packages with the review
+worktree. Its project build outputs are independent.
+
+Logs are in this directory's logs/ subdirectory. A build/audit is successful
+only after its process exits zero; intermediate logs are not proof of success.

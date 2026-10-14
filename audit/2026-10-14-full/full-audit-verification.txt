@@ -1,0 +1,118 @@
+Verification infrastructure audit — 2026-10-14
+
+Scope
+Read the source/axiom/environment guards, runner, CI, checkpoint script, Lake
+configuration and reproducibility/coverage documentation. Independently examined
+the actual toolchain and all nine dependency checkouts. Reproduced concrete
+failure cases instead of treating the earlier 23 passing tests as sufficient.
+No full Lean build was duplicated; the parent agent is running the new clean
+build and both Lean audits. No commit, push or external mutation was performed.
+
+Concrete findings and fixes
+
+1. The runner printed Lean's version without checking the pin, and did not check
+   actual dependency trees against lake-manifest.json. Added
+   scripts/check_environment.py: actual Lean version must equal lean-toolchain;
+   every manifest package must be a full-commit-pinned Git checkout at exactly
+   that revision, with no tracked or nonignored untracked changes. Ignored
+   generated cache files remain allowed. The parent integrated checks before
+   and after the proof run. The actual environment passes: Lean 4.19.0 and all
+   nine pinned clean checkouts. Six new tests cover mismatches and dirty/missing
+   dependency trees.
+
+2. Declared Lake roots alone do not guarantee a default library build checks
+   them. Reproduced with a real two-root temporary Lean project: roots Main and
+   Unbuilt, globs Main; Unbuilt contained an invalid proof, yet lake build exited
+   zero. The previous source guard accepted it. verify_sources.py now rejects
+   globs differing from the explicit roots and nondefault defaultFacets. Tests
+   cover both omissions. Existing defaultTargets coverage remains enforced.
+
+3. A lexical source scan is not a parser or a complete proof-dependency audit.
+   Reproduced a missed placeholder inside executable string interpolation:
+     def unchecked : String := s!"{(show Nat from sorry)}"
+   Comments/strings are blanked, so this source is invisible to the lexical
+   token rule. Expanding that Python scanner into a Lean parser would be fragile.
+   The parent implemented AllDeclarationsAudit.lean to traverse dependencies of
+   every constant originating in every project root, including private helpers,
+   definitions and generated declarations. This closes the selected-public-
+   declaration coverage gap using Lean's own environment. My guard requires
+   every root to have an explicit import in that audit. Its CLI now calls the
+   lexical scan a token check rather than claiming complete placeholder absence.
+   The parent owns compilation and full execution of the new Lean audit.
+
+4. New untracked Lean files created during verification were not covered by
+   the final tracked-file hash comparison. Changes to .gitignore were also not
+   hashed, although they alter the source guard's view of untracked files.
+   The parent added .gitignore to the inputs and final source/environment
+   rechecks. Regression tests verify each final guard can fail a previously
+   successful build, and that .gitignore affects the source hashes.
+
+5. A rerun abruptly terminated before finally could retain an old success:true
+   receipt while replacing some logs. The runner now atomically installs a new
+   success:false receipt before metadata or subprocesses and atomically replaces
+   it at completion. A real child-process regression calls os._exit, bypassing
+   finally, and confirms the previous success cannot survive. The existing
+   missing-tracked-source failure test remains passing.
+
+Verification performed
+- python -m unittest discover -s tests -v: 36 tests passed after these edits.
+- Actual check_environment.py run: Lean 4.19.0; all nine dependency revisions
+  exactly match the manifest; all nine working trees clean under Git rules.
+- git diff --check: passed.
+- All 12 checkpoint records: recorded bundle SHA-256 values match the files,
+  and every bundle contains its recorded HEAD. The checkpoint script lists
+  excluded unfinished files explicitly; no current checkpoint defect found.
+- Source review of AllDeclarationsAudit.lean confirms selection by originating
+  project module, rather than namespace alone, and a shared dependency traversal.
+  Final compilation and all-project audit outcome belong to the parent run.
+
+Files changed by this agent
+- scripts/check_environment.py (new)
+- scripts/verify_sources.py
+- scripts/verify.py (initial and final atomic receipt writes only; parent owns
+  the other newly integrated runner gates)
+- tests/test_environment.py (new)
+- tests/test_verification.py
+- tests/test_verify_runner.py
+
+Trust and scope
+The workflow trusts the installed Lean distribution, its dependencies and their
+generated cache artifacts, as ordinary Lean verification does. The new checks
+bind the declared toolchain version and dependency source trees; they do not
+claim independent binary reproducibility or adversarial attestation. The local
+runtime uses the documented, external own-process readlink compatibility shim;
+the Lean kernel and project proofs are unchanged by it.
+
+The exact selected-public-declaration axiom gate remains useful alongside the
+new all-project gate: it checks expected names/output completeness and the
+mandatory headline list. A successful build/audit certifies the Lean statements
+actually present, not missing manuscript theorems. Current README/status
+documents correctly distinguish integer quotas, the remaining uniform tail,
+the unproved general RP threshold equivalences, and the sharper unverified
+numerical computation. The final documentation and evidence must be refreshed
+to the new run's exact input hashes and audit counts.
+
+Follow-up: clean-build evidence, 2026-10-14
+The first --clean run at d847768 exited zero but replayed many project modules.
+For example, PSProcess.olean had an old 03:28:48 modification time and a new
+03:59:43 birth time. That run verifies matching existing artifacts; it does not
+establish fresh re-elaboration of every project module. The restoration's source
+was not established. Pinned Lake source explicitly excludes the workspace root
+from ordinary package-cache downloads (Build/Package.lean, afterBuildCacheAsync
+and afterBuildCacheSync), and its clean command removes the package build
+directory. Thus --no-cache alone is insufficient evidence of fresh elaboration.
+
+The runner now verifies absence of the entire project build directory immediately
+after clean and again immediately before the build. A clean build uses
+lake --no-cache -v build and must produce every configured root's .olean with
+modification time at least the recorded build-start nanoseconds. Any Replayed
+project root in the log fails the clean claim. Dependency replay remains allowed.
+The receipt records build-start and per-root output timestamps. The earlier
+mixed replay/build log is rejected by the new checker. Six additional regression
+tests cover failed cleaning, restored old outputs, missing outputs, project
+replays despite fresh timestamps, allowed dependency replay, and the complete
+clean-run orchestration. The complete Python suite now passes 42 tests.
+
+The parent independently confirmed build-directory absence before a diagnostic
+no-cache run, which then reported Built PSProcess with an actual Lean invocation.
+The final revised clean runner still needs its own complete run and fresh receipt.

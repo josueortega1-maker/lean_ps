@@ -1,0 +1,19 @@
+Independent final semantic review — bounded_quota worker
+Date: 2026-10-14
+Scope: FiniteQuotaEnvelope.lean, ReplicaQuotaBound.lean, HighQuotaAsymptotics.lean, modified ReplicaExpectedRank.lean, BoundedQuotaAsymptotics.lean, README.md, THEOREM1_STATUS.md. Read supporting ReplicaPS definitions and ReplicaExposureBound endpoint scaling; checked against Paper_JPE_revised(1).tex (SHA-256 9a82ff8b4a8ae7d5931775c010ef81e6878357af1cc7e6e3524eb30ecb0cfdd2).
+
+Outcome: No material semantic issue or documentation overclaim found. No edits recommended from this review. No builds repeated, as requested.
+
+1. Actual mechanism and rank: ReplicaPS.Profile is the product of independent uniform type permutations over m*q agents; expectedPS averages original type rank of grouped-copy PS allocations. The new results refer to that definition, not an abstract rank or upper-bound surrogate. The favorite_type bridge supports the grouped-copy interpretation. Documentation explicitly limits quotas to positive integers and does not claim the real-capacity extension.
+
+2. Finite quota envelope: The analytic theorem keeps the endpoint cost hypothesis explicit. The actual mechanism theorem discharges it using actualExposure_cost_endpoint_quota_le, preserving the division by q in theta+log(m)/q. Positivity of m and q is explicit or supplied by Nonempty(Fin(m*q)). The m=1 case is handled separately, so the positive-parameter optimization introduces no zero-log gap.
+
+3. Affine finite-market factor: A genuine later switch implies the previous type is absent and the number a of surviving types is at most m-1. This justifies m/(a+1) <= (m-1)/a. The initial choice is accounted for by the separate 1/m correction, summed exactly once per agent; the resulting 1+(1-1/m)*(exposure-1) matches the paper's finite-rank inequality. Earlier weaker APIs remain valid corollaries. No new process assumptions are hidden in the refinement.
+
+4. High quota: The squeeze uses the actual lower bound one and the explicit upper bound 1+sqrt(2a)+a, where a=log(m)/q. Eventual positive m,q suffice. Arbitrary sequences are allowed; no divergent-type assumption is silently required. Fixed-type replication, including m=1, is covered. The reciprocal formulation is sufficient when q/log(m) tends to infinity. No necessity or RP conclusion follows from this code, and documentation explicitly says so.
+
+5. Bounded quota: The fixed Q is independent of the limit index. The finite intersection proof provides a common market-size threshold for all 1<=q<=Q. Composition with arbitrary filter-indexed m tending to infinity proves the stated varying bounded-quota result without requiring quotas to stabilize. Prose explicitly excludes an extension to unbounded quotas and matches the theorem's eventual-positivity hypothesis.
+
+6. Manuscript coverage: README/status correctly distinguish the new coarser quota bound from the paper's sharper supply-weighted bound. They do not claim the quota-uniform tail, critical separation, the RP high-quota limit, or either full threshold equivalence has been completed. The manuscript fingerprint matches the supplied revised TeX. The one-copy historical results and integer-capacity scope are clearly qualified. The existing finite certificate is identified as the 21-test below-five certificate, distinct from the paper's sharper computation.
+
+Earlier independent gate findings (handled by the root/scripts owner): quote-character scanner gap, initialization failure leaving stale success receipt, and library/default-target build coverage. This semantic review does not revalidate those fixes or replace the root's final full verification receipt.

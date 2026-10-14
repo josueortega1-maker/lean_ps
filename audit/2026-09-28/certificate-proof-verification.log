@@ -1,0 +1,784 @@
+﻿2026-09-28T12:37:57.2530682Z Current runner version: '2.337.0'
+2026-09-28T12:37:57.2569945Z ##[group]Runner Image Provisioner
+2026-09-28T12:37:57.2571202Z Hosted Compute Agent
+2026-09-28T12:37:57.2572112Z Version: 20260828.587
+2026-09-28T12:37:57.2573271Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
+2026-09-28T12:37:57.2574775Z Build Date: 2026-08-28T16:44:25Z
+2026-09-28T12:37:57.2575957Z Worker ID: {22f951c9-1166-4629-ac96-8bbee102861b}
+2026-09-28T12:37:57.2577094Z Azure Region: westcentralus
+2026-09-28T12:37:57.2578082Z ##[endgroup]
+2026-09-28T12:37:57.2580422Z ##[group]Operating System
+2026-09-28T12:37:57.2581454Z Ubuntu
+2026-09-28T12:37:57.2582357Z 24.04.5
+2026-09-28T12:37:57.2583181Z LTS
+2026-09-28T12:37:57.2584351Z ##[endgroup]
+2026-09-28T12:37:57.2585324Z ##[group]Runner Image
+2026-09-28T12:37:57.2586265Z Image: ubuntu-24.04
+2026-09-28T12:37:57.2587113Z Version: 20260920.314.1
+2026-09-28T12:37:57.2589283Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260920.314/images/ubuntu/Ubuntu2404-Readme.md
+2026-09-28T12:37:57.2592034Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260920.314
+2026-09-28T12:37:57.2593985Z ##[endgroup]
+2026-09-28T12:37:57.2596019Z ##[group]GITHUB_TOKEN Permissions
+2026-09-28T12:37:57.2598770Z Contents: read
+2026-09-28T12:37:57.2599627Z Metadata: read
+2026-09-28T12:37:57.2600651Z Packages: read
+2026-09-28T12:37:57.2601545Z ##[endgroup]
+2026-09-28T12:37:57.2605761Z Secret source: Actions
+2026-09-28T12:37:57.2607226Z Cache mode: write
+2026-09-28T12:37:57.2608793Z Prepare workflow directory
+2026-09-28T12:37:57.3169740Z Prepare all required actions
+2026-09-28T12:37:57.3250263Z Getting action download info
+2026-09-28T12:37:57.6874413Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-09-28T12:37:57.7795879Z Download action repository 'leanprover/lean-action@v1' (SHA:50fcf42d2e460296f1a34b402e990d1b24f8b596)
+2026-09-28T12:37:58.2284020Z Getting action download info
+2026-09-28T12:37:58.3808257Z Download action repository 'actions/cache@v5' (SHA:caa296126883cff596d87d8935842f9db880ef25)
+2026-09-28T12:37:58.6432866Z Complete job name: build
+2026-09-28T12:37:58.7332180Z ##[group]Run actions/checkout@v4
+2026-09-28T12:37:58.7333784Z with:
+2026-09-28T12:37:58.7334840Z   repository: josueortega1-maker/ProbabilisticSerial
+2026-09-28T12:37:58.7342423Z   token: ***
+2026-09-28T12:37:58.7343698Z   ssh-strict: true
+2026-09-28T12:37:58.7344669Z   ssh-user: git
+2026-09-28T12:37:58.7345585Z   persist-credentials: true
+2026-09-28T12:37:58.7346555Z   clean: true
+2026-09-28T12:37:58.7347471Z   sparse-checkout-cone-mode: true
+2026-09-28T12:37:58.7348534Z   fetch-depth: 1
+2026-09-28T12:37:58.7349423Z   fetch-tags: false
+2026-09-28T12:37:58.7350338Z   show-progress: true
+2026-09-28T12:37:58.7351270Z   lfs: false
+2026-09-28T12:37:58.7352148Z   submodules: false
+2026-09-28T12:37:58.7353073Z   set-safe-directory: true
+2026-09-28T12:37:58.7354204Z   allow-unsafe-pr-checkout: false
+2026-09-28T12:37:58.7355536Z ##[endgroup]
+2026-09-28T12:37:58.8590519Z Syncing repository: josueortega1-maker/ProbabilisticSerial
+2026-09-28T12:37:58.8596874Z ##[group]Getting Git version info
+2026-09-28T12:37:58.8600214Z Working directory is '/home/runner/work/ProbabilisticSerial/ProbabilisticSerial'
+2026-09-28T12:37:58.8605361Z [command]/usr/bin/git version
+2026-09-28T12:37:58.8776322Z git version 2.55.0
+2026-09-28T12:37:58.8827486Z ##[endgroup]
+2026-09-28T12:37:58.8836918Z Temporarily overriding HOME='/home/runner/work/_temp/d9886670-71ff-4f65-b7ac-5c269bddc5ea' before making global git config changes
+2026-09-28T12:37:58.8840571Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-28T12:37:58.8844152Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ProbabilisticSerial/ProbabilisticSerial
+2026-09-28T12:37:58.8900754Z Deleting the contents of '/home/runner/work/ProbabilisticSerial/ProbabilisticSerial'
+2026-09-28T12:37:58.8920091Z ##[group]Initializing the repository
+2026-09-28T12:37:58.8925860Z [command]/usr/bin/git init /home/runner/work/ProbabilisticSerial/ProbabilisticSerial
+2026-09-28T12:37:58.9086396Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-09-28T12:37:58.9090148Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-09-28T12:37:58.9216128Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-09-28T12:37:58.9235214Z hint: call:
+2026-09-28T12:37:58.9275191Z hint:
+2026-09-28T12:37:58.9315101Z hint: 	git config --global init.defaultBranch <name>
+2026-09-28T12:37:58.9331546Z hint:
+2026-09-28T12:37:58.9426129Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-09-28T12:37:58.9440753Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-09-28T12:37:58.9444043Z hint:
+2026-09-28T12:37:58.9445871Z hint: 	git branch -m <name>
+2026-09-28T12:37:58.9448125Z hint:
+2026-09-28T12:37:58.9450438Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-09-28T12:37:58.9455057Z Initialized empty Git repository in /home/runner/work/ProbabilisticSerial/ProbabilisticSerial/.git/
+2026-09-28T12:37:58.9462112Z [command]/usr/bin/git remote add origin https://github.com/josueortega1-maker/ProbabilisticSerial
+2026-09-28T12:37:58.9469217Z ##[endgroup]
+2026-09-28T12:37:58.9471788Z ##[group]Disabling automatic garbage collection
+2026-09-28T12:37:58.9474493Z [command]/usr/bin/git config --local gc.auto 0
+2026-09-28T12:37:58.9484249Z ##[endgroup]
+2026-09-28T12:37:58.9487375Z ##[group]Setting up auth
+2026-09-28T12:37:58.9492943Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-28T12:37:58.9533742Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-28T12:37:59.0019314Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-28T12:37:59.0043262Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-28T12:37:59.0228870Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-28T12:37:59.0274007Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-28T12:37:59.0539771Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-09-28T12:37:59.0589006Z ##[endgroup]
+2026-09-28T12:37:59.0592334Z ##[group]Fetching the repository
+2026-09-28T12:37:59.0603067Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +43c4713ac9305bb38647cf948bb006063093263d:refs/remotes/origin/formalize/theorem-one-completion
+2026-09-28T12:37:59.8250017Z From https://github.com/josueortega1-maker/ProbabilisticSerial
+2026-09-28T12:37:59.8265515Z  * [new ref]         43c4713ac9305bb38647cf948bb006063093263d -> origin/formalize/theorem-one-completion
+2026-09-28T12:37:59.8269197Z ##[endgroup]
+2026-09-28T12:37:59.8269945Z ##[group]Determining the checkout info
+2026-09-28T12:37:59.8270751Z ##[endgroup]
+2026-09-28T12:37:59.8271208Z [command]/usr/bin/git sparse-checkout disable
+2026-09-28T12:37:59.8332441Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-09-28T12:37:59.8387424Z ##[group]Checking out the ref
+2026-09-28T12:37:59.8388310Z [command]/usr/bin/git checkout --progress --force -B formalize/theorem-one-completion refs/remotes/origin/formalize/theorem-one-completion
+2026-09-28T12:37:59.8567281Z Switched to a new branch 'formalize/theorem-one-completion'
+2026-09-28T12:37:59.8582713Z branch 'formalize/theorem-one-completion' set up to track 'origin/formalize/theorem-one-completion'.
+2026-09-28T12:37:59.8585095Z ##[endgroup]
+2026-09-28T12:37:59.8637382Z [command]/usr/bin/git log -1 --format=%H
+2026-09-28T12:37:59.8672150Z 43c4713ac9305bb38647cf948bb006063093263d
+2026-09-28T12:37:59.9336808Z ##[group]Run leanprover/lean-action@v1
+2026-09-28T12:37:59.9337248Z with:
+2026-09-28T12:37:59.9337508Z   build: true
+2026-09-28T12:37:59.9337779Z   auto-config: true
+2026-09-28T12:37:59.9338055Z   test: default
+2026-09-28T12:37:59.9338311Z   lint: default
+2026-09-28T12:37:59.9338569Z   mk_all-check: false
+2026-09-28T12:37:59.9338863Z   use-mathlib-cache: auto
+2026-09-28T12:37:59.9339190Z   check-reservoir-eligibility: false
+2026-09-28T12:37:59.9339538Z   leanchecker: false
+2026-09-28T12:37:59.9339821Z   lean4checker: false
+2026-09-28T12:37:59.9340097Z   nanoda: false
+2026-09-28T12:37:59.9340368Z   nanoda-allow-sorry: true
+2026-09-28T12:37:59.9340668Z   axiom-audit: false
+2026-09-28T12:37:59.9341015Z   axiom-audit-allow: propext,Classical.choice,Quot.sound
+2026-09-28T12:37:59.9341414Z   use-github-cache: true
+2026-09-28T12:37:59.9341721Z   lake-package-directory: .
+2026-09-28T12:37:59.9342075Z   reinstall-transient-toolchain: false
+2026-09-28T12:37:59.9342415Z ##[endgroup]
+2026-09-28T12:37:59.9442484Z ##[start-action display=install elan;id=__leanprover_lean-action.__run]
+2026-09-28T12:37:59.9496505Z ##[group]Run : Install Elan
+2026-09-28T12:37:59.9496971Z [36;1m: Install Elan[0m
+2026-09-28T12:37:59.9497346Z [36;1m${GITHUB_ACTION_PATH}/scripts/install_elan.sh[0m
+2026-09-28T12:37:59.9759450Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-28T12:37:59.9759977Z ##[endgroup]
+2026-09-28T12:37:59.9935084Z ##[group]Elan Installation Output
+2026-09-28T12:38:00.0764658Z info: downloading installer
+2026-09-28T12:38:01.3836570Z info: downloading https://releases.lean-lang.org/lean4/v4.19.0/lean-4.19.0-linux.tar.zst
+2026-09-28T12:38:04.4601714Z info: installing /home/runner/.elan/toolchains/leanprover--lean4---v4.19.0
+2026-09-28T12:38:10.0085347Z Lean (version 4.19.0, x86_64-unknown-linux-gnu, commit 6caaee842e94, Release)
+2026-09-28T12:38:10.0615257Z Lake version 5.0.0-6caaee8 (Lean version 4.19.0)
+2026-09-28T12:38:10.0655862Z ##[endgroup]
+2026-09-28T12:38:10.0657454Z 
+2026-09-28T12:38:10.0691509Z ##[end-action id=__leanprover_lean-action.__run;outcome=success;conclusion=success;duration_ms=10124]
+2026-09-28T12:38:10.0704981Z ##[start-action display=configure `lean-action`;id=__leanprover_lean-action.config]
+2026-09-28T12:38:10.1643863Z ##[group]Run : Configure Lean Action
+2026-09-28T12:38:10.1644241Z [36;1m: Configure Lean Action[0m
+2026-09-28T12:38:10.1644538Z [36;1m${GITHUB_ACTION_PATH}/scripts/config.sh[0m
+2026-09-28T12:38:10.1719561Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-28T12:38:10.1719949Z env:
+2026-09-28T12:38:10.1720164Z   AUTO_CONFIG: true
+2026-09-28T12:38:10.1720387Z   BUILD: true
+2026-09-28T12:38:10.1720595Z   TEST: default
+2026-09-28T12:38:10.1720797Z   LINT: default
+2026-09-28T12:38:10.1721001Z ##[endgroup]
+2026-09-28T12:38:10.2184982Z ##[group]Configure lean-action
+2026-09-28T12:38:10.2214836Z build: true -> will run lake build
+2026-09-28T12:38:10.2215757Z auto-config: true
+2026-09-28T12:38:10.2216379Z     -> will run lake build
+2026-09-28T12:38:10.2768994Z lake check-test failed -> will not run lake test
+2026-09-28T12:38:10.3425394Z lake check-lint failed -> will not run lake lint
+2026-09-28T12:38:10.3464147Z ##[end-action id=__leanprover_lean-action.config;outcome=success;conclusion=success;duration_ms=275]
+2026-09-28T12:38:10.3470803Z ##[start-action display=reinstall transient toolchain;id=__leanprover_lean-action.__run_2]
+2026-09-28T12:38:10.3494490Z ##[end-action id=__leanprover_lean-action.__run_2;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-09-28T12:38:10.3498624Z ##[start-action display=ensure all files are imported;id=__leanprover_lean-action.mk_all]
+2026-09-28T12:38:10.3504680Z ##[end-action id=__leanprover_lean-action.mk_all;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-09-28T12:38:10.3507920Z ##[start-action display=Run actions/cache/restore@v5;id=__leanprover_lean-action.__actions_cache]
+2026-09-28T12:38:11.0113179Z ##[group]Run actions/cache/restore@v5
+2026-09-28T12:38:11.0113502Z with:
+2026-09-28T12:38:11.0114385Z   path: ./.lake
+2026-09-28T12:38:11.0115264Z   key: lake-Linux-X64-86fb0afe31431406bdc5b1691b843128a5731c4792d5e6c1bbcd745af8097b7d-8fb3a921c02e176860e9a0e5f4b8c67925ab651a42c6d1126f08cf1a3dd6806a-43c4713ac9305bb38647cf948bb006063093263d
+2026-09-28T12:38:11.0116653Z   restore-keys: lake-Linux-X64-86fb0afe31431406bdc5b1691b843128a5731c4792d5e6c1bbcd745af8097b7d-8fb3a921c02e176860e9a0e5f4b8c67925ab651a42c6d1126f08cf1a3dd6806a
+2026-09-28T12:38:11.0117413Z   enableCrossOsArchive: false
+2026-09-28T12:38:11.0117680Z   fail-on-cache-miss: false
+2026-09-28T12:38:11.0117925Z   lookup-only: false
+2026-09-28T12:38:11.0118151Z ##[endgroup]
+2026-09-28T12:38:11.5864157Z Cache hit for restore-key: lake-Linux-X64-86fb0afe31431406bdc5b1691b843128a5731c4792d5e6c1bbcd745af8097b7d-8fb3a921c02e176860e9a0e5f4b8c67925ab651a42c6d1126f08cf1a3dd6806a-7404d95a22fa4a5c6184da2947dda2db1b3fc3e7
+2026-09-28T12:38:12.8255688Z Received 37748736 of 2033583561 (1.9%), 35.7 MBs/sec
+2026-09-28T12:38:13.8211576Z Received 171966464 of 2033583561 (8.5%), 81.7 MBs/sec
+2026-09-28T12:38:14.8221804Z Received 293601280 of 2033583561 (14.4%), 93.1 MBs/sec
+2026-09-28T12:38:15.8223891Z Received 402653184 of 2033583561 (19.8%), 95.8 MBs/sec
+2026-09-28T12:38:16.8240541Z Received 528482304 of 2033583561 (26.0%), 100.6 MBs/sec
+2026-09-28T12:38:17.8242967Z Received 629145600 of 2033583561 (30.9%), 99.8 MBs/sec
+2026-09-28T12:38:18.8238032Z Received 675282944 of 2033583561 (33.2%), 91.9 MBs/sec
+2026-09-28T12:38:19.8241435Z Received 788529152 of 2033583561 (38.8%), 93.9 MBs/sec
+2026-09-28T12:38:20.8334947Z Received 868220928 of 2033583561 (42.7%), 91.9 MBs/sec
+2026-09-28T12:38:21.8257378Z Received 939524096 of 2033583561 (46.2%), 89.5 MBs/sec
+2026-09-28T12:38:22.8265436Z Received 1035993088 of 2033583561 (50.9%), 89.7 MBs/sec
+2026-09-28T12:38:23.8256323Z Received 1128267776 of 2033583561 (55.5%), 89.6 MBs/sec
+2026-09-28T12:38:24.8264205Z Received 1207959552 of 2033583561 (59.4%), 88.5 MBs/sec
+2026-09-28T12:38:25.8257254Z Received 1308622848 of 2033583561 (64.4%), 89.1 MBs/sec
+2026-09-28T12:38:26.8261700Z Received 1375731712 of 2033583561 (67.7%), 87.4 MBs/sec
+2026-09-28T12:38:27.8266328Z Received 1472200704 of 2033583561 (72.4%), 87.7 MBs/sec
+2026-09-28T12:38:28.8269532Z Received 1539309568 of 2033583561 (75.7%), 86.3 MBs/sec
+2026-09-28T12:38:29.8269272Z Received 1610612736 of 2033583561 (79.2%), 85.3 MBs/sec
+2026-09-28T12:38:30.8274986Z Received 1698693120 of 2033583561 (83.5%), 85.2 MBs/sec
+2026-09-28T12:38:31.8322746Z Received 1765801984 of 2033583561 (86.8%), 84.1 MBs/sec
+2026-09-28T12:38:32.8289982Z Received 1853882368 of 2033583561 (91.2%), 84.1 MBs/sec
+2026-09-28T12:38:33.8291753Z Received 1941962752 of 2033583561 (95.5%), 84.1 MBs/sec
+2026-09-28T12:38:34.8295057Z Received 2013265920 of 2033583561 (99.0%), 83.4 MBs/sec
+2026-09-28T12:38:35.2995708Z Received 2033583561 of 2033583561 (100.0%), 82.6 MBs/sec
+2026-09-28T12:38:35.3004477Z Cache Size: ~1939 MB (2033583561 B)
+2026-09-28T12:38:35.3156730Z [command]/usr/bin/tar -xf /home/runner/work/_temp/f618796b-193c-420f-a2bd-0c81173dcd3a/cache.tzst -P -C /home/runner/work/ProbabilisticSerial/ProbabilisticSerial --use-compress-program unzstd
+2026-09-28T12:39:01.8635037Z Cache restored successfully
+2026-09-28T12:39:02.2776355Z Cache restored from key: lake-Linux-X64-86fb0afe31431406bdc5b1691b843128a5731c4792d5e6c1bbcd745af8097b7d-8fb3a921c02e176860e9a0e5f4b8c67925ab651a42c6d1126f08cf1a3dd6806a-7404d95a22fa4a5c6184da2947dda2db1b3fc3e7
+2026-09-28T12:39:02.3179369Z ##[end-action id=__leanprover_lean-action.__actions_cache;outcome=success;conclusion=success;duration_ms=51966]
+2026-09-28T12:39:02.3204751Z ##[start-action display=detect mathlib;id=__leanprover_lean-action.detect-mathlib]
+2026-09-28T12:39:02.3326868Z ##[group]Run : Detect Mathlib
+2026-09-28T12:39:02.3327337Z [36;1m: Detect Mathlib[0m
+2026-09-28T12:39:02.3327827Z [36;1m${GITHUB_ACTION_PATH}/scripts/detect_mathlib.sh[0m
+2026-09-28T12:39:02.4298273Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-28T12:39:02.4298867Z ##[endgroup]
+2026-09-28T12:39:02.5230562Z ##[group]Detect Mathlib Output
+2026-09-28T12:39:02.5244918Z Trying to detect if project is downstream of Mathlib.
+2026-09-28T12:39:02.5547127Z Detected Mathlib dependency in lake-manifest.json. Using Mathlib cache.
+2026-09-28T12:39:02.5555291Z ##[endgroup]
+2026-09-28T12:39:02.5556323Z 
+2026-09-28T12:39:02.5565586Z ##[end-action id=__leanprover_lean-action.detect-mathlib;outcome=success;conclusion=success;duration_ms=235]
+2026-09-28T12:39:02.5569433Z ##[start-action display=get mathlib cache;id=__leanprover_lean-action.__run_3]
+2026-09-28T12:39:02.5651298Z ##[group]Run : Get Mathlib Cache
+2026-09-28T12:39:02.5651827Z [36;1m: Get Mathlib Cache[0m
+2026-09-28T12:39:02.5652269Z [36;1mecho "::group::Mathlib Cache"[0m
+2026-09-28T12:39:02.5652742Z [36;1mlake exe cache get[0m
+2026-09-28T12:39:02.5653159Z [36;1mecho "::endgroup::"[0m
+2026-09-28T12:39:02.5653857Z [36;1mecho[0m
+2026-09-28T12:39:02.5794831Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-28T12:39:02.5795285Z ##[endgroup]
+2026-09-28T12:39:02.6070630Z ##[group]Mathlib Cache
+2026-09-28T12:39:10.3818047Z   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+2026-09-28T12:39:10.3819457Z                                  Dload  Upload   Total   Spent    Left  Speed
+2026-09-28T12:39:10.3820329Z 
+2026-09-28T12:39:10.3820804Z   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+2026-09-28T12:39:10.3821663Z   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+2026-09-28T12:39:10.3823941Z 
+2026-09-28T12:39:10.3824743Z 100 1075k  100 1075k    0     0  2725k      0 --:--:-- --:--:-- --:--:-- 2725k
+2026-09-28T12:39:10.3844026Z 
+2026-09-28T12:39:10.5051286Z installing leantar 0.1.15
+2026-09-28T12:39:11.0027458Z Attempting to download 6641 file(s)
+2026-09-28T12:39:12.1624106Z 
+2026-09-28T12:39:12.2609078Z Downloaded: 1 file(s) [attempted 1/6641 = 0%]
+2026-09-28T12:39:12.3616446Z Downloaded: 143 file(s) [attempted 143/6641 = 2%]
+2026-09-28T12:39:12.4645615Z Downloaded: 356 file(s) [attempted 356/6641 = 5%]
+2026-09-28T12:39:12.5635006Z Downloaded: 563 file(s) [attempted 563/6641 = 8%]
+2026-09-28T12:39:12.6644725Z Downloaded: 752 file(s) [attempted 752/6641 = 11%]
+2026-09-28T12:39:12.7674674Z Downloaded: 935 file(s) [attempted 935/6641 = 14%]
+2026-09-28T12:39:12.8705078Z Downloaded: 1138 file(s) [attempted 1138/6641 = 17%]
+2026-09-28T12:39:12.9678655Z Downloaded: 1318 file(s) [attempted 1318/6641 = 19%]
+2026-09-28T12:39:13.0684794Z Downloaded: 1523 file(s) [attempted 1523/6641 = 22%]
+2026-09-28T12:39:13.1685101Z Downloaded: 1685 file(s) [attempted 1685/6641 = 25%]
+2026-09-28T12:39:13.2684122Z Downloaded: 1863 file(s) [attempted 1863/6641 = 28%]
+2026-09-28T12:39:13.3677475Z Downloaded: 2043 file(s) [attempted 2043/6641 = 30%]
+2026-09-28T12:39:13.4680790Z Downloaded: 2270 file(s) [attempted 2270/6641 = 34%]
+2026-09-28T12:39:13.5724472Z Downloaded: 2495 file(s) [attempted 2495/6641 = 37%]
+2026-09-28T12:39:13.6703522Z Downloaded: 2672 file(s) [attempted 2672/6641 = 40%]
+2026-09-28T12:39:13.7697060Z Downloaded: 2876 file(s) [attempted 2876/6641 = 43%]
+2026-09-28T12:39:13.8724939Z Downloaded: 3075 file(s) [attempted 3075/6641 = 46%]
+2026-09-28T12:39:13.9724532Z Downloaded: 3278 file(s) [attempted 3278/6641 = 49%]
+2026-09-28T12:39:14.0719117Z Downloaded: 3482 file(s) [attempted 3482/6641 = 52%]
+2026-09-28T12:39:14.1794972Z Downloaded: 3676 file(s) [attempted 3676/6641 = 55%]
+2026-09-28T12:39:14.2776045Z Downloaded: 3854 file(s) [attempted 3854/6641 = 58%]
+2026-09-28T12:39:14.3823750Z Downloaded: 4044 file(s) [attempted 4044/6641 = 60%]
+2026-09-28T12:39:14.4817517Z Downloaded: 4223 file(s) [attempted 4223/6641 = 63%]
+2026-09-28T12:39:14.5830045Z Downloaded: 4421 file(s) [attempted 4421/6641 = 66%]
+2026-09-28T12:39:14.6832260Z Downloaded: 4590 file(s) [attempted 4590/6641 = 69%]
+2026-09-28T12:39:14.7850766Z Downloaded: 4747 file(s) [attempted 4747/6641 = 71%]
+2026-09-28T12:39:14.8905002Z Downloaded: 4950 file(s) [attempted 4950/6641 = 74%]
+2026-09-28T12:39:14.9964799Z Downloaded: 5106 file(s) [attempted 5106/6641 = 76%]
+2026-09-28T12:39:15.0995082Z Downloaded: 5305 file(s) [attempted 5305/6641 = 79%]
+2026-09-28T12:39:15.2063031Z Downloaded: 5456 file(s) [attempted 5456/6641 = 82%]
+2026-09-28T12:39:15.3060120Z Downloaded: 5653 file(s) [attempted 5653/6641 = 85%]
+2026-09-28T12:39:15.4095868Z Downloaded: 5852 file(s) [attempted 5852/6641 = 88%]
+2026-09-28T12:39:15.5100515Z Downloaded: 6036 file(s) [attempted 6036/6641 = 90%]
+2026-09-28T12:39:15.6097168Z Downloaded: 6230 file(s) [attempted 6230/6641 = 93%]
+2026-09-28T12:39:15.7095527Z Downloaded: 6422 file(s) [attempted 6422/6641 = 96%]
+2026-09-28T12:39:15.8006044Z Downloaded: 6592 file(s) [attempted 6592/6641 = 99%]
+2026-09-28T12:39:15.8007242Z Downloaded: 6641 file(s) [attempted 6641/6641 = 100%] (100% success)
+2026-09-28T12:39:16.0134810Z Decompressing 6641 file(s)
+2026-09-28T12:39:16.0144751Z Unpacked in 171 ms
+2026-09-28T12:39:16.0145384Z Completed successfully!
+2026-09-28T12:39:16.0305456Z ##[endgroup]
+2026-09-28T12:39:16.0305936Z 
+2026-09-28T12:39:16.0316553Z ##[end-action id=__leanprover_lean-action.__run_3;outcome=success;conclusion=success;duration_ms=13474]
+2026-09-28T12:39:16.0330007Z ##[start-action display=build josueortega1-maker/ProbabilisticSerial;id=__leanprover_lean-action.build]
+2026-09-28T12:39:16.0357855Z ##[group]Run : Lake Build
+2026-09-28T12:39:16.0358174Z [36;1m: Lake Build[0m
+2026-09-28T12:39:16.0358464Z [36;1m${GITHUB_ACTION_PATH}/scripts/lake_build.sh[0m
+2026-09-28T12:39:16.0428468Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-28T12:39:16.0428827Z env:
+2026-09-28T12:39:16.0429040Z   BUILD_ARGS: 
+2026-09-28T12:39:16.0429271Z ##[endgroup]
+2026-09-28T12:39:16.0551162Z ##[group]Lake Build Output
+2026-09-28T12:39:17.1200746Z ⚠ [1731/2006] Replayed AdaptiveBernoulli
+2026-09-28T12:39:17.1201618Z warning: ././././AdaptiveBernoulli.lean:103:13: unused variable `ha`
+2026-09-28T12:39:17.1202831Z note: this linter can be disabled with `set_option linter.unusedVariables false`
+2026-09-28T12:39:17.1204677Z warning: ././././AdaptiveBernoulli.lean:166:54: unused variable `hp`
+2026-09-28T12:39:17.1205954Z note: this linter can be disabled with `set_option linter.unusedVariables false`
+2026-09-28T12:39:17.1209794Z warning: ././././AdaptiveBernoulli.lean:279:14: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-28T12:39:17.1211372Z note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-28T12:39:17.1212513Z ⚠ [1732/2006] Replayed UniformProductChernoff
+2026-09-28T12:39:17.1213405Z warning: ././././UniformProductChernoff.lean:60:47: unused variable `ha`
+2026-09-28T12:39:17.1215081Z note: this linter can be disabled with `set_option linter.unusedVariables false`
+2026-09-28T12:39:17.1216253Z ⚠ [1733/2006] Replayed RankMGF
+2026-09-28T12:39:17.1216983Z warning: ././././RankMGF.lean:26:2: 'norm_num' tactic does nothing
+2026-09-28T12:39:17.1219074Z note: this linter can be disabled with `set_option linter.unusedTactic false`
+2026-09-28T12:39:17.1220086Z ⚠ [1735/2006] Replayed UniformSubsetRank
+2026-09-28T12:39:17.1220870Z warning: ././././UniformSubsetRank.lean:61:50: unused variable `hr`
+2026-09-28T12:39:17.1221873Z note: this linter can be disabled with `set_option linter.unusedVariables false`
+2026-09-28T12:39:17.1223075Z ⚠ [1742/2006] Replayed AdaptiveCategorical
+2026-09-28T12:39:17.1235343Z warning: ././././AdaptiveCategorical.lean:169:37: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-28T12:39:17.1236758Z note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-28T12:39:17.1240801Z warning: ././././AdaptiveCategorical.lean:213:22: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-28T12:39:17.1242296Z note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-28T12:39:17.1243695Z warning: ././././AdaptiveCategorical.lean:308:14: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-28T12:39:17.1246748Z note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-28T12:39:17.1247838Z ℹ [1936/2006] Replayed LoadBound
+2026-09-28T12:39:17.1248638Z info: ././././LoadBound.lean:262:2: Try this: ring_nf
+2026-09-28T12:39:17.1249486Z info: ././././LoadBound.lean:325:12: Try this: ring_nf
+2026-09-28T12:39:17.2208587Z ⚠ [2266/2283] Replayed AsymptoticClosure
+2026-09-28T12:39:17.2209544Z warning: ././././AsymptoticClosure.lean:95:28: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-28T12:39:17.2210408Z note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-28T12:39:17.2211284Z warning: ././././AsymptoticClosure.lean:171:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-28T12:39:17.2212105Z note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-28T12:39:17.2212851Z warning: ././././AsymptoticClosure.lean:220:10: this tactic is never executed
+2026-09-28T12:39:17.2213808Z note: this linter can be disabled with `set_option linter.unreachableTactic false`
+2026-09-28T12:39:17.2214534Z warning: ././././AsymptoticClosure.lean:220:10: 'ring' tactic does nothing
+2026-09-28T12:39:17.2215254Z note: this linter can be disabled with `set_option linter.unusedTactic false`
+2026-09-28T12:39:17.2215991Z warning: ././././AsymptoticClosure.lean:277:12: this tactic is never executed
+2026-09-28T12:39:17.2216751Z note: this linter can be disabled with `set_option linter.unreachableTactic false`
+2026-09-28T12:39:17.2217458Z warning: ././././AsymptoticClosure.lean:277:12: 'ring' tactic does nothing
+2026-09-28T12:39:17.2218191Z note: this linter can be disabled with `set_option linter.unusedTactic false`
+2026-09-28T12:39:17.2219069Z warning: ././././AsymptoticClosure.lean:266:8: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-28T12:39:17.2219877Z note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-28T12:39:17.2220572Z ⚠ [2267/2283] Replayed ConcreteTheoremOne
+2026-09-28T12:39:17.2221355Z warning: ././././ConcreteTheoremOne.lean:185:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-28T12:39:17.2239050Z note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-28T12:39:17.2239903Z ⚠ [2268/2283] Replayed PSChoiceMachine
+2026-09-28T12:39:17.2240450Z warning: ././././PSChoiceMachine.lean:122:5: unused variable `hround`
+2026-09-28T12:39:17.2241197Z note: this linter can be disabled with `set_option linter.unusedVariables false`
+2026-09-28T12:39:17.2241964Z warning: ././././PSChoiceMachine.lean:142:5: unused variable `hactive`
+2026-09-28T12:39:17.2242713Z note: this linter can be disabled with `set_option linter.unusedVariables false`
+2026-09-28T12:39:17.2243488Z warning: ././././PSChoiceMachine.lean:232:22: try 'simp' instead of 'simpa'
+2026-09-28T12:39:17.2244476Z note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+2026-09-28T12:39:17.2245863Z warning: ././././PSChoiceMachine.lean:276:0: automatically included section variable(s) unused in theorem 'ProbabilisticSerial.PSChoiceMachine.profileSupply_valid':
+2026-09-28T12:39:17.2247023Z   [Nonempty (Fin n)]
+2026-09-28T12:39:17.2247803Z consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+2026-09-28T12:39:17.2248711Z   omit [Nonempty (Fin n)] in theorem ...
+2026-09-28T12:39:17.2249399Z note: this linter can be disabled with `set_option linter.unusedSectionVars false`
+2026-09-28T12:39:17.2250640Z warning: ././././PSChoiceMachine.lean:287:0: automatically included section variable(s) unused in theorem 'ProbabilisticSerial.PSChoiceMachine.profileSupply_active_subset':
+2026-09-28T12:39:17.2251355Z   [Nonempty (Fin n)]
+2026-09-28T12:39:17.2251826Z consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+2026-09-28T12:39:17.2252376Z   omit [Nonempty (Fin n)] in theorem ...
+2026-09-28T12:39:17.2253307Z note: this linter can be disabled with `set_option linter.unusedSectionVars false`
+2026-09-28T12:39:17.2256127Z warning: ././././PSChoiceMachine.lean:295:0: automatically included section variable(s) unused in theorem 'ProbabilisticSerial.PSChoiceMachine.favorite_congr_set':
+2026-09-28T12:39:17.2257070Z   [Nonempty (Fin n)]
+2026-09-28T12:39:17.2257570Z consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+2026-09-28T12:39:17.2258123Z   omit [Nonempty (Fin n)] in theorem ...
+2026-09-28T12:39:17.2258545Z note: this linter can be disabled with `set_option linter.unusedSectionVars false`
+2026-09-28T12:39:17.2259361Z warning: ././././PSChoiceMachine.lean:309:0: automatically included section variable(s) unused in theorem 'ProbabilisticSerial.PSChoiceMachine.round_slot_mod':
+2026-09-28T12:39:17.2260016Z   [Nonempty (Fin n)]
+2026-09-28T12:39:17.2260495Z consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+2026-09-28T12:39:17.2261291Z   omit [Nonempty (Fin n)] in theorem ...
+2026-09-28T12:39:17.2261772Z note: this linter can be disabled with `set_option linter.unusedSectionVars false`
+2026-09-28T12:39:17.2262290Z warning: ././././PSChoiceMachine.lean:539:61: unused variable `hn`
+2026-09-28T12:39:17.2262861Z note: this linter can be disabled with `set_option linter.unusedVariables false`
+2026-09-28T12:39:17.2263330Z warning: ././././PSChoiceMachine.lean:978:13: unused variable `hA`
+2026-09-28T12:39:17.2263982Z note: this linter can be disabled with `set_option linter.unusedVariables false`
+2026-09-28T12:39:17.2264794Z warning: ././././PSChoiceMachine.lean:1033:0: automatically included section variable(s) unused in theorem 'ProbabilisticSerial.PSChoiceMachine.phaseLoad_active_eq_n':
+2026-09-28T12:39:17.2265482Z   [Nonempty (Fin n)]
+2026-09-28T12:39:17.2265942Z consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+2026-09-28T12:39:17.2266478Z   omit [Nonempty (Fin n)] in theorem ...
+2026-09-28T12:39:17.2266886Z note: this linter can be disabled with `set_option linter.unusedSectionVars false`
+2026-09-28T12:39:17.2267737Z warning: ././././PSChoiceMachine.lean:1434:0: automatically included section variable(s) unused in theorem 'ProbabilisticSerial.PSChoiceMachine.admissibleExtension_append_one':
+2026-09-28T12:39:17.2268443Z   [Nonempty (Fin n)]
+2026-09-28T12:39:17.2268883Z consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+2026-09-28T12:39:17.2269393Z   omit [Nonempty (Fin n)] in theorem ...
+2026-09-28T12:39:17.2269772Z note: this linter can be disabled with `set_option linter.unusedSectionVars false`
+2026-09-28T12:39:17.2270583Z warning: ././././PSChoiceMachine.lean:1619:0: automatically included section variable(s) unused in theorem 'ProbabilisticSerial.PSChoiceMachine.reveal_card_product_pos':
+2026-09-28T12:39:17.2271271Z   [Nonempty (Fin n)]
+2026-09-28T12:39:17.2271747Z consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+2026-09-28T12:39:17.2272275Z   omit [Nonempty (Fin n)] in theorem ...
+2026-09-28T12:39:17.2272678Z note: this linter can be disabled with `set_option linter.unusedSectionVars false`
+2026-09-28T12:39:17.2273204Z warning: ././././PSChoiceMachine.lean:1870:2: try 'simp' instead of 'simpa'
+2026-09-28T12:39:17.2276325Z note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+2026-09-28T12:39:17.2278483Z warning: ././././PSChoiceMachine.lean:1883:2: try 'simp' instead of 'simpa'
+2026-09-28T12:39:17.2279400Z note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+2026-09-28T12:39:17.2281081Z warning: ././././PSChoiceMachine.lean:2227:0: automatically included section variable(s) unused in theorem 'ProbabilisticSerial.PSChoiceMachine.history_length_round_decomposition':
+2026-09-28T12:39:17.2283814Z   [Nonempty (Fin n)]
+2026-09-28T12:39:17.2285028Z consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+2026-09-28T12:39:17.2287408Z   omit [Nonempty (Fin n)] in theorem ...
+2026-09-28T12:39:17.2288291Z note: this linter can be disabled with `set_option linter.unusedSectionVars false`
+2026-09-28T12:39:17.2289151Z ⚠ [2273/2283] Replayed WeightedArrival
+2026-09-28T12:39:17.2289901Z warning: ././././WeightedArrival.lean:81:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-28T12:39:17.2290912Z note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-28T12:39:26.9415597Z ⚠ [2820/2833] Replayed FiniteExposure
+2026-09-28T12:39:26.9465002Z warning: ././././FiniteExposure.lean:80:61: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-28T12:39:26.9475157Z note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-28T12:39:26.9555090Z warning: ././././FiniteExposure.lean:84:8: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-28T12:39:26.9556294Z note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-28T12:39:26.9578291Z ✔ [2824/2833] Built ReplicaRP
+2026-09-28T12:39:28.2616459Z ⚠ [2825/2833] Replayed FinitePhaseGrowth
+2026-09-28T12:39:28.2617777Z warning: ././././FinitePhaseGrowth.lean:79:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-28T12:39:28.2815463Z note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-28T12:39:28.2816968Z warning: ././././FinitePhaseGrowth.lean:210:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-28T12:39:28.3015511Z note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-28T12:39:28.3034627Z warning: ././././FinitePhaseGrowth.lean:248:2: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-28T12:39:28.3215360Z note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-28T12:39:28.3234477Z warning: ././././FinitePhaseGrowth.lean:272:6: 'ring' tactic does nothing
+2026-09-28T12:39:28.3415090Z note: this linter can be disabled with `set_option linter.unusedTactic false`
+2026-09-28T12:39:28.3431926Z warning: ././././FinitePhaseGrowth.lean:272:6: this tactic is never executed
+2026-09-28T12:39:28.3615169Z note: this linter can be disabled with `set_option linter.unreachableTactic false`
+2026-09-28T12:39:28.3634626Z ⚠ [2826/2833] Replayed FinitePhaseSum
+2026-09-28T12:39:28.3815413Z warning: ././././FinitePhaseSum.lean:83:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-28T12:39:28.3816454Z note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-28T12:39:28.4035112Z ⚠ [2827/2833] Replayed FiniteAtomicExposure
+2026-09-28T12:39:28.4235405Z warning: ././././FiniteAtomicExposure.lean:41:18: unused variable `hb`
+2026-09-28T12:39:28.4236318Z note: this linter can be disabled with `set_option linter.unusedVariables false`
+2026-09-28T12:39:28.4475335Z ✔ [2828/2833] Built ReplicaAsymptoticConstants
+2026-09-28T12:39:29.6450348Z ✔ [2829/2833] Built ReplicaTrace
+2026-09-28T12:39:33.3528630Z ⚠ [2830/2833] Built FiniteArrivalCertificate
+2026-09-28T12:39:33.3530135Z warning: ././././FiniteArrivalCertificate.lean:75:58: 'ring' tactic does nothing
+2026-09-28T12:39:33.3531191Z note: this linter can be disabled with `set_option linter.unusedTactic false`
+2026-09-28T12:39:33.3532234Z warning: ././././FiniteArrivalCertificate.lean:75:58: this tactic is never executed
+2026-09-28T12:39:33.3533302Z note: this linter can be disabled with `set_option linter.unreachableTactic false`
+2026-09-28T12:39:33.3534819Z warning: ././././FiniteArrivalCertificate.lean:76:61: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+2026-09-28T12:39:33.3536016Z note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+2026-09-28T12:42:59.2624842Z ✔ [2831/2833] Built FiniteFiveCertificate
+2026-09-28T12:43:01.7615388Z ✔ [2832/2833] Built PaperReplicaInterface
+2026-09-28T12:43:01.7673239Z Build completed successfully.
+2026-09-28T12:43:01.7811599Z ##[endgroup]
+2026-09-28T12:43:01.7812465Z 
+2026-09-28T12:43:01.7842561Z ##[end-action id=__leanprover_lean-action.build;outcome=success;conclusion=success;duration_ms=225751]
+2026-09-28T12:43:01.7847731Z ##[start-action display=Run actions/cache/save@v5;id=__leanprover_lean-action.__actions_cache_2]
+2026-09-28T12:43:02.0020914Z ##[group]Run actions/cache/save@v5
+2026-09-28T12:43:02.0021358Z with:
+2026-09-28T12:43:02.0021618Z   path: ./.lake
+2026-09-28T12:43:02.0022483Z   key: lake-Linux-X64-86fb0afe31431406bdc5b1691b843128a5731c4792d5e6c1bbcd745af8097b7d-8fb3a921c02e176860e9a0e5f4b8c67925ab651a42c6d1126f08cf1a3dd6806a-43c4713ac9305bb38647cf948bb006063093263d
+2026-09-28T12:43:02.0023419Z   enableCrossOsArchive: false
+2026-09-28T12:43:02.0023917Z ##[endgroup]
+2026-09-28T12:43:02.1757629Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/ProbabilisticSerial/ProbabilisticSerial --files-from manifest.txt --use-compress-program zstdmt
+2026-09-28T12:43:37.2121255Z Sent 0 of 2044702609 (0.0%), 0.0 MBs/sec
+2026-09-28T12:43:38.2121777Z Sent 0 of 2044702609 (0.0%), 0.0 MBs/sec
+2026-09-28T12:43:39.2135220Z Sent 536870912 of 2044702609 (26.3%), 169.6 MBs/sec
+2026-09-28T12:43:40.2145653Z Sent 536870912 of 2044702609 (26.3%), 127.3 MBs/sec
+2026-09-28T12:43:41.2154357Z Sent 671088640 of 2044702609 (32.8%), 127.4 MBs/sec
+2026-09-28T12:43:42.2197921Z Sent 1073741824 of 2044702609 (52.5%), 170.0 MBs/sec
+2026-09-28T12:43:43.2260523Z Sent 1610612736 of 2044702609 (78.8%), 218.6 MBs/sec
+2026-09-28T12:43:44.2204140Z Sent 1977593745 of 2044702609 (96.7%), 235.0 MBs/sec
+2026-09-28T12:43:44.3626147Z Sent 2044702609 of 2044702609 (100.0%), 238.7 MBs/sec
+2026-09-28T12:43:44.6696666Z Cache saved with key: lake-Linux-X64-86fb0afe31431406bdc5b1691b843128a5731c4792d5e6c1bbcd745af8097b7d-8fb3a921c02e176860e9a0e5f4b8c67925ab651a42c6d1126f08cf1a3dd6806a-43c4713ac9305bb38647cf948bb006063093263d
+2026-09-28T12:43:44.6820199Z ##[end-action id=__leanprover_lean-action.__actions_cache_2;outcome=success;conclusion=success;duration_ms=42897]
+2026-09-28T12:43:44.6828006Z ##[start-action display=test josueortega1-maker/ProbabilisticSerial;id=__leanprover_lean-action.test]
+2026-09-28T12:43:44.6847627Z ##[end-action id=__leanprover_lean-action.test;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-09-28T12:43:44.6851012Z ##[start-action display=lint josueortega1-maker/ProbabilisticSerial;id=__leanprover_lean-action.lint]
+2026-09-28T12:43:44.6855682Z ##[end-action id=__leanprover_lean-action.lint;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-09-28T12:43:44.6857580Z ##[start-action display=check reservoir eligibility;id=__leanprover_lean-action.__run_4]
+2026-09-28T12:43:44.6861027Z ##[end-action id=__leanprover_lean-action.__run_4;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-09-28T12:43:44.6863426Z ##[start-action display=check environment with leanchecker;id=__leanprover_lean-action.__run_5]
+2026-09-28T12:43:44.6868731Z ##[end-action id=__leanprover_lean-action.__run_5;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-09-28T12:43:44.6870959Z ##[start-action display=check environment with nanoda;id=__leanprover_lean-action.nanoda]
+2026-09-28T12:43:44.6874627Z ##[end-action id=__leanprover_lean-action.nanoda;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-09-28T12:43:44.6876936Z ##[start-action display=audit axioms with axiom-audit;id=__leanprover_lean-action.axiom-audit]
+2026-09-28T12:43:44.6880228Z ##[end-action id=__leanprover_lean-action.axiom-audit;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-09-28T12:43:44.6938659Z ##[group]Run if rg -n '\b(sorry|admit|axiom|native_decide|unsafe|partial def)\b' --glob '*.lean'; then
+2026-09-28T12:43:44.6939386Z [36;1mif rg -n '\b(sorry|admit|axiom|native_decide|unsafe|partial def)\b' --glob '*.lean'; then[0m
+2026-09-28T12:43:44.6939855Z [36;1m  exit 1[0m
+2026-09-28T12:43:44.6940084Z [36;1mfi[0m
+2026-09-28T12:43:44.7347815Z shell: /usr/bin/bash -e {0}
+2026-09-28T12:43:44.7348132Z ##[endgroup]
+2026-09-28T12:43:44.7450138Z /home/runner/work/_temp/1d22f8af-2d8a-4c14-9eed-a4758ae59003.sh: line 1: rg: command not found
+2026-09-28T12:43:44.7479996Z ##[group]Run lake env lean AxiomAudit.lean
+2026-09-28T12:43:44.7480363Z [36;1mlake env lean AxiomAudit.lean[0m
+2026-09-28T12:43:44.7544069Z shell: /usr/bin/bash -e {0}
+2026-09-28T12:43:44.7544360Z ##[endgroup]
+2026-09-28T12:43:56.8055084Z 'ProbabilisticSerial.theorem_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:43:56.8072616Z 'ProbabilisticSerial.AdaptiveBernoulli.upper_deviation' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:43:56.8085060Z 'ProbabilisticSerial.AdaptiveBernoulli.lower_deviation' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:43:56.8086553Z 'ProbabilisticSerial.UniformProduct.uniform_active_rank_exponential' depends on axioms: [propext,
+2026-09-28T12:43:56.8087607Z  Classical.choice,
+2026-09-28T12:43:56.8088251Z  Quot.sound]
+2026-09-28T12:43:56.8089139Z 'ProbabilisticSerial.UniformSubsetRank.firstRank_tail_probability' depends on axioms: [propext,
+2026-09-28T12:43:56.8090209Z  Classical.choice,
+2026-09-28T12:43:56.8090721Z  Quot.sound]
+2026-09-28T12:43:56.8091744Z 'ProbabilisticSerial.UniformSubsetRank.firstRank_tail_le_exp' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:43:56.8093243Z 'ProbabilisticSerial.UniformSubsetRank.fixed_active_set_sum_tail' depends on axioms: [propext,
+2026-09-28T12:43:56.8094379Z  Classical.choice,
+2026-09-28T12:43:56.8094900Z  Quot.sound]
+2026-09-28T12:43:56.8095906Z 'ProbabilisticSerial.UniformPermutation.activePositions_expect_eq_rankSample' depends on axioms: [propext,
+2026-09-28T12:43:56.8096983Z  Classical.choice,
+2026-09-28T12:43:56.8097497Z  Quot.sound]
+2026-09-28T12:43:56.8098369Z 'ProbabilisticSerial.UniformPermutation.activeRank_tail_probability' depends on axioms: [propext,
+2026-09-28T12:43:56.8099370Z  Classical.choice,
+2026-09-28T12:43:56.8099891Z  Quot.sound]
+2026-09-28T12:43:56.8100843Z 'ProbabilisticSerial.UniformPermutation.uniform_active_rank_exponential_profile' depends on axioms: [propext,
+2026-09-28T12:43:56.8101914Z  Classical.choice,
+2026-09-28T12:43:56.8102424Z  Quot.sound]
+2026-09-28T12:43:56.8103336Z 'ProbabilisticSerial.PSProcess.run_totalDuration' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:43:56.8104914Z 'ProbabilisticSerial.PSProcess.run_consumedByGood' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:43:56.8106417Z 'ProbabilisticSerial.PSProcess.run_phases_length_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:43:56.8107966Z 'ProbabilisticSerial.PSProcess.averageRank_eq_dynamicRank' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:43:56.8109488Z 'ProbabilisticSerial.PSProcess.uniformRankGood_failure_probability_le' depends on axioms: [propext,
+2026-09-28T12:43:56.8110516Z  Classical.choice,
+2026-09-28T12:43:56.8111040Z  Quot.sound]
+2026-09-28T12:43:56.8111978Z 'ProbabilisticSerial.PSProcess.run_rankReduction' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:43:56.8113526Z 'ProbabilisticSerial.PSProcess.run_averageRank_le_marketSize' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:43:56.8115173Z 'ProbabilisticSerial.SequentialRevelation.answerFiber_card_eq' depends on axioms: [propext,
+2026-09-28T12:43:56.8116167Z  Classical.choice,
+2026-09-28T12:43:56.8116684Z  Quot.sound]
+2026-09-28T12:43:56.8117600Z 'ProbabilisticSerial.SequentialRevelation.sequential_revelation_count' depends on axioms: [propext,
+2026-09-28T12:43:56.8118646Z  Classical.choice,
+2026-09-28T12:43:56.8119148Z  Quot.sound]
+2026-09-28T12:43:56.8120089Z 'ProbabilisticSerial.SequentialRevelation.sequential_revelation_probability' depends on axioms: [propext,
+2026-09-28T12:43:56.8121163Z  Classical.choice,
+2026-09-28T12:43:56.8121678Z  Quot.sound]
+2026-09-28T12:43:56.8122626Z 'ProbabilisticSerial.SequentialRevelation.sequential_revelation_joint_count' depends on axioms: [propext,
+2026-09-28T12:43:56.8127587Z  Classical.choice,
+2026-09-28T12:43:56.8128139Z  Quot.sound]
+2026-09-28T12:43:56.8129326Z 'ProbabilisticSerial.SequentialRevelation.run_phases_pairwise' depends on axioms: [propext,
+2026-09-28T12:43:56.8130342Z  Classical.choice,
+2026-09-28T12:43:56.8130871Z  Quot.sound]
+2026-09-28T12:43:56.8131822Z 'ProbabilisticSerial.SequentialRevelation.phase_choice_conditional_uniform' depends on axioms: [propext,
+2026-09-28T12:43:56.8132899Z  Classical.choice,
+2026-09-28T12:43:56.8133422Z  Quot.sound]
+2026-09-28T12:43:56.8134728Z 'ProbabilisticSerial.AdaptiveCategorical.upper_deviation' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:43:56.8136351Z 'ProbabilisticSerial.AdaptiveCategorical.lower_deviation' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:43:56.8137929Z 'ProbabilisticSerial.StoppedChoices.sequential_revelation_matches_labelled_law' depends on axioms: [propext,
+2026-09-28T12:43:56.8139006Z  Classical.choice,
+2026-09-28T12:43:56.8139518Z  Quot.sound]
+2026-09-28T12:43:56.8140375Z 'ProbabilisticSerial.StoppedChoices.stoppedChoice_upper_deviation' depends on axioms: [propext,
+2026-09-28T12:43:56.8141337Z  Classical.choice,
+2026-09-28T12:43:56.8141832Z  Quot.sound]
+2026-09-28T12:43:56.8142686Z 'ProbabilisticSerial.StoppedChoices.stoppedChoice_lower_deviation' depends on axioms: [propext,
+2026-09-28T12:43:56.8143788Z  Classical.choice,
+2026-09-28T12:43:56.8144303Z  Quot.sound]
+2026-09-28T12:43:56.8145211Z 'ProbabilisticSerial.StoppedChoices.recordedEntryCountFrom_eq_phaseLoad' depends on axioms: [propext,
+2026-09-28T12:43:56.8146264Z  Classical.choice,
+2026-09-28T12:43:56.8146760Z  Quot.sound]
+2026-09-28T12:43:56.8147769Z 'ProbabilisticSerial.StoppedChoices.predictableVolumeFrom_eq_card_mul_one_add_potential' depends on axioms: [propext,
+2026-09-28T12:43:56.8148896Z  Classical.choice,
+2026-09-28T12:43:56.8149398Z  Quot.sound]
+2026-09-28T12:43:56.8150380Z 'ProbabilisticSerial.StoppedChoices.run_prefix_load_mean' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:43:56.8151879Z 'ProbabilisticSerial.LoadBound.hitProbability_finiteUnion_le_card_mul' depends on axioms: [propext,
+2026-09-28T12:43:56.8152889Z  Classical.choice,
+2026-09-28T12:43:56.8153505Z  Quot.sound]
+2026-09-28T12:44:08.8706021Z 'ProbabilisticSerial.LoadBound.allSet_potential_exponential_bound' depends on axioms: [propext,
+2026-09-28T12:44:08.8715531Z  Classical.choice,
+2026-09-28T12:44:08.8716183Z  Quot.sound]
+2026-09-28T12:44:08.8717215Z 'ProbabilisticSerial.LoadBound.choose_le_exp_mul_div_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:08.8718809Z 'ProbabilisticSerial.LoadBound.exists_absolute_lambdaZero' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:08.8720313Z 'ProbabilisticSerial.LoadBound.candidateSize_mul_lambda_ge_log_div' depends on axioms: [propext,
+2026-09-28T12:44:08.8721317Z  Classical.choice,
+2026-09-28T12:44:08.8721880Z  Quot.sound]
+2026-09-28T12:44:08.8722790Z 'ProbabilisticSerial.LoadBound.candidateSize_underload_all_cardinalities' depends on axioms: [propext,
+2026-09-28T12:44:08.8724014Z  Classical.choice,
+2026-09-28T12:44:08.8724529Z  Quot.sound]
+2026-09-28T12:44:08.8725493Z 'ProbabilisticSerial.LoadBound.load_bound_tree_failure' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:08.8727003Z 'ProbabilisticSerial.LoadBound.paper_demand_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:08.8728574Z 'ProbabilisticSerial.PhaseIntegral.blockConsumption_le_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:08.8730210Z 'ProbabilisticSerial.PhaseIntegral.oneBlock_integral_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:08.8731719Z 'ProbabilisticSerial.PhaseIntegral.terminalBlock_integral_le_of_carrier' depends on axioms: [propext,
+2026-09-28T12:44:08.8732772Z  Classical.choice,
+2026-09-28T12:44:08.8734010Z  Quot.sound]
+2026-09-28T12:44:08.8734858Z 'ProbabilisticSerial.PhaseIntegral.nextLambda_ge_exp_div_four' depends on axioms: [propext,
+2026-09-28T12:44:08.8735851Z  Classical.choice,
+2026-09-28T12:44:08.8736710Z  Quot.sound]
+2026-09-28T12:44:08.8737637Z 'ProbabilisticSerial.PhaseIntegral.activeSize_recurrence_gives_exp_scale' depends on axioms: [propext,
+2026-09-28T12:44:08.8738665Z  Classical.choice,
+2026-09-28T12:44:08.8739193Z  Quot.sound]
+2026-09-28T12:44:08.8740081Z 'ProbabilisticSerial.PhaseIntegral.chain_length_le_exponentialHeight' depends on axioms: [propext,
+2026-09-28T12:44:08.8741098Z  Classical.choice,
+2026-09-28T12:44:08.8741614Z  Quot.sound]
+2026-09-28T12:44:08.8742508Z 'ProbabilisticSerial.PhaseIntegral.eatingIntegral_le_of_phaseCertificate' depends on axioms: [propext,
+2026-09-28T12:44:08.8743529Z  Classical.choice,
+2026-09-28T12:44:08.8744187Z  Quot.sound]
+2026-09-28T12:44:08.8745168Z 'ProbabilisticSerial.PhaseAdapter.exists_phaseLambdaZero' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:08.8746672Z 'ProbabilisticSerial.PhaseAdapter.concretePhaseLoadGood_demand' depends on axioms: [propext,
+2026-09-28T12:44:08.8747660Z  Classical.choice,
+2026-09-28T12:44:08.8748178Z  Quot.sound]
+2026-09-28T12:44:08.8749030Z 'ProbabilisticSerial.PhaseAdapter.greedyRawBlocks_decomposition' depends on axioms: [propext,
+2026-09-28T12:44:08.8750037Z  Classical.choice,
+2026-09-28T12:44:08.8750544Z  Quot.sound]
+2026-09-28T12:44:08.8751383Z 'ProbabilisticSerial.PhaseAdapter.exists_survivorBlock_of_raw' depends on axioms: [propext,
+2026-09-28T12:44:08.8752349Z  Classical.choice,
+2026-09-28T12:44:08.8752860Z  Quot.sound]
+2026-09-28T12:44:08.8754908Z 'ProbabilisticSerial.PhaseAdapter.rawBlockScales_chain' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:08.8756543Z 'ProbabilisticSerial.PhaseAdapter.exists_phaseCertificate_of_concreteLoadGood' depends on axioms: [propext,
+2026-09-28T12:44:08.8757648Z  Classical.choice,
+2026-09-28T12:44:08.8758178Z  Quot.sound]
+2026-09-28T12:44:08.8759066Z 'ProbabilisticSerial.PhaseAdapter.concrete_eatingIntegral_le_logStar' depends on axioms: [propext,
+2026-09-28T12:44:08.8760094Z  Classical.choice,
+2026-09-28T12:44:08.8760622Z  Quot.sound]
+2026-09-28T12:44:08.8761565Z 'ProbabilisticSerial.AsymptoticClosure.exponentialHeight_lt_log_bound' depends on axioms: [propext,
+2026-09-28T12:44:08.8762623Z  Classical.choice,
+2026-09-28T12:44:08.8763139Z  Quot.sound]
+2026-09-28T12:44:08.8764210Z 'ProbabilisticSerial.AsymptoticClosure.psLogStar_small_relative_to_log' depends on axioms: [propext,
+2026-09-28T12:44:08.8765290Z  Classical.choice,
+2026-09-28T12:44:08.8765818Z  Quot.sound]
+2026-09-28T12:44:08.8766708Z 'ProbabilisticSerial.AsymptoticClosure.harmonic_isEquivalent_log' depends on axioms: [propext,
+2026-09-28T12:44:08.8767710Z  Classical.choice,
+2026-09-28T12:44:08.8768216Z  Quot.sound]
+2026-09-28T12:44:08.8769122Z 'ProbabilisticSerial.AsymptoticClosure.rpExpectation_isEquivalent_log' depends on axioms: [propext,
+2026-09-28T12:44:08.8770183Z  Classical.choice,
+2026-09-28T12:44:08.8770696Z  Quot.sound]
+2026-09-28T12:44:08.8771566Z 'ProbabilisticSerial.ConcreteTheoremOne.rank_le_on_concrete_good' depends on axioms: [propext,
+2026-09-28T12:44:08.8772557Z  Classical.choice,
+2026-09-28T12:44:08.8773065Z  Quot.sound]
+2026-09-28T12:44:08.8774122Z 'ProbabilisticSerial.ConcreteTheoremOne.concrete_tail_of_load_transfer' depends on axioms: [propext,
+2026-09-28T12:44:08.8775179Z  Classical.choice,
+2026-09-28T12:44:08.8775692Z  Quot.sound]
+2026-09-28T12:44:08.8776631Z 'ProbabilisticSerial.ConcreteTheoremOne.expectedPS_isBigO_of_load_transfer' depends on axioms: [propext,
+2026-09-28T12:44:08.8777870Z  Classical.choice,
+2026-09-28T12:44:08.8778410Z  Quot.sound]
+2026-09-28T12:44:08.8779415Z 'ProbabilisticSerial.ConcreteTheoremOne.expectedPS_div_RP_tendsto_zero_of_load_transfer' depends on axioms: [propext,
+2026-09-28T12:44:08.8780547Z  Classical.choice,
+2026-09-28T12:44:08.8781067Z  Quot.sound]
+2026-09-28T12:44:08.8782063Z 'ProbabilisticSerial.ConcreteTheoremOne.concrete_theorem_one_of_load_transfer' depends on axioms: [propext,
+2026-09-28T12:44:08.8783374Z  Classical.choice,
+2026-09-28T12:44:08.8784023Z  Quot.sound]
+2026-09-28T12:44:08.8785053Z 'ProbabilisticSerial.PSChoiceMachine.profile_machine_correspondence' depends on axioms: [propext,
+2026-09-28T12:44:08.8786052Z  Classical.choice,
+2026-09-28T12:44:08.8786557Z  Quot.sound]
+2026-09-28T12:44:08.8787481Z 'ProbabilisticSerial.PSChoiceMachine.profileRevealHistory_admissible' depends on axioms: [propext,
+2026-09-28T12:44:08.8788509Z  Classical.choice,
+2026-09-28T12:44:08.8789012Z  Quot.sound]
+2026-09-28T12:44:21.7518777Z 'ProbabilisticSerial.PSChoiceMachine.pathFiber_probability_le_pathWeight' depends on axioms: [propext,
+2026-09-28T12:44:21.7534342Z  Classical.choice,
+2026-09-28T12:44:21.7549433Z  Quot.sound]
+2026-09-28T12:44:21.7550653Z 'ProbabilisticSerial.PSChoiceMachine.profile_hit_probability_le_hitProbability' depends on axioms: [propext,
+2026-09-28T12:44:21.7551777Z  Classical.choice,
+2026-09-28T12:44:21.7552350Z  Quot.sound]
+2026-09-28T12:44:21.7553218Z 'ProbabilisticSerial.PSChoiceMachine.treeFailure_of_phase_bad' depends on axioms: [propext,
+2026-09-28T12:44:21.7554393Z  Classical.choice,
+2026-09-28T12:44:21.7554909Z  Quot.sound]
+2026-09-28T12:44:21.7555936Z 'ProbabilisticSerial.PSChoiceMachine.concrete_load_transfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:21.7557421Z 'ProbabilisticSerial.ConcreteTheoremOne.concrete_load_transfer' depends on axioms: [propext,
+2026-09-28T12:44:21.7558413Z  Classical.choice,
+2026-09-28T12:44:21.7558929Z  Quot.sound]
+2026-09-28T12:44:21.7559823Z 'ProbabilisticSerial.ConcreteTheoremOne.expectedPS_le_phase_bound' depends on axioms: [propext,
+2026-09-28T12:44:21.7560825Z  Classical.choice,
+2026-09-28T12:44:21.7561323Z  Quot.sound]
+2026-09-28T12:44:21.7562206Z 'ProbabilisticSerial.ConcreteTheoremOne.expectedPS_le_marketSize' depends on axioms: [propext,
+2026-09-28T12:44:21.7564246Z  Classical.choice,
+2026-09-28T12:44:21.7564793Z  Quot.sound]
+2026-09-28T12:44:21.7565821Z 'ProbabilisticSerial.ConcreteTheoremOne.concrete_theorem_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:21.7567342Z 'ProbabilisticSerial.PaperTheoremOne.expectedPS_le_paperLogStar' depends on axioms: [propext,
+2026-09-28T12:44:21.7568319Z  Classical.choice,
+2026-09-28T12:44:21.7568831Z  Quot.sound]
+2026-09-28T12:44:21.7569677Z 'ProbabilisticSerial.PaperTheoremOne.expectedPS_le_finite_min' depends on axioms: [propext,
+2026-09-28T12:44:21.7570673Z  Classical.choice,
+2026-09-28T12:44:21.7571193Z  Quot.sound]
+2026-09-28T12:44:21.7572186Z 'ProbabilisticSerial.PaperTheoremOne.paper_theorem_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:21.7573768Z 'ProbabilisticSerial.PaperTheoremOne.paper_theorem_one_as_stated' depends on axioms: [propext,
+2026-09-28T12:44:21.7574797Z  Classical.choice,
+2026-09-28T12:44:21.7575325Z  Quot.sound]
+2026-09-28T12:44:21.7576220Z 'ProbabilisticSerial.RandomPriority.rpExpectedRank_eq_knuth_formula' depends on axioms: [propext,
+2026-09-28T12:44:21.7577251Z  Classical.choice,
+2026-09-28T12:44:21.7577768Z  Quot.sound]
+2026-09-28T12:44:21.7578626Z 'ProbabilisticSerial.StandardLogStar.psLogStar_le_logStar_add_one' depends on axioms: [propext,
+2026-09-28T12:44:21.7579588Z  Classical.choice,
+2026-09-28T12:44:21.7580105Z  Quot.sound]
+2026-09-28T12:44:21.7581110Z 'ProbabilisticSerial.AdaptiveCategorical.weightedArrivalProcess_supermartingale' depends on axioms: [propext,
+2026-09-28T12:44:21.7582253Z  Classical.choice,
+2026-09-28T12:44:21.7582758Z  Quot.sound]
+2026-09-28T12:44:21.7583819Z 'ProbabilisticSerial.AdaptiveCategorical.sequence_expectation_le' depends on axioms: [propext,
+2026-09-28T12:44:21.7584801Z  Classical.choice,
+2026-09-28T12:44:21.7585306Z  Quot.sound]
+2026-09-28T12:44:21.7586330Z 'ProbabilisticSerial.AdaptiveCategorical.weightedArrivalProcess_expectation_le_one' depends on axioms: [propext,
+2026-09-28T12:44:21.7587486Z  Classical.choice,
+2026-09-28T12:44:21.7588586Z  Quot.sound]
+2026-09-28T12:44:21.7589526Z 'ProbabilisticSerial.PSChoiceMachine.profile_terminal_expectation_le_sequence_sum' depends on axioms: [propext,
+2026-09-28T12:44:21.7590618Z  Classical.choice,
+2026-09-28T12:44:21.7591333Z  Quot.sound]
+2026-09-28T12:44:21.7592284Z 'ProbabilisticSerial.PSChoiceMachine.profile_supermartingale_expectation_le' depends on axioms: [propext,
+2026-09-28T12:44:21.7593367Z  Classical.choice,
+2026-09-28T12:44:21.7594004Z  Quot.sound]
+2026-09-28T12:44:21.7595017Z 'ProbabilisticSerial.PSChoiceMachine.profile_weightedArrivalProcess_expectation_le_one' depends on axioms: [propext,
+2026-09-28T12:44:21.7596170Z  Classical.choice,
+2026-09-28T12:44:21.7596687Z  Quot.sound]
+2026-09-28T12:44:21.7597682Z 'ProbabilisticSerial.FiniteExposure.objective_le_phi' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:21.7599229Z 'ProbabilisticSerial.FiniteExposure.phi_attained' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:21.7600752Z 'ProbabilisticSerial.FiniteExposure.phi_div_antitone' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:21.7602342Z 'ProbabilisticSerial.FiniteExposure.phi_quota_reduction' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:21.7604041Z 'ProbabilisticSerial.FiniteExposure.expect_log_le_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:21.7605511Z 'ProbabilisticSerial.FiniteExposure.expect_le_of_log_envelope' depends on axioms: [propext,
+2026-09-28T12:44:21.7606486Z  Classical.choice,
+2026-09-28T12:44:21.7606998Z  Quot.sound]
+2026-09-28T12:44:21.7607925Z 'ProbabilisticSerial.ReplicaPS.favorite_type' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:21.7609444Z 'ProbabilisticSerial.ReplicaPS.allocation_agent_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:21.7610960Z 'ProbabilisticSerial.ReplicaPS.allocation_type_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:21.7612483Z 'ProbabilisticSerial.ReplicaPS.expectedPS_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:21.7614130Z 'ProbabilisticSerial.ReplicaPS.expectedPS_one_type' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:21.7620047Z 'ProbabilisticSerial.PaperTheoremOne.paper_tail_all_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:21.7623067Z 'ProbabilisticSerial.ReplicaRevelation.sequential_revelation_probability' depends on axioms: [propext,
+2026-09-28T12:44:21.7625222Z  Classical.choice,
+2026-09-28T12:44:21.7625911Z  Quot.sound]
+2026-09-28T12:44:33.2776074Z 'ProbabilisticSerial.ReplicaRevelation.sequential_revelation_joint_count' depends on axioms: [propext,
+2026-09-28T12:44:33.2791858Z  Classical.choice,
+2026-09-28T12:44:33.2792689Z  Quot.sound]
+2026-09-28T12:44:33.2793772Z 'ProbabilisticSerial.FinitePhaseConstants.tower_multiplier_ge_one' depends on axioms: [propext,
+2026-09-28T12:44:33.2794800Z  Classical.choice,
+2026-09-28T12:44:33.2795363Z  Quot.sound]
+2026-09-28T12:44:33.2796240Z 'ProbabilisticSerial.FinitePhaseConstants.initial_parameter_gt_one' depends on axioms: [propext,
+2026-09-28T12:44:33.2797251Z  Classical.choice,
+2026-09-28T12:44:33.2797754Z  Quot.sound]
+2026-09-28T12:44:33.2798787Z 'ProbabilisticSerial.FinitePhaseConstants.initialTime_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:33.2800437Z 'ProbabilisticSerial.FinitePhaseConstants.excess_scalar_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:33.2801895Z 'ProbabilisticSerial.FinitePhaseConstants.initial_envelope_lt' depends on axioms: [propext,
+2026-09-28T12:44:33.2802846Z  Classical.choice,
+2026-09-28T12:44:33.2803353Z  Quot.sound]
+2026-09-28T12:44:33.2804487Z 'ProbabilisticSerial.FinitePhaseConstants.additive_slack_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:33.2805969Z 'ProbabilisticSerial.FinitePhaseConstants.remainder_half_ratio' depends on axioms: [propext,
+2026-09-28T12:44:33.2807579Z  Classical.choice,
+2026-09-28T12:44:33.2808069Z  Quot.sound]
+2026-09-28T12:44:33.2809247Z 'ProbabilisticSerial.FinitePhaseGrowth.x_ge_geometric' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:33.2810713Z 'ProbabilisticSerial.FinitePhaseGrowth.x_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:33.2812085Z 'ProbabilisticSerial.FinitePhaseGrowth.x_ge_tower' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:33.2813685Z 'ProbabilisticSerial.FinitePhaseGrowth.theta_gt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:33.2815199Z 'ProbabilisticSerial.FinitePhaseGrowth.phaseTime_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:33.2816772Z 'ProbabilisticSerial.FinitePhaseGrowth.phaseTime_strict_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:33.2818326Z 'ProbabilisticSerial.FinitePhaseGrowth.theta_mul_next_u' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:33.2819888Z 'ProbabilisticSerial.FinitePhaseGrowth.phi_at_next_phase' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:33.2821367Z 'ProbabilisticSerial.FinitePhaseGrowth.unit_phase_cost' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:33.2823957Z 'ProbabilisticSerial.FinitePhaseGrowth.stopping_phase_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:33.2825725Z 'ProbabilisticSerial.FinitePhaseGrowth.endpoint_exposure_cost' depends on axioms: [propext,
+2026-09-28T12:44:33.2827003Z  Classical.choice,
+2026-09-28T12:44:33.2912384Z  Quot.sound]
+2026-09-28T12:44:33.2914649Z 'ProbabilisticSerial.FinitePhaseSum.phase_excess_sum_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:33.2945953Z 'ProbabilisticSerial.FinitePhaseSum.phase_assembly' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:33.2954938Z 'ProbabilisticSerial.FiniteAtomicExposure.increment_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:33.2956612Z 'ProbabilisticSerial.FiniteAtomicExposure.initial_envelope' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:33.2958303Z 'ProbabilisticSerial.FiniteAtomicExposure.logarithmic_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:33.2959899Z 'ProbabilisticSerial.ReplicaRank.uniform_active_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:33.2961381Z 'ProbabilisticSerial.ReplicaRank.uniformRankGood_failure_probability' depends on axioms: [propext,
+2026-09-28T12:44:33.2962406Z  Classical.choice,
+2026-09-28T12:44:33.2962954Z  Quot.sound]
+2026-09-28T12:44:33.2964121Z 'ProbabilisticSerial.ReplicaRank.averageRank_eq_phase_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:33.2965692Z 'ProbabilisticSerial.ReplicaRank.run_rankReduction' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:33.2967160Z 'ProbabilisticSerial.ReplicaTrace.choice_changes_iff_type_exhausted' depends on axioms: [propext,
+2026-09-28T12:44:33.2968640Z  Classical.choice,
+2026-09-28T12:44:33.2969167Z  Quot.sound]
+2026-09-28T12:44:33.2970160Z 'ProbabilisticSerial.ReplicaTrace.run_activeTypes_pairwise' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:33.2971758Z 'ProbabilisticSerial.ReplicaTrace.fresh_phase_query_admissible' depends on axioms: [propext,
+2026-09-28T12:44:33.2974063Z  Classical.choice,
+2026-09-28T12:44:33.2975495Z  Quot.sound]
+2026-09-28T12:44:33.2976617Z 'ProbabilisticSerial.ReplicaTrace.retained_type_not_fresh' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:33.2978990Z 'ProbabilisticSerial.FiniteArrivalCertificate.grid_domination' depends on axioms: [propext,
+2026-09-28T12:44:33.2980534Z  Classical.choice,
+2026-09-28T12:44:33.2981087Z  Quot.sound]
+2026-09-28T12:44:33.2983194Z 'ProbabilisticSerial.FiniteArrivalCertificate.value_le_certificate' depends on axioms: [propext,
+2026-09-28T12:44:33.2984943Z  Classical.choice,
+2026-09-28T12:44:33.2985989Z  Quot.sound]
+2026-09-28T12:44:37.3985641Z 'ProbabilisticSerial.FiniteFiveCertificate.domination' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:37.3987189Z 'ProbabilisticSerial.FiniteFiveCertificate.value_lt_five' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:37.3988594Z 'ProbabilisticSerial.ReplicaAsymptoticConstants.polynomial_failure_le_agents_cube' depends on axioms: [propext,
+2026-09-28T12:44:37.3989490Z  Classical.choice,
+2026-09-28T12:44:37.3989821Z  Quot.sound]
+2026-09-28T12:44:37.3990550Z 'ProbabilisticSerial.ReplicaAsymptoticConstants.critical_root_separation' depends on axioms: [propext,
+2026-09-28T12:44:37.3991398Z  Classical.choice,
+2026-09-28T12:44:37.3991727Z  Quot.sound]
+2026-09-28T12:44:37.3992522Z 'ProbabilisticSerial.ReplicaRP.serialTypeRankSum_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:37.3994023Z 'ProbabilisticSerial.ReplicaRP.expectedRP_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:37.3995320Z 'ProbabilisticSerial.ReplicaRP.expectedRP_one_type' depends on axioms: [propext, Classical.choice, Quot.sound]
+2026-09-28T12:44:37.3996536Z 'ProbabilisticSerial.PaperReplicaInterface.small_market_expected_rank' depends on axioms: [propext,
+2026-09-28T12:44:37.3997339Z  Classical.choice,
+2026-09-28T12:44:37.3997639Z  Quot.sound]
+2026-09-28T12:44:37.3998440Z 'ProbabilisticSerial.PaperReplicaInterface.expectedPS_lt_logStar_add_of_arrival_bounds' depends on axioms: [propext,
+2026-09-28T12:44:37.3999439Z  Classical.choice,
+2026-09-28T12:44:37.3999780Z  Quot.sound]
+2026-09-28T12:44:37.4000591Z 'ProbabilisticSerial.PaperReplicaInterface.expectedPS_lt_five_of_arrival_bounds' depends on axioms: [propext,
+2026-09-28T12:44:37.4001486Z  Classical.choice,
+2026-09-28T12:44:37.4001794Z  Quot.sound]
+2026-09-28T12:44:37.5099098Z Post job cleanup.
+2026-09-28T12:44:37.6078649Z [command]/usr/bin/git version
+2026-09-28T12:44:37.6147886Z git version 2.55.0
+2026-09-28T12:44:37.6203925Z Temporarily overriding HOME='/home/runner/work/_temp/a760f15c-cde9-4aab-b639-524ca3d54589' before making global git config changes
+2026-09-28T12:44:37.6218584Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-28T12:44:37.6220217Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ProbabilisticSerial/ProbabilisticSerial
+2026-09-28T12:44:37.6285566Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-28T12:44:37.6364616Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-28T12:44:37.6764870Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-28T12:44:37.6811255Z http.https://github.com/.extraheader
+2026-09-28T12:44:37.6837140Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-09-28T12:44:37.6915215Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-28T12:44:37.7384976Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-28T12:44:37.7454706Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-28T12:44:37.7994712Z Cleaning up orphan processes
+2026-09-28T12:44:37.8330192Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

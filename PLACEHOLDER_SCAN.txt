@@ -1,0 +1,1 @@
+PASS: no sorry, admit, axiom, native_decide, unsafe, or partial def in Lean sources

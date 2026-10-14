@@ -1,0 +1,228 @@
+INDEPENDENT LEGACY ONE-COPY TAIL AUDIT
+Date: 14 October 2026
+Repository: ProbabilisticSerial-review
+Revision audited: e0b0f4fbf7f6601ded95b490dbd7e58f30d3f234
+
+Scope: ConcreteTheoremOne, ConcreteTheoremOneFinal, PSTheorem1,
+PaperTheoremOne, the actual profile-to-labelled-tree transfer in
+PSChoiceMachine, SequentialRevelation admissibility/counting, the static
+active-rank MGF/reduction, stopped-load transfer, and final tail quantifiers.
+LoadBound/PhaseAdapter/PhaseIntegral additionally received an independent
+focused review by the new-mathematics auditor; its completed findings are
+appended below. No Lean edits or full build were performed by this auditor;
+the parent agent owns the fresh whole-project kernel verification.
+
+RESULT
+No concrete mathematical or semantic defect found in the reviewed legacy
+one-copy chain. Conditional helper statements are not being mistaken for the
+unconditional public theorem. No additional process assumption remains in
+ConcreteTheoremOneFinal.concrete_theorem_one or the PaperTheoremOne wrappers.
+
+1. STATIC RANK EVENT REALLY USES ONE COMMON PROFILE SPACE
+
+UniformPermutationProfile.preferenceProfileSample is the full finite product
+of n uniform strict preference permutations. activeRank is the ONE-INDEXED
+rank of the first currently available good, not its index among survivors.
+activeRank_tail_probability identifies its law with
+choose(n-r, |S|)/choose(n, |S|). UniformSubsetRank proves the exponential tail
+using the without-replacement subset count, including the zero-numerator
+case. There is no replacement of the preference model by independent ranks
+for different active sets.
+
+RankMGF.mgf_scaled_rank_le_one_add_exp telescopes exp(cR) with the indicator
+r<R, r=0,...,n-1. Thus the one-indexing and terminal rank n are retained.
+The MGF at half the scaled rank is bounded by 1+e. UniformProductChernoff
+factorizes over AGENTS in the genuine product sample, then unions over
+at most 2^n active sets on that same sample. This gives
+UniformPermutation.uniform_active_rank_exponential_profile.
+
+PSProcess.uniformRankGood_failure_probability_le uses its exact failure
+complement. ConcreteTheoremOne.rankConstant =
+2*(log 2+1+log(1+e)) leaves rate exactly one, giving exp(-n).
+PSProcess.run_rankReduction combines the static event with the dynamic-rank
+identity for the actual allocation, yielding
+averageRank <= rankConstant * eatingIntegral.
+The algebra retains the n/|S| factor and divides aggregate rank by n once.
+All active phases have a nonempty active set and positive duration.
+
+2. ADMISSIBILITY AND TREE LAW ARE DISCHARGED ON ACTUAL PS PATHS
+
+PSChoiceMachine.queryAvailable is the active set at a fresh query; it is the
+singleton containing the previous choice at a persistent query; after
+termination it is a deterministic singleton fallback. Hence machineWeight is
+a normalized law at EVERY history. This total extension does not add random
+repeated choices on actual paths.
+
+profile_machine_correspondence identifies the labelled machine's supply and
+answer with the concrete event-driven PS run. profile_fresh_query_admissible
+proves that each new active set is nested below every earlier query to the same
+agent and excludes the old answers. It uses nested active sets and persistence
+of an unexhausted favourite, including the same-agent round-index comparison.
+profileRevealHistory_admissible establishes the complete trace condition.
+
+SequentialRevelation.sequential_revelation_joint_count proves exact profile
+counts for every admissible finite reveal extension. The swap bijection keeps
+all previous answers fixed and interchanges any two currently available goods;
+it does not assume the endogenous active set independent of preferences.
+
+PSChoiceMachine.pathFiber_card_mul_revealProduct_le uses actual history fibers
+as subsets of compatible reveal profiles, and
+profile_pathWeight_mul_revealProduct identifies the tree path weight with the
+inverse product of reveal-set sizes. Thus
+pathFiber_probability_le_pathWeight is a proved domination statement. It does
+not postulate equality of filtrations, and this one-sided inequality is
+sufficient for the probability upper bound. Unreachable labelled paths have
+nonnegative weight and cause no difficulty when summing all label sequences.
+
+3. STOPPED COUNTS, PROPORTIONAL COMPENSATORS, AND PHASE FAILURES
+
+setRecording records only fresh entries while all goods of B are still active.
+On a genuine nested trace it cannot resume after B loses a good.
+successes_at_completed_round proves the recorded count equals phaseLoad B
+for every B contained in the active set at that phase. Old consumers persist
+in B and genuine incoming consumers supply precisely the increment.
+compensator_card_proportional proves predictable volumes of any two surviving
+sets proportional to their cardinalities; no conditional independent-choice
+claim is used in this deterministic identity.
+
+In treeFailure_of_phase_bad, the completed round is at depth (round+1)*n.
+run_phase_profileSupply_index proves round<n, so this depth is <=n*n, including
+the last possible phase. If the active-set volume is <=eta*n, its success
+count is n, giving the potential-failure event. Otherwise, a subset B of the
+underloaded goods with the exact candidate size is chosen. Proportionality
+provides volume_B>=eta*|B|*lambda, and underload gives the required strict
+success-count inequality. This realizes the fixed-set underload event. The
+random active/B choices are covered by the tree's unions over fixed sets.
+The lambda used for irrelevant small inverse-cardinality states is enlarged
+to max(phaseLambdaZero,n/s), ensuring all abstract threshold assumptions; at
+phases relevant to the bad event it equals n/s exactly.
+
+AdaptiveCategorical.hitProbability includes both the present node and every
+future prefix through the specified finite depth. Its exponential-process
+maximal inequality is proved by finite tree induction, with positive threshold
+and normalized nonnegative law. StoppedChoices instantiates it for arbitrary
+predictable recording rules. Upper and lower deviation signs and the
+lowerRate=1/2-(log 2)/4 coefficient agree with their process exponents.
+
+The bad event need not persist. PSChoiceMachine.profile_hit_probability_le_
+hitProbability handles this correctly by introducing pastEvent, which checks
+all suffixes of the newest-first history, proving persistence, and proving its
+hitting probability from [] equals the original event's hitting probability.
+The drop identity recovers every actual earlier prefix including depth zero
+and the terminal depth. This avoids losing a violation that subsequently
+ceases to hold.
+
+PSChoiceMachine.concrete_load_transfer explicitly composes actual load failure
+=> tree hit, the genuine profile/tree domination, and load_bound_tree_failure.
+Its conclusion is exp(-(I(etaZero)-log 2)*n)+n^(-3), with a proved positive
+exponential rate. ConcreteTheoremOneFinal supplies this theorem to every
+previously conditional concrete tail/expectation/ratio helper.
+
+4. CONDITIONAL STRUCTURES ARE NOT HIDDEN CLAIMS
+
+PSTheorem1.TheoremOneInputs is a general measure-theoretic assembly interface
+whose fields explicitly include rank reduction, phase bound, failure bounds,
+log-star asymptotics and RP asymptotics. The theorem in THAT module remains
+conditional, as its documentation says. The unconditional concrete theorem
+uses finite profile expectations and does not pretend an unconstructed
+TheoremOneInputs record has been discharged. In particular, its two separate
+exponential errors remain in ConcreteTheoremOne.failureError instead of being
+silently dropped to fit the abstract interface's simpler error expression.
+
+ConcreteTheoremOne.rank_le_on_concrete_good combines the proved rank and phase
+bounds. probability_or_le requires no independence between these good events.
+The finite expectation split pays n*failureError(n), using rank<=n on the bad
+event; failureError_cost_tendsto_zero proves this complete cost vanishes before
+obtaining the Big-O expectation conclusion.
+
+5. FINAL QUANTIFIERS AND MANUSCRIPT SCOPE
+
+PaperTheoremOne.paper_tail_bound holds for positive n with log n>=1 and retains
+all three terms exp(-n)+exp(-loadRate*n)+n^(-3). StandardLogStar compares the
+legacy phase counter to the actual least natural-log iteration count; the
+factor two is an explicit relaxation, not a redefinition of log-star.
+
+failureError_le_paper_tail_eventually chooses paperRate=min(1,loadRate)/2,
+then uses log 2<=paperRate*n to absorb BOTH exponentials. Its polynomial
+constant is >=1. paper_tail_displayed_form is explicitly EVENTUAL and does not
+claim its fixed displayed constants work for all positive market sizes.
+
+The added paper_tail_all_positive genuinely removes that restriction:
+first take one eventual threshold N, choose C=max(paperConstant,N), then
+quantify over n. Thus C and c are absolute, chosen before n. For n<N, rank<=n
+makes the tail event empty because C*(1+logStar n)>=n. For n>=N, the enlarged
+rank threshold and polynomial constant preserve the eventual inequality.
+This proves the same tail form for every positive ONE-COPY market size.
+
+The RP denominator in expectedPS_div_actual_RP_tendsto_zero is the expectation
+of the actual one-copy RP process, connected by rpExpectedRank_eq_knuth_formula;
+it is not an unrelated quantity merely named RP. Full replica RP/PS comparisons
+remain a different, unproved claim, as the status documentation says.
+
+The revised paper's Theorem 1 is quota-uniform. This legacy proof gives its
+q=1 high-probability special case only. Moreover, it uses the older static
+active-rank/stopped-choice proof, rather than formalizing the revised paper's
+common raw-draw sampling argument verbatim. These are scope distinctions,
+not a counterexample to the proved one-copy theorem. Current
+THEOREM1_STATUS.md already correctly marks the quota-uniform extension open.
+
+
+6. INDEPENDENT LOAD/PHASE CROSS-CHECK
+
+Independent legacy phase/load audit, 2026-10-14
+Repository comparison point: e0b0f4f
+Files: LoadBound.lean, PhaseIntegral.lean, PhaseAdapter.lean
+Read-only audit; no build or source modification.
+
+Concrete defects found: none.
+
+Scope assurance:
+1. The load union is over fixed candidate subsets and finite-tree hitting
+   events, so its probability already controls all histories/times up to the
+   depth. There is no missing additional union over arrival time in these
+   modules. The actual PS law transfer is reviewed separately by theorem_two.
+2. The fixed-B lower-tail estimate pays beta*|B|*lambda. The entropy bound
+   choose(n,b)<=(e*n/b)^b and b>=n*exp(-alpha*lambda) consume at most half the
+   exponent when 1+alpha*lambda <= (beta/2)*lambda. The remaining half is at
+   least 4*log(n) because beta=8*alpha and b*lambda>=log(n)/alpha. Thus each
+   cardinality costs n^-4 and summing over n positive cardinalities costs n^-3.
+   The separate potential union pays 2^n and leaves exp(-(I(eta)-log2)*n).
+   eta=1/16 guarantees that this exponential has a positive rate.
+3. The b*lambda lower bound handles both ceiling regimes correctly. For
+   base=n*exp(-alpha*lambda)<1, b>=1 and alpha*lambda>log n. For base>=1,
+   1<=alpha*lambda<=log n and monotonicity of y*exp(-y) on [1,infinity)
+   supplies the bound. The assumptions log(n)>=1 and lambda>=1/alpha remain
+   explicit; no small-n claim is silently introduced here.
+4. Ceiling rounding is controlled correctly: ceil(base)<base+1; for base>=1,
+   ceil(base)<=2*base. This gives the factor four in the active-ratio recurrence.
+   For base<=1, the next active cardinality is at most two. Equality base=1 is
+   valid in both statements. The threshold 2*ceil(base)<active for active>=3
+   follows from 2*lambda*exp(-alpha*lambda)<=1/4; at active=3 the strict margin
+   is still positive. No integer boundary is lost.
+5. The initial block is bounded by lambdaZero times total duration one.
+   Every raw middle block is a sublist of the actual run and chooses the last
+   phase's active set as its fixed survivor set. Nested active sets keep that
+   survivor available in every phase of its block. The candidate size decreases
+   along the block, so the last active set is large enough for each phase's load
+   estimate. Consumption from this fixed survivor set is at most its cardinality,
+   yielding the 8/eta bound after cancellation. Simultaneous exhaustion events
+   and blocks containing only one phase satisfy the same construction.
+6. Greedy decomposition covers the phase list exactly, without duplication or
+   omitted terminal phases. The terminal suffix is contained in a carrier of
+   at most two goods. Supply conservation proves its duration <=2/n, so its
+   eating integral is <=2. The small-active-cardinality argument is not merely
+   assumed as a time estimate.
+7. Consecutive nonterminal raw blocks satisfy lambdaNext>=exp(alpha*lambda)/4.
+   The absolute starting-scale condition converts this to uNext>=exp(u) for
+   u=alpha*lambda/2. Every block that has a following middle block starts below
+   log(n)/2; otherwise its next active set would already be terminal. The count
+   applies to blocks.length-1 and then adds one for the final block. This is
+   the correct off-by-one allowance, including zero- and one-block cases.
+8. The exponential-height definition is total and its chain-count proof does
+   not assume a nonexistent infinite phase sequence. The final local bound is
+   in terms of PhaseAdapter.psLogStar, a fixed shifted exponential-height
+   normalization. The separate StandardLogStar bridge and final public wrapper
+   need to identify this with the paper's log-star normalization; that bridge
+   is outside these three modules' responsibility.
+
+No defect requiring a repair was found in the load/phase assembly itself.

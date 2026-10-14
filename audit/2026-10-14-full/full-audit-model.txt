@@ -1,0 +1,87 @@
+MODEL AND PROBABILITY AUDIT
+Reviewed baseline: e0b0f4f, ProbabilisticSerial-review
+Date: 2026-10-14
+Reviewer: bounded_quota worker
+Paper: /workspace/scratch/d598d02bfdfa/Paper_JPE_revised(1).tex
+Paper fingerprint: 9a82ff8b4a8ae7d5931775c010ef81e6878357af1cc7e6e3524eb30ecb0cfdd2
+
+BOTTOM-LINE FINDING
+No incorrect mechanism definition, sampling law, rank normalization, time weighting, feasibility statement, or positivity assumption was found in the assigned files. The original replica expectation is defined from a concrete PS eating allocation, not from a desired bound. Uniformity is over type rankings, and the replica conditional-law proof does not replace the dependent lifted-copy distribution by uniform copy permutations. Existing RP expected values agree with the paper's scalar expectation. A useful RP interface hardening is described below; it does not repair a false existing theorem.
+
+METHOD AND SCOPE
+Read definitions and their semantic bridge proofs in PSProcess, ReplicaPS, ReplicaChoiceMachine, ReplicaHistory, ReplicaLaw, ReplicaRevelation, RandomPriority, ReplicaRP; followed dependencies into UniformPermutationProfile, UniformProductChernoff, ReplicaTrace, ReplicaRank, PSChoiceMachine, PSFiniteClock, ReplicaCapacity, ReplicaRankAllocation. Compared with the paper's Model and Main Result section (TeX lines 116-164), its quota convention, and its expected-rank statistics. No source edits or full build were performed in this audit; root owns final compilation/axiom gates. This audit checks correspondence and assumptions rather than duplicating kernel checking.
+
+1. PREFERENCES AND UNIFORM PRODUCT WEIGHTS — PASS
+Sources:
+- UniformPermutationProfile.lean: PreferenceOrder, permutationSample, preferenceSample, preferenceProfileSample.
+- UniformProductChernoff.lean: probability (lines 26-30), productSample (113-115), exp_sum_expect_eq_pow.
+- ReplicaPS.lean: Profile/profileSample/profileSample_nonempty (27-33), expectedPS (154-155).
+- ReplicaRevelation.lean: profileSample_eq_univ (115-119).
+A permutation maps rank position to the type at that position, so rankOf sigma g = sigma.symm(g).val + 1 is the paper's one-based rank. ReplicaPS.Profile m q has one permutation of m types for each of m*q agents. productSample is Fintype.piFinset of the full permutation sample, and Finset.expect divides by its cardinality. Thus every profile has weight 1/(m!)^(m*q), equivalent to independent uniform strict type preferences. This is a mathematical reading of the concrete finite product definition; the code also proves the expectation factorization used in concentration. There are no sampled priorities or copy permutations hidden inside expectedPS.
+
+2. DETERMINISTIC PS PROCESS — PASS
+Sources:
+- PSProcess.lean: initialState/activeGoods/consumers/demand (75-105), nextDelay (143-148), stepState (178-181), runFrom/run (334-355).
+- PSProcess.lean: stepState_valid, exists_exhausted_at_step, activeGoods_step_card_lt, run_totalDuration (429), run_consumedByGood (442), run_phases_length_le (471).
+- PSProcess.lean: allocationFrom (478), run_allocation_agent_sum (500), run_allocation_good_sum (549), averageRank/dynamicRank (557-569), averageRank_eq_dynamicRank (627).
+Within a phase every agent selects the favorite strictly positive-supply good. Demand is the number of such agents, so the consumption speed is one per agent. The next phase duration is the minimum positive supply/demand ratio over demanded goods; zero-demand goods are excluded from that minimum. The update subtracts duration*demand. Supply stays nonnegative, at least one active good is exhausted, and recursion terminates by the active-set cardinality. Multiple simultaneous exhaustions are naturally removed together. Total duration is one for positive n, every unit copy is fully consumed, and allocation is duration accumulated on chosen goods. Nonnegativity and row/column sums are proved, not assumed. Dynamic-rank identities use this actual allocation.
+
+3. INTEGER CAPACITY q VIA ORDERED COPIES — PASS
+Sources:
+- ReplicaPS.lean: copyOf/typeOf/liftPreference (35-49), rankOf_copy (60), favorite_type (80-113), allocation (118-119), allocation_nonneg (121), allocation_agent_sum (134-139), allocation_type_sum (141-146), agentRank/averageRank (148-152).
+- ReplicaChoiceMachine.lean: copy_rank_le_iff (88), representative/favorite_eq_representative (103-134).
+- ReplicaTrace.lean: type_choice, choice_changes_iff_type_exhausted, run_activeTypes_pairwise.
+- ReplicaCapacity.lean: partialConsumption/residual (65-73), residual_nonneg, residual_le_quota, sum_residual (83), partialConsumption_eq (118).
+There are exactly q unit copies per type and exactly m*q agents. Each agent lists all copies of each type consecutively in the same internal copy order. favorite_type proves that choosing the favorite surviving copy projects to choosing the favorite type with any surviving supply. The representative lemma proves which internal copy is selected is deterministic given the type and available copies, rather than an extra random observation. Internal copy exhaustion can split a type-eating interval into more phases, but preserves unit-speed eating of the same type until that type's final copy is exhausted. choice_changes_iff_type_exhausted makes that distinction explicit. Grouping copy allocations gives nonnegative type shares, every agent receives one unit, and each type receives total demand exactly q. Type residual equals q minus type consumption, lies between zero and q, and total residual at time t is m*q*(1-t). This is the capacity-q PS behavior in the paper. The code does not support noninteger capacities by this representation, and documentation correctly excludes that extension.
+
+The code does not define a second native type-capacity differential equation and then prove equality to it. Instead, the grouped-copy construction itself defines the mechanism, with favorite, speed, conservation, and exhaustion bridges proving the identifying properties. That representation choice is not a discrepancy with the paper.
+
+4. CORRECT RANK AND TIME NORMALIZATION — PASS
+Sources:
+- ReplicaPS.lean: agentRank/averageRank/expectedPS (148-155), expectedPS_bounds (193), expectedPS_one_type (206).
+- ReplicaRank.lean: rank_choice_type, agentRank_eq_phase_sum, averageRank_eq_phase_sum.
+- PSFiniteClock.lean: roundTime (60), roundDuration (66), roundTime_succ (110), roundTime_terminal (86), sum_roundDuration (164), profileSupply_terminal (52).
+- ReplicaRankAllocation.lean: averageRank_eq_round_sum (16), roundRank_initial (47), weightedRankJump (60), averageRank_eq_weighted_jumps (64-82), weightedRankJump_initial (84), rank_jump_zero_of_not_stochastic (96).
+agentRank multiplies original TYPE ranks by the grouped allocation shares. The inner uniform expectation over Fin(m*q) divides by the number of agents, and the outer expectation averages profiles. It matches paper equation eq:average-rank exactly. Copy ranks are never substituted for type ranks in this statistic. Finite phase sums and time-weighted rank increments are proved equal to this allocation statistic. The initial choice contributes rank one once per agent. Later increments have remaining-time weight max(1-roundTime,0). Terminal padding has roundTime=1, hence zero weight; default posttermination choices do not add phantom consumption or rank. When only an internal copy changes, the type rank increment is zero.
+
+5. ADAPTIVE HISTORY AND EXACT CONDITIONAL LAW — PASS
+Sources:
+- PSChoiceMachine.lean: supplyAtRound/querySupply/queryActive (99-119), queryAvailable (141), profileAnswer/profileHistory (173-181), profile_machine_correspondence (317).
+- ReplicaChoiceMachine.lean: queryTypes/FreshQuery/stochasticRecording (29-44), answer_type (62), answer_eq_representative (136), revealHistory (187), compatible_of_history_eq (275), history_eq_of_compatible (352), pathFiber_eq_compatibleProfiles (392).
+- ReplicaHistory.lean: fresh_query_admissible (15), expected_rank_jump_at_slot_le (134).
+- ReplicaRevelation.lean: Compatible/compatibleProfiles/AdmissibleQuery (42-62), swapProfileAt_compatible, answerFiber_card_eq, sequential_revelation_probability (276), sequential_revelation_joint_count (366).
+- ReplicaLaw.lean: machineWeight (23-26), machineWeight_valid (39), profile_supermartingale_expectation_le (53), fresh_answer_probability (95), entry/arrivalWeight (132-136), entry_successProbability (142).
+The query policy reads only earlier answers. A round contains one choice slot per agent; its supply state is determined by completed rounds, so its start time and active set do not inspect future answers. profile_machine_correspondence relates the replay state to the genuine PS recursion. Replica reveals record only fresh type choices: the initial query or a query after the old TYPE disappears. Earlier choices that remain available and internal copy changes are reconstructed deterministically.
+Crucially, the two history/compatibility implications prove that the full copy-answer history fiber is exactly the set of profiles compatible with the recorded fresh type reveals. There is no unproved loss of conditioning information. The uniform conditional type answer is then derived by swaps inside the admissible type set. Admissibility, including exclusion of every earlier revealed favorite of that agent, is proved on the actual generated history. machineWeight is literally the finite profile-fiber conditional expectation. Unreachable histories receive a total deterministic extension, but actual histories have nonempty fibers and the transfer proof uses those actual fibers. The martingale transfer therefore concerns the actual uniform-profile law. No independent-repeated-choice assumption is made; only the justified conditional probabilities are used.
+
+6. RANDOM PRIORITY — CORRECT EXPECTATION, USEFUL INTERFACE DISTINCTION
+Sources:
+- RandomPriority.lean: serialRankSum (151), serialRankSum_expectation (173), reindexProfile (232), randomPrioritySample/randomPriorityRank/rpExpectedRank (245-256), serialRankSum_reindex_expectation (258), rpExpectedRank_eq_knuth_formula (271).
+- ReplicaRP.lean: serialTypeRankSum (21-29), serialTypeRankSum_bounds (31-49), reindexProfile (51-56), sample (58-60), averageRank (67-70), expectedRP (72), expectedRP_bounds (87), expectedRP_one_type (98).
+Both mechanisms process one agent at a time, choose the favorite remaining good/copy, erase exactly that chosen unit, and advance to the next agent. reindexProfile uses a permutation without duplicating or dropping agents. Starting from all m*q copies, the remaining-cardinality invariant S.card=k excludes the early-empty branch until all agents are served. In the replica case favorite_type gives the correct original type choice, and serialTypeRankSum records original type rank rather than copy rank. The random sample is the Cartesian product of all priorities and all independent uniform type profiles: priority is uniform and independent of preferences, exactly as in the model section. The harmonic formula for the historical one-copy mechanism is derived from this serial process, not assumed as its definition. No Gamma representation is built into ReplicaRP.
+
+Important distinction: the paper's Rank(RP;profile) already averages priorities, whereas ReplicaRP.averageRank is a realized statistic on a joint (priority,profile) draw. ReplicaRP.expectedRP averages both coordinates, so it is the same scalar expectation as the paper by finite-product Fubini. Current public claims about ReplicaRP use expectedRP and its bounds, so this is not a false theorem or a current statistical mismatch. However, a future tail theorem for the joint-draw averageRank would be a different statement from a tail theorem for paper Rank(RP).
+
+Recommended small hardening, if root chooses to implement it: define profileAverageRank profile as the uniform priority average of averageRank(priority,profile), and prove expectedRP_eq_expect_profileAverageRank using Finset.expect_product and Finset.expect_comm. Expose an exact contract for that equality. This makes the paper's random variable explicit and prevents future confusion; preserve averageRank for realized serial outcomes. No current expected-value statement needs changing.
+
+7. ZERO AND POSITIVITY CONVENTIONS — PASS
+Sources:
+- PSProcess.run_totalDuration/run_allocation_agent_sum explicitly require 0<n.
+- ReplicaPS.expectedPS_bounds and ReplicaRP.expectedRP_bounds explicitly require 0<m and 0<q.
+- ReplicaCapacity.type_count_pos/quota_pos derive both from Nonempty(Fin(m*q)).
+- ReplicaRevelation.sequential_revelation_probability explicitly requires a nonempty available set and compatible fiber.
+- ReplicaLaw.pathFiber_nonempty supplies that condition for actual histories.
+Finite sums, empty averages, and real division are total in Lean; zero cases therefore exist definitionally. They are not used to establish positive-market results. The lower bound one is asserted only with positive-market assumptions. The one-type case correctly yields expected rank exactly one for positive quota. No empty conditional fiber is treated as a nonempty uniform law in any actual-path theorem reviewed.
+
+REMAINING COVERAGE, NOT MODEL DEFECTS
+The model and interface audit does not prove the still-open quota-uniform tail, replica RP Gamma-clock representation and asymptotics, general Theorem 2 threshold equivalences, or real-capacity/unequal-capacity/popularity extensions. Existing status documentation correctly limits the claims. There is no explicit cross-model q=1 transport theorem equating ReplicaRP.expectedRP with RandomPriority.rpExpectedRank; historical one-copy statements are kept separate. The two definitions describe the same one-copy process, but such a theorem would be a future convenience rather than a requirement for the present replica expectation bounds.
+
+POST-AUDIT HARDENING IMPLEMENTED (root-authorized)
+The recommended RP interface addition is now implemented in ReplicaRP.lean:
+- profileAverageRank profile averages only priority at a fixed preference profile.
+- expectedRP_eq_expect_profileAverageRank proves unconditionally, for every m,q, that the existing joint expectation is the preference expectation of that profile statistic.
+- Existing averageRank and expectedRP definitions and callers are preserved. A short docstring now distinguishes the realized joint-draw statistic.
+- AxiomAudit.lean includes the new equality; TheoremContracts.lean imports ReplicaRP and checks its literal unconditional statement.
+Validation: ReplicaRP.lean compilation passed; TheoremContracts.lean compilation passed with no diagnostics; AxiomAudit.lean exited 0 and scripts/check_axioms.py accepted all 319 exact targets. The new equality uses only propext, Classical.choice, Quot.sound.
+Logs: lean-runtime/logs/rp-profile-contracts.log and lean-runtime/logs/rp-profile-axioms.log.
+No commit or push performed by this worker.

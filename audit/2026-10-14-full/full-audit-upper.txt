@@ -1,0 +1,177 @@
+INDEPENDENT UPPER-BOUND SOURCE AUDIT
+Date: 14 October 2026
+Repository: ProbabilisticSerial-review
+Revision: e0b0f4fbf7f6601ded95b490dbd7e58f30d3f234
+Manuscript: Paper_JPE_revised(1).tex
+
+RESULT
+No concrete false statement, undischarged process hypothesis, off-by-one error,
+or numerical-certificate defect was found in the audited upper-bound chain.
+No source edit is justified by this audit. The public finite +3.4 and below-five
+theorems genuinely concern expected original type rank in the actual integer-
+quota replica model. This is a source/semantic audit plus an independent exact-
+rational certificate check; the parent agent owns the fresh all-project kernel
+build and axiom audit. I did not duplicate that full build.
+
+1. CONDITIONAL LAW AND WEIGHTED EXPONENTIAL PROCESS
+
+ReplicaChoiceMachine.pathFiber_eq_compatibleProfiles identifies the complete
+copy-history fiber with compatibility with the fresh TYPE observations. The
+reverse direction, history_eq_of_compatible, reconstructs fresh answers from
+observations, persistent answers from previousType, copy labels from the
+representative function, and the empty-state answer from defaultGood. Thus the
+law transfer does not silently discard preference information revealed by copy
+changes.
+
+ReplicaHistory.fresh_query_admissible proves, on the generated trace, the
+nested-available-set/excluded-previous-answer condition required by the swap
+argument. ReplicaRevelation.answerFiber_card_mul_available then supplies exact
+uniformity over currently available types. ReplicaLaw.fresh_answer_probability
+uses the nonempty actual fiber; its denominators are proved positive.
+
+ReplicaLaw.machineWeight is the exact empirical conditional law on reachable
+histories and a harmless deterministic extension elsewhere.
+ReplicaLaw.machineWeight_valid proves positivity and normalization.
+ReplicaLaw.profile_supermartingale_expectation_le proves the expectation
+transfer by actual profile fibers, rather than assuming independent repeated
+choices or invoking the one-copy uniform-copy law.
+
+WeightedArrival.weightedArrivalProcess_supermartingale is a finite-horizon
+Bernoulli conditional-expectation calculation. Predictability is encoded by
+weights/functions of the preceding history. Its stronger allowance of arbitrary
+real theta/weights does not break the proof: the exact one-step expression is
+bounded by exp(x) >= 1+x. ReplicaLaw.
+profile_weightedArrivalProcess_expectation_le_one instantiates this on the
+actual profile law. No optional-stopping or infinite-limit premise is hidden.
+
+2. EXPOSURE, CAPACITY, SURVIVORS, AND NORMALIZATION
+
+ReplicaChoiceMachine.weightedCompensator_eq_exposure and
+weightedSuccesses_eq_consumption are proved for a type surviving whenever its
+horizon weight is positive. Nonfresh within-type copy transitions have zero
+entry contribution. The n*n slots (n=m*q) include the complete finite copy run;
+extra padded/repeated slots have zero fresh contribution. The initial n choices
+are included. At t=1 the terminal ramp vanishes by roundTime_terminal=1.
+
+ReplicaCapacity.residual_nonneg, residual_le_quota, sum_residual,
+residual_pos_implies_active and exists_last_survivor supply the needed capacity
+and survivor facts from the concrete run. In
+expected_profileExposureCost_le, S consists of types with strictly positive
+residual. The proof shows its residual sum is m*q*(1-t), so it is nonempty for
+0<t<1. This includes all and only the positive residual mass, with no unsupported
+conditioning on a random survivor set.
+
+FiniteSurvivor.survivor_log_envelope uses the pathwise Jensen inequality over S
+and the average of positive exponentials over ALL m types. Its expected version
+uses positivity and E[(sum M)/m] <= 1, then log y <= y-1. It never assumes S
+independent of arrivals. The endpoint lemma requires only one last surviving
+type; expected_profileExposureCost_endpoint_le supplies it by
+exists_last_survivor. This gives the genuine endpoint bound
+E profileExposureCost(theta,1) <= q*theta+log m.
+
+rawExposure weights are profile probability times the predictable 1/a weight;
+actualExposure divides every weight by q. Their value/cost identities are exact
+finite sums. Thus actualExposure_cost_le has the correctly normalized interior
+bound phi(theta,1-t), using phi_quota_reduction for q>=1, and
+actualExposure_cost_endpoint_quota_le retains theta+log(m)/q. The weaker endpoint
+wrapper theta+log m follows legitimately from q>=1 and m>=1.
+
+FiniteExposure.objective_le_phi/phi_attained correctly maximize
+-log(a)+lambda*(1-u/a) over u<=a<=1. The three branches meet at lambda=1 and
+lambda=1/u. phi_div_antitone and phi_quota_reduction use only their explicitly
+proved positivity/domain premises. No maximization over inadmissible a is used.
+
+3. EXPECTED RANK BRIDGE
+
+ReplicaExpectedRank.expected_rank_jump_fiber_le_refined uses the actual history
+fiber, the conditional rank-jump theorem, and the fact that a genuine switch
+has fewer than m types remaining. It proves the post-initial factor m-1.
+expected_weightedRankJump_le_affine treats the initial rank-one observation
+separately, adding 1/m once per agent, only at round zero.
+expectedPS_le_of_affine_jumps sums that correction to B after division by n;
+it does not add it once per round or multiply it by quota.
+
+The resulting expectedPS_le_actualExposure_affine is exactly
+E Rank <= 1+(1-1/m)*(value(actualExposure,1)-1).
+The weaker expectedPS_le_actualExposure used in PaperReplicaInterface is also
+an unconditional consequence. No rank/exposure assumption remains in the
+public theorems.
+
+4. FINITE ANALYTIC CLOSURE AND PHASE COUNT
+
+FiniteAtomicExposure.Data has nonnegative finite weights and nonnegative atom
+times. Its value is a sum of ramps and cost a sum of exponential arrival costs.
+truncated_cost and increment_cost prove the increment estimate atom by atom;
+no unproved exchange of expectation and integration is needed.
+
+FinitePhaseGrowth uses precisely the paper's z_j=(5/6)2^(-j),
+c_j=exp(z_j)-1-z_j, x_0=e and
+x_(j+1)=(c_(j+1)/c_j)*e*z_j*x_j*exp(x_j).
+It proves x_j>=e*2^j, x_(j+1)>=exp(x_j), and the tower comparison.
+The stoppingIndex is the first j with x_j>=log m. stopping_phase_count proves
+stoppingIndex(m)+1 <= logStar(m)-1 for m>=3. The left side includes the terminal
+interval, so there is no missing +1. The subtraction on the right is justified
+by logStar_ge_two. All queried phase horizons are strictly between zero and one.
+
+FiniteAtomicExposure.logarithmic_bound supplies both interior phase and terminal
+estimates to FinitePhaseSum.phase_assembly. The identities
+phi_at_next_phase and unit_phase_cost yield exp(z_j) for each contribution.
+The initial envelope is <2.108 and the finite excess sum is <2.291. The assembly
+therefore yields a margin of 3.399, loosened to 17/5=3.4 in the public conclusion.
+The alternate finite geometric-series proof of the excess bound is valid even
+though the manuscript writes an infinite-series expression.
+
+FinitePhaseConstants proves its exponential and logarithmic enclosures with
+rational Taylor bounds, not floating-point evaluation. Positivity of denominators
+and the initial-time interval .82796<s0<.82797 are explicit. Small markets are
+covered separately by PaperReplicaInterface.small_market_expected_rank; no
+large-market phase lemma is applied at m=1 or m=2.
+
+5. BELOW-FIVE CERTIFICATE: DOES IT REALLY COVER m <= 10^80?
+
+Yes. FiniteFiveCertificate has 21 tests: 20 interior horizons
+1-2^(-1),...,1-2^(-20), then the endpoint t=1 with theta=1600.
+There are 22 check nodes, including 0 and 1. All masses are nonnegative.
+
+FiniteArrivalCertificate.kernel_concave_gap proves the needed concavity only
+on intervals containing no test horizon in their interior. grid_domination
+checks that gap condition for every horizon and every adjacent grid interval;
+it does NOT incorrectly assume concavity across the positive-part kink.
+The cases r=0, r=1, and r>1 are covered. value_le_certificate then applies the
+pointwise domination to every nonnegative atom time and interchanges only
+finite sums.
+
+FiniteFiveCertificate.kernel_lower proves all 21*22 lower-kernel bounds using
+exact rational Taylor-polynomial inequalities. endpoint_check verifies all
+22 weighted inequalities. Interior price bounds use a proved logarithmic
+allowance. log_ten_upper gives log 10 <= 2.302586. The endpoint price is exactly
+1600+80*2.302586 = 11151293/6250.
+
+Independent Python Fraction recomputation from the SOURCE TABLES verified:
+- all 462 degree-eight Taylor witnesses for the kernel lower bounds;
+- all 22 endpoint inequalities (last slack exactly zero; all others positive);
+- sum mass_i*price_i =
+  124982139465456527 / 25000000000000000
+  = 4.99928557861826108 < 5;
+- endpoint price minus 1600+80*(2302586/1000000) is exactly zero.
+This is an independent arithmetic check, not a replacement for Lean's proof.
+
+PaperReplicaInterface.expectedPS_lt_five_of_arrival_bounds explicitly converts
+0<m<=10^80 into log m<=80 log 10, then applies the certificate.
+PaperReplicaInterface.expectedPS_lt_five supplies actualExposure, the proven
+rank bridge, both arrival bounds, and positive integer m,q. Thus the claimed
+finite market range and all positive integer quotas are genuinely covered.
+
+6. MANUSCRIPT COVERAGE BOUNDARIES (ALREADY DISCLOSED, NOT NEW DEFECTS)
+
+The audited public bound is +3.4; the paper's auxiliary +3.399 refinement is not
+exposed as a separate Lean theorem. Quotas in these public mechanism theorems
+are positive integers; the manuscript's optional real-capacity extension is not
+formalized. The certificate is a separate 21-test proof giving 4.99928558..., not
+a verification of the manuscript's older sharper 1920-step numerical recursion.
+README.md and THEOREM1_STATUS.md already distinguish these facts.
+
+This upper chain does not establish the sharper quota coefficient, the
+quota-uniform tail bound, actual RP asymptotics, or Theorem 2's two equivalences.
+The status file correctly marks those as remaining work. None is silently used
+as an assumption to establish the unconditional finite upper theorems.

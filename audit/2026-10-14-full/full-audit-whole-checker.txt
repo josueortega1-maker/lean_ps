@@ -1,0 +1,145 @@
+Independent whole-declaration checker audit and fixture tests
+=============================================================
+
+Reviewed:
+  ProbabilisticSerial-review/AllDeclarationsAudit.lean
+  ProbabilisticSerial-review/scripts/verify_sources.py
+  ProbabilisticSerial-review/scripts/verify.py
+  Lean 4.19.0 Lean/Util/CollectAxioms.lean and ConstantInfo.isUnsafe
+
+Verdict: the current checker closes the selected-public-theorem coverage gap.
+It checks all safe declarations originating in each explicitly imported proof
+module, including unused definitions, private declarations, opaque definitions,
+and generated safe declarations. It leaves transitive dependencies unfiltered.
+No further coverage defect was found in the current combined verification
+pipeline for this repository's current module layout.
+
+All fixture files, oleans, and logs were created under the isolated directory
+/workspace/scratch/d598d02bfdfa/checker-fixture-audit.
+No repository file was edited, and no build was run inside the review tree.
+
+Design review
+-------------
+1. Coverage is by module origin, not public names or textual name prefixes.
+   env.constants.fold includes non-public constants; getModuleIdxFor? selects
+   declarations actually supplied by the imported module. Private declarations
+   are not omitted because their expanded names differ from public names.
+
+2. scripts/verify_sources.py checks that every tracked Lean proof source is an
+   explicit library root and that AllDeclarationsAudit.lean explicitly imports
+   every root. It also checks the roots' build/default-target configuration.
+   The checker alone selects its direct imports; source coverage is therefore
+   a necessary companion gate. The combined verify.py pipeline runs that gate,
+   builds, runs the whole-declaration checker, and rechecks source coverage.
+
+3. CollectAxioms traverses declaration types and values, including opaque
+   values, and constructor/recursor/inductive dependencies. The shared visited
+   set is a performance improvement without a coverage loss: the environment
+   is fixed during the traversal, and every target is visited or was already
+   traversed as a dependency. An unused custom axiom is itself a target and
+   cannot hide merely because no public theorem uses it.
+
+4. The traversal uses env.checked, as Lean's own CollectAxioms implementation
+   specifies. Thus dependency collection follows checked kernel declarations
+   rather than an elaborator's potentially incomplete transient declaration.
+   These targets come from completed imported modules.
+
+5. Only propext, Classical.choice, and Quot.sound are allowed. There is no
+   wildcard for generated names, private names, or external dependencies.
+   sorryAx and an arbitrary custom axiom are rejected.
+
+Unsafe root filtering
+---------------------
+The first unfiltered version included unsafe compiler implementations among
+audit roots. Isolated interpolated-string examples caused it to encounter
+lcProof, which Lean's compiler uses while erasing proofs in unsafe generated
+code. The full repository check independently encountered a generated
+specialization represented as an unsafe axiom.
+
+Restricting ROOTS to !ConstantInfo.isUnsafe is principled. Theorems always
+have isUnsafe=false; safe definitions and their generated safe declarations
+remain selected. Lean's safety classification, rather than a brittle generated
+name convention, determines the exclusion. The separate lexical gate rejects
+user-written unsafe and partial declaration syntax.
+
+Crucially, the current checker does NOT filter CollectAxioms dependencies.
+Any unexpected axiom encountered transitively from a selected safe declaration
+still fails. The whitelist was not enlarged to include compiler internals.
+Tests below verify that the root filter does not conceal interpolated sorry.
+
+The initial automatically imported Init module produced a harmless zero-count
+line; the current implementation explicitly removes it from the module list,
+so reported module counts correspond to the selected project modules.
+
+Tests with pinned Lean 4.19.0
+----------------------------
+The test project imports only Lean and its standard CollectAxioms utility;
+it uses no review-tree oleans or mathlib dependency. Fixture modules are first
+compiled separately to .olean, so the checker tests imported declaration
+origins in the same manner as the repository checker.
+
+The FINAL run copied the CURRENT AllDeclarationsAudit.lean run_cmd body
+byte-for-byte, changing only the imports to select one fixture module.
+Copied body SHA-256:
+  d360188dbe390d38f5931ef70e88527374721691d8ef12db3882265cb4b0482e
+Full AllDeclarationsAudit.lean snapshot SHA-256:
+  ecc9107f112cafd731678f7b9b7d80a6138b9080e5b1f82452bf95f87d4106ba
+
+All six fixture modules compiled successfully. The three sorry fixtures
+produce the usual Lean warning during compilation; this is exactly why a
+separate axiom audit is required.
+
+Fixture                Current audit exit  Observed outcome
+---------------------  ------------------  -----------------------------------
+ValidFixture           0                   PASS; three safe declarations
+ValidStringFixture     0                   PASS; one safe declaration
+SorryFixture           1                   Unexpected dependency: sorryAx
+PrivateSorryFixture    1                   Unexpected dependency: sorryAx
+OpaqueSorryFixture     1                   Unexpected dependency: sorryAx
+AxiomFixture           1                   Unexpected: Fixture.unexplained
+
+ValidFixture contains a private helper, a public definition, and a theorem;
+the count of three confirms all three are audited. ValidStringFixture uses
+the same interpolated-string construction as the bad cases, with a valid
+Nat term, so the checker does not reject that construction indiscriminately.
+
+The decisive unused bad declaration in SorryFixture is:
+  def unchecked : String := s!"{(show Nat from sorry)}"
+PrivateSorryFixture and OpaqueSorryFixture respectively replace def by
+private def and opaque. The unchecked declaration is not used by any exported
+theorem. The actual verify_sources.strip_comments_and_strings/FORBIDDEN pair
+returns NO forbidden tokens for all three source files: the string scanner
+blanks the interpolation, while Lean elaborates the embedded proof hole.
+Nevertheless the whole-declaration checker rejects all three on sorryAx.
+
+AxiomFixture contains an unused axiom Fixture.unexplained : Nat. Its rejection
+confirms that an axiom need not occur in a selected public theorem to fail.
+The lexical scanner also detects this ordinary explicit axiom, as expected.
+
+Concrete evidence
+-----------------
+All paths below are under:
+  /workspace/scratch/d598d02bfdfa/checker-fixture-audit/
+
+current-checker-body.txt             Exact final tested run_cmd body
+current-results.json                 Final body/source hashes and exit codes
+run_current_fixtures.py              Final exact-body test driver
+results.json                        Original scanner results and compile codes
+run_fixtures.py                      Initial unfiltered test driver
+safe-results.json                   Intermediate root-only-filter experiment
+
+ValidFixture-current-audit.log
+ValidStringFixture-current-audit.log
+SorryFixture-current-audit.log
+PrivateSorryFixture-current-audit.log
+OpaqueSorryFixture-current-audit.log
+AxiomFixture-current-audit.log
+
+The corresponding *-compile.log files preserve compiler output. The original
+*-audit.log files record the unfiltered baseline, including lcProof noise;
+the *-safe-audit.log files record the intermediate root-only-filter experiment.
+
+Runtime command used the official pinned Lean executable under lean-runtime/
+lean-4.19.0-linux/bin and the existing external own-process-path.so adapter.
+LEAN_PATH pointed only to the isolated fixture directory. No changes were
+made to the official Lean binary or the review project's build artifacts.
